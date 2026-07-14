@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#006e2f",
+                    "surface-tint": "#595e6d",
+                    "inverse-primary": "#c2c6d7",
+                    "secondary-fixed-dim": "#4ae176",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-fixed": "#161b28",
+                    "on-surface": "#191c1e",
+                    "primary-container": "#161b28",
+                    "on-primary-fixed-variant": "#424654",
+                    "outline": "#76777c",
+                    "surface-container": "#eceef0",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-high": "#e6e8ea",
+                    "background": "#f7f9fb",
+                    "primary-fixed": "#dee2f3",
+                    "primary": "#000000",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary-fixed-variant": "#005321",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d8dadc",
+                    "secondary-fixed": "#6bff8f",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#45464c",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "outline-variant": "#c6c6cc",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "secondary-container": "#6bff8f",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#002109",
+                    "on-tertiary-container": "#75859d",
+                    "primary-fixed-dim": "#c2c6d7",
+                    "tertiary-container": "#0b1c30",
+                    "surface": "#f7f9fb",
+                    "on-secondary-container": "#007432",
+                    "tertiary": "#000000",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed": "#d3e4fe",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-primary-container": "#7f8393"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "80px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .modal-overlay {
+            backdrop-filter: blur(4px);
+            background-color: rgba(15, 20, 32, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-primary fixed top-0 w-full z-50 h-16">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full text-on-primary">
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-on-primary">URBAN ARCHIVE</h1>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/70 font-medium hover:text-on-primary transition-opacity" href="#">Collections</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/70 font-medium hover:text-on-primary transition-opacity" href="#">New Arrivals</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/70 font-medium hover:text-on-primary transition-opacity" href="#">Archive</a>
+</nav>
+<div class="flex gap-4 items-center">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Breadcrumb / Back Navigation -->
+<nav class="mb-8 flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+<a class="font-label-sm text-label-sm uppercase hover:text-primary transition-colors" href="#">Volver a mis pedidos</a>
+</nav>
+<!-- Order Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 border-l-4 border-primary pl-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-2">Pedido #00123</h2>
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 font-label-sm text-label-sm uppercase rounded-sm">PREPARACIÓN</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase">Realizado el 24 de Octubre, 2024</span>
+</div>
+</div>
+<div class="text-right hidden md:block">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Total del pedido</p>
+<p class="font-headline-md text-headline-md">$219.00</p>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Items and Details -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Items List Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-[0_4px_20px_rgba(15,20,32,0.05)]">
+<h3 class="font-label-sm text-label-sm uppercase mb-6 text-on-surface-variant border-b border-outline-variant pb-4">Artículos del pedido</h3>
+<div class="space-y-8">
+<!-- Item 1 -->
+<div class="flex gap-6 items-start">
+<div class="w-24 h-32 bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A minimalist studio photography of a premium black architectural hoodie with structured seams and a refined urban aesthetic. The garment is presented against a clean light-gray background with soft shadows, highlighting its high-quality fabric texture and modern tailoring in a minimalist light-mode style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWZTladmMi-tL-OfLcPeQOkgUeDwPIUwb6EsGFW7PwtRzlBsCSD79UE3dJEHw6vTuEHqKEGdxdHICjzw7TapO0EZZyQSZiKhsN4IVjO8HT6qmfieYtIfk8WVo-pfjDO_WMWAuKhyD7Co5gDNElse0IhVCMObiSSmTiO7PGIN8__qDEqro4DuEuTUS5IZsJreV7Lt94ldPfNjzGO_LCeTfuRSBzmDkop9IuZWQZetsYtiotMJ3fHZo"/>
+</div>
+<div class="flex-grow flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+<div>
+<h4 class="font-body-lg text-body-lg font-semibold text-primary">Hoodie Metro Architecture</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">TALLE: M | COLOR: NOIR</p>
+<p class="font-body-md text-body-md mt-2">1 unidad</p>
+</div>
+<div class="font-label-sm text-label-sm font-bold text-primary">$124.00</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-6 items-start">
+<div class="w-24 h-32 bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A high-end product shot of professional cargo pants featuring a technical grid pattern and multiple structured pockets. The design is sleek and modern, emphasizing an urban streetwear aesthetic. The image is bright and crisp, shot in a high-contrast minimalist studio environment with neutral tones and soft directional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpLVdAMTbztSIufvNNwXfNnBq4ZV1-5dIjk75Yy2GANS9KCR4D4CGIVZd2_t0i70hg2NEXYM0yiX97A6-SnpbZmlJbC-Y7fcx2vb8pVZV-phHM9o1qLMBHDTdcPjrEDhWMH8pL90ohzayd2wwWzg0zQ78z0DGTfN0bROvH6Pr03_fQsuoR2ei63gKgHftSLriwWU5vAReP0sRThjoQiKkExsrTyFx8kn0WZ8mfYIKuX5Wtk0BK1Dg"/>
+</div>
+<div class="flex-grow flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+<div>
+<h4 class="font-body-lg text-body-lg font-semibold text-primary">Cargo Grid System</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">TALLE: 32 | COLOR: GRAPHITE</p>
+<p class="font-body-md text-body-md mt-2">1 unidad</p>
+</div>
+<div class="font-label-sm text-label-sm font-bold text-primary">$95.00</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Shipping & Payment Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Delivery Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-[0_4px_20px_rgba(15,20,32,0.05)]">
+<span class="material-symbols-outlined text-primary mb-4">location_on</span>
+<h3 class="font-label-sm text-label-sm uppercase mb-3 text-on-surface-variant">Dirección de entrega</h3>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">
+                            Av. del Libertador 4400, 12B<br/>
+                            C1425 CABA, Argentina
+                        </p>
+</div>
+<!-- Payment Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-[0_4px_20px_rgba(15,20,32,0.05)]">
+<span class="material-symbols-outlined text-primary mb-4">payments</span>
+<h3 class="font-label-sm text-label-sm uppercase mb-3 text-on-surface-variant">Método de pago</h3>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Mercado Pago</p>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 uppercase">Transacción: #MP-992011</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Summary & Actions -->
+<div class="lg:col-span-4 space-y-gutter">
+<div class="bg-primary text-on-primary p-8 sticky top-24">
+<h3 class="font-label-sm text-label-sm uppercase mb-8 border-b border-on-primary/20 pb-4">Resumen de cuenta</h3>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between font-body-md">
+<span class="opacity-70">Subtotal</span>
+<span>$219.00</span>
+</div>
+<div class="flex justify-between font-body-md">
+<span class="opacity-70">Envío</span>
+<span class="text-secondary-fixed-dim uppercase font-bold">Gratis</span>
+</div>
+<div class="pt-4 border-t border-on-primary/20 flex justify-between items-end">
+<span class="font-label-sm uppercase">Total</span>
+<span class="font-headline-md">$219.00</span>
+</div>
+</div>
+<button class="w-full py-4 border border-on-primary/30 font-label-sm text-label-sm uppercase tracking-widest hover:bg-on-primary hover:text-primary transition-all active:scale-95 duration-150" onclick="document.getElementById('cancelModal').classList.remove('hidden')">
+                        Solicitar cancelación
+                    </button>
+<p class="text-center font-label-sm text-[10px] opacity-40 mt-6 leading-tight uppercase">
+                        La cancelación está sujeta a revisión si el pedido ya fue despachado.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-primary text-on-primary border-t border-on-primary/10 w-full py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<h2 class="font-headline-md text-headline-md text-on-primary">URBAN ARCHIVE</h2>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm uppercase text-on-primary/50 hover:text-on-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase text-on-primary/50 hover:text-on-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase text-on-primary/50 hover:text-on-primary transition-colors" href="#">Shipping &amp; Returns</a>
+<a class="font-label-sm text-label-sm uppercase text-on-primary/50 hover:text-on-primary transition-colors" href="#">Contact</a>
+</div>
+<p class="font-label-sm text-label-sm uppercase text-on-primary/50">© 2024 URBAN ARCHIVE. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<!-- Overlay/Modal: Confirm Cancellation -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 modal-overlay overflow-y-auto" id="cancelModal">
+<div class="bg-surface-container-lowest w-full max-w-md p-8 md:p-10 border border-outline shadow-2xl animate-in fade-in zoom-in duration-200">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Confirmar solicitud de cancelación</h3>
+<button class="text-on-surface-variant hover:text-primary" onclick="document.getElementById('cancelModal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                ¿Estás seguro de que deseas cancelar este pedido? Una vez confirmada, esta acción será revisada por nuestro equipo de logística.
+            </p>
+<div class="space-y-6">
+<div>
+<label class="font-label-sm text-label-sm uppercase block mb-2 text-primary">Motivo de la cancelación (opcional)</label>
+<textarea class="w-full bg-white border border-outline-variant focus:border-primary focus:ring-0 font-body-md p-4 min-h-[120px] outline-none transition-colors" placeholder="Contanos brevemente por qué deseás cancelar..."></textarea>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-4 font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all">
+                        Confirmar solicitud
+                    </button>
+<button class="w-full py-4 text-on-surface-variant hover:text-primary font-label-sm text-label-sm uppercase transition-colors" onclick="document.getElementById('cancelModal').classList.add('hidden')">
+                        Cancelar
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // Simple logic to close modal on background click
+        window.onclick = function(event) {
+            const modal = document.getElementById('cancelModal');
+            if (event.target == modal) {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('cancelModal').classList.add('hidden');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail - Town Estilo Urbano</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d3e4fe",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#6bff8f",
+                        "tertiary-container": "#0b1c30",
+                        "primary-fixed-dim": "#c2c6d7",
+                        "on-error": "#ffffff",
+                        "on-background": "#191c1e",
+                        "secondary-fixed-dim": "#4ae176",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#000000",
+                        "outline-variant": "#c6c6cc",
+                        "surface-bright": "#f7f9fb",
+                        "primary-container": "#161b28",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005321",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-primary": "#c2c6d7",
+                        "inverse-surface": "#2d3133",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed": "#dee2f3",
+                        "on-surface-variant": "#45464c",
+                        "inverse-on-surface": "#eff1f3",
+                        "background": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-container": "#7f8393",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "secondary-container": "#6bff8f",
+                        "on-secondary-fixed": "#002109",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#75859d",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#161b28",
+                        "outline": "#76777c",
+                        "on-primary-fixed-variant": "#424654",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#007432",
+                        "secondary": "#006e2f",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "surface-tint": "#595e6d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8FAFC;
+        }
+        /* Hide scrollbar for gallery thumbnails */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased pt-16 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-primary dark:bg-primary-container">
+<!-- Brand -->
+<a class="text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container" href="#">
+            TOWN ESTILO URBANO
+        </a>
+<!-- Navigation Links -->
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="#">Catalog</a>
+<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="#">New Arrivals</a>
+<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="#">Collections</a>
+</div>
+<!-- Trailing Icons -->
+<div class="flex gap-gutter items-center text-on-primary dark:text-on-primary-container">
+<button class="hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 opacity-80">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 opacity-80">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col lg:flex-row gap-gutter xl:gap-[80px]">
+<!-- Left: Image Gallery (Bento/Asymmetric style) -->
+<div class="w-full lg:w-3/5 flex flex-col-reverse md:flex-row gap-gutter h-auto lg:h-[800px]">
+<!-- Thumbnails (Vertical on desktop, horizontal on mobile) -->
+<div class="flex md:flex-col gap-base overflow-x-auto md:overflow-y-auto w-full md:w-[120px] shrink-0 no-scrollbar">
+<button class="w-[80px] md:w-full aspect-[3/4] rounded bg-surface border border-outline-variant hover:border-primary transition-colors overflow-hidden focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<img class="w-full h-full object-cover" data-alt="A detailed, high-contrast flat lay photograph of a minimalist black oversized hoodie on a pristine white background. The lighting is studio quality, highlighting the heavy cotton fabric texture and precise stitching. The aesthetic is modern, urban, and sophisticated, reflecting a high-end streetwear brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC69WDGGSbvtLrQSB0yb1OareG_OsGv2W13sk5mxZa3-yfJDu_vWO8DEpJoKJaXkJRNaVfoHC5JyaX3Qgig4bAOazCW3v35AZG4_HsFCxIpOn1GPsIFIYC8OQAvtvhO1bLwdwQq0utLvhTrey1Vmgit9bRazk86zQEP7o9gjxC_UZZpZoYr7hxSnjpW0nbOFmi62OsNrkeiICfDsYIHP--M_0WxW22Lhw5ffUR7XOZKjg_XyCvBM64"/>
+</button>
+<button class="w-[80px] md:w-full aspect-[3/4] rounded bg-surface border border-surface-variant hover:border-primary transition-colors overflow-hidden focus:outline-none opacity-60 hover:opacity-100">
+<img class="w-full h-full object-cover" data-alt="A close-up studio shot of the back of a black oversized streetwear hoodie. The image focuses on the architectural drape of the heavy fabric and the subtle, clean lines of the hood construction. Shot against a bright, minimalist white background with sharp, directional lighting to emphasize the garment's quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHXRSB8jg_KQq2zgmnNfaCJcFYOHTB_5uISYfafBcd183iSLjCW1-F6QM2f9ymneitaXU5HuiUiT11BvWGVvpl-ZmmgbBwMt-QxkvAcBSaq9LGfM6coRnJVULb1IO6XIt6Ln02GEeA0RiWpTXnVt8dUHBGJo-fBsPQJGyg4UvPembWuTyDRs-3auq-YYF_x3bLRmimyOGEvDlEAxu3q23ffjXHryeDl-Ns_GYOwhY1NKkno0UxdsE"/>
+</button>
+<button class="w-[80px] md:w-full aspect-[3/4] rounded bg-surface border border-surface-variant hover:border-primary transition-colors overflow-hidden focus:outline-none opacity-60 hover:opacity-100">
+<img class="w-full h-full object-cover" data-alt="A detailed macro photograph showing the cuff and hem detailing of a premium black oversized hoodie. The high-resolution image captures the ribbed texture of the cuffs and the dense weave of the cotton fabric. The background is a soft, light grey (#F8FAFC) to create a seamless, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc0vFh_8XKQ-jPp9I0Xhk-n89p727512x6mqpRsyK6ljwkt4agvoHGzZwemC5DnOLCD3w7M7G2oL5WxFKXy0YTXyQC0AyCFb_gQFFwD4p9HjkX46E6WGvv72S3SCoUTsGce_OG5peUT2K6dwxi_0SbKuztTNFTFeL67rQWtLBBVwTnUlKj_R57ak9B3tHMxTa6Svl94cKcUFJQyP20yczs4KkI2eftFalXs5cezyMViCB8nJ3KLuo"/>
+</button>
+<button class="w-[80px] md:w-full aspect-[3/4] rounded bg-surface border border-surface-variant hover:border-primary transition-colors overflow-hidden focus:outline-none opacity-60 hover:opacity-100">
+<img class="w-full h-full object-cover" data-alt="A lifestyle shot of a model wearing a black oversized hoodie, framed from the torso up, standing in a stark, minimalist concrete space. The lighting is cool and diffused, creating a modern, architectural feel. The focus remains on the structural silhouette of the hoodie against the pale, neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPRj0-NUWPGc_PvGlCbZeXr0Cy1sqNxomCOu0_DVxaZQnoHW6izNS8nET9hMgHtG7MEzl4l15w4Zoc0UFKQjELN-38dvIZJI9MPxgwEz74IzVR7OExIL3mk98BQ1_4vcH6FlD-2mhEIvWlmEIAUkUh4kCMu-_UGiUnvvc8w_JJ3p8CT2grJiDfl_PAjmGmQNI2UIile8WSiUGLjpqM8ghfnSj9UuYBRqMqvPqAvlikuA0gvtte2tE"/>
+</button>
+</div>
+<!-- Main Image -->
+<div class="w-full flex-grow rounded bg-surface border border-surface-variant overflow-hidden relative shadow-[0_4px_20px_rgba(15,20,32,0.05)]">
+<img class="w-full h-full object-cover" data-alt="A large, striking full-body studio portrait of a model wearing a heavy, oversized black hoodie. The styling is minimalist and contemporary, with the model posed confidently against a stark white, gallery-like background. High-contrast lighting creates deep shadows and crisp highlights, emphasizing the premium quality and urban aesthetic of the apparel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv-C3X9WY1m_xagJLfsoQLUyrd0BQmesGlmx_ResnBfTmZaxlpk6MfUXduniHJO5TFXetNyCeQqKB762gvakt6o8IC4zGMjSJWf9mF-sOWHjp68qm_pnmzdTMhRLwXykulzKPdN0h2YKkq4OzdLMeeitzm0PIOFi1Pfi2yqeLdy_eO1Tyy4Dt3PVzf8z0ZH_d-iJfhYHrLTuDUx3mrazf7cWVBNnHfyoUp2TnyyzOlILHsr0aBFKQ"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center justify-center px-3 py-1 bg-surface-container-lowest text-primary text-label-sm font-label-sm border border-outline-variant shadow-sm rounded">NEW ARRIVAL</span>
+</div>
+</div>
+</div>
+<!-- Right: Product Details -->
+<div class="w-full lg:w-2/5 flex flex-col pt-4 lg:pt-0">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm font-label-sm mb-6">
+<a class="hover:text-primary transition-colors" href="#">Catalog</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Hoodies</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary">Urban Oversize</span>
+</div>
+<!-- Title & Price -->
+<h1 class="text-display-lg font-display-lg text-primary mb-2">Hoodie Urban Oversize</h1>
+<p class="text-headline-lg font-headline-lg text-primary mb-8">$120.00 <span class="text-body-md font-body-md text-on-surface-variant align-middle ml-2 line-through">$150.00</span></p>
+<!-- Description -->
+<div class="mb-8 border-b border-surface-variant pb-8">
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-4">
+                    Architectural silhouette meets raw street culture. Crafted from ultra-heavyweight 450gsm French Terry cotton for structure and durability. The dropped shoulder and cropped hem create a boxy, contemporary fit ideal for layering.
+                </p>
+<ul class="text-body-md font-body-md text-on-surface flex flex-col gap-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">check</span> 100% Premium French Terry Cotton</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">check</span> Oversized, boxy cut</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">check</span> Reinforced twin-needle stitching</li>
+</ul>
+</div>
+<!-- Selectors -->
+<div class="flex flex-col gap-8 mb-10">
+<!-- Color -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-label-sm font-label-sm text-primary uppercase">Color</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Midnight Black</span>
+</div>
+<div class="flex gap-4">
+<button aria-label="Midnight Black" class="w-10 h-10 rounded-full bg-[#0F1420] border-2 border-primary ring-2 ring-offset-2 ring-transparent focus:ring-primary transition-all shadow-sm"></button>
+<button aria-label="Concrete Grey" class="w-10 h-10 rounded-full bg-[#E2E8F0] border border-outline-variant hover:border-primary transition-all shadow-sm"></button>
+<button aria-label="Chalk White" class="w-10 h-10 rounded-full bg-[#f8fafc] border border-outline-variant hover:border-primary transition-all shadow-sm"></button>
+</div>
+</div>
+<!-- Size -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-label-sm font-label-sm text-primary uppercase">Size</span>
+<a class="text-label-sm font-label-sm text-on-surface-variant underline hover:text-primary transition-colors" href="#">Size Guide</a>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="w-14 h-12 rounded-sm border border-outline-variant bg-surface flex items-center justify-center text-label-sm font-label-sm text-primary hover:border-primary transition-colors">S</button>
+<button class="w-14 h-12 rounded-sm border border-primary bg-primary flex items-center justify-center text-label-sm font-label-sm text-on-primary transition-colors shadow-md">M</button>
+<button class="w-14 h-12 rounded-sm border border-outline-variant bg-surface flex items-center justify-center text-label-sm font-label-sm text-primary hover:border-primary transition-colors">L</button>
+<button class="w-14 h-12 rounded-sm border border-outline-variant bg-surface flex items-center justify-center text-label-sm font-label-sm text-primary hover:border-primary transition-colors">XL</button>
+<button class="w-14 h-12 rounded-sm border border-outline-variant bg-surface-variant flex items-center justify-center text-label-sm font-label-sm text-outline cursor-not-allowed opacity-50" disabled="">2XL</button>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-4 mt-auto">
+<button class="w-full h-14 bg-primary text-on-primary text-label-sm font-label-sm uppercase flex items-center justify-center gap-2 hover:bg-tertiary-container transition-colors active:scale-[0.98]">
+                    Agregar al carrito
+                    <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+</button>
+<div class="flex items-center justify-center gap-2 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                    Listo para agregar al carrito
+                </div>
+</div>
+<!-- Shipping Info -->
+<div class="mt-8 p-4 bg-surface-container-low rounded border border-surface-variant flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<div>
+<p class="text-label-sm font-label-sm text-primary mb-1">Free Express Shipping</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm">Orders over $200 qualify for free express delivery worldwide.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap px-margin-desktop flex flex-col items-center gap-base bg-primary dark:bg-primary-container mt-auto">
+<div class="text-headline-md font-headline-md font-black text-on-primary mb-4">
+            TOWN ESTILO URBANO
+        </div>
+<div class="flex flex-wrap justify-center gap-6 mb-8">
+<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Terms of Service</a>
+<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Sustainability</a>
+<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Contact</a>
+</div>
+<p class="text-on-primary dark:text-on-primary-container opacity-60 text-label-sm font-label-sm">
+            © 2024 TOWN ESTILO URBANO. ARCHITECTURAL QUALITY.
+        </p>
+</footer>
+</body></html>

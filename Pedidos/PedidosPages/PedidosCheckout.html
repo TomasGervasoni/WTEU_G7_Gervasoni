@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finalizar compra - TOWN ESTILO URBANO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#7f8393",
+                    "outline": "#76777c",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#c2c6d7",
+                    "on-surface-variant": "#45464c",
+                    "surface-container": "#eceef0",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-fixed-dim": "#4ae176",
+                    "surface-container-low": "#f2f4f6",
+                    "primary-fixed-dim": "#c2c6d7",
+                    "on-secondary-fixed-variant": "#005321",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-tertiary-container": "#75859d",
+                    "primary-fixed": "#dee2f3",
+                    "primary": "#000000",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed": "#002109",
+                    "secondary-container": "#6bff8f",
+                    "on-background": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#6bff8f",
+                    "secondary": "#006e2f",
+                    "on-secondary-container": "#007432",
+                    "surface-container-high": "#e6e8ea",
+                    "tertiary-container": "#0b1c30",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "tertiary": "#000000",
+                    "surface": "#f7f9fb",
+                    "primary-container": "#161b28",
+                    "outline-variant": "#c6c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#595e6d",
+                    "surface-dim": "#d8dadc",
+                    "background": "#f7f9fb",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#424654",
+                    "on-primary-fixed": "#161b28",
+                    "inverse-surface": "#2d3133"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "80px",
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md pt-20">
+<!-- TopNavBar -->
+<header class="bg-primary-container dark:bg-primary-container docked full-width top-0 shadow-sm fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg tracking-tighter text-on-primary dark:text-on-primary uppercase">
+            TOWN ESTILO URBANO
+        </div>
+<nav class="hidden md:flex gap-gutter font-label-sm text-label-sm">
+<a class="text-on-primary-container dark:text-on-primary-container hover:text-on-primary hover:opacity-80 transition-opacity duration-200" href="#">HOMBRES</a>
+<a class="text-on-primary-container dark:text-on-primary-container hover:text-on-primary hover:opacity-80 transition-opacity duration-200" href="#">MUJERES</a>
+<a class="text-on-primary-container dark:text-on-primary-container hover:text-on-primary hover:opacity-80 transition-opacity duration-200" href="#">ACCESORIOS</a>
+<a class="text-on-primary-container dark:text-on-primary-container hover:text-on-primary hover:opacity-80 transition-opacity duration-200" href="#">COLECCIONES</a>
+</nav>
+<div class="flex items-center gap-gutter text-on-primary dark:text-on-primary">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity duration-200" data-icon="shopping_bag">shopping_bag</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity duration-200" data-icon="person">person</span>
+</div>
+</header>
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="mb-gutter text-center md:text-left">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Finalizar Compra</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-base">Completa tus datos para confirmar el pedido.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Columna Izquierda: Resumen del Pedido -->
+<div class="lg:col-span-5 order-2 lg:order-1 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant p-gutter rounded shadow-[0_4px_20px_rgba(15,20,32,0.15)]">
+<h2 class="font-headline-md text-headline-md text-primary mb-gutter border-b border-outline-variant pb-base">Resumen del pedido</h2>
+<div class="flex flex-col gap-gutter mb-gutter">
+<!-- Item 1 -->
+<div class="flex items-center gap-gutter">
+<div class="w-20 h-24 bg-surface-container-low shrink-0 relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A clean, minimalist flat lay photography of a premium heavyweight cotton t-shirt in midnight black. The t-shirt is perfectly folded on a stark white background. Soft, diffused overhead lighting highlights the high-quality texture of the fabric. The overall mood is modern, high-end retail, and sophisticated, aligning perfectly with a modern minimalist fashion e-commerce aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtbt9D2f64vsenXRC2Rq4t8wvX-akmRwBS-D-GWIVy0fyIizFGIe7Hyo9KeB4Ze-qYQ1AZJ79p66MpoZR3veV9Vadot7icT9mewV00guHxHBWXMvThm9zEEqgT38zdEOKl6LBm_sIirRsX_O0045uHkmnfrrVKtjantHSN2XFnnL-F44iVobB-JmsS_-B1cJx3Ax2o1SCgVAs6gPF0poIJqSE7QMsaMBqR0S0y6kuP_mmqBpmFLFw"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-md text-body-md font-bold text-primary">Camiseta Heavyweight Essentia</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-base">Color: Negro / Talle: L</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Cant: 1</p>
+</div>
+<div class="font-body-md text-body-md font-bold text-primary text-right">
+                                $45.000
+                            </div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-gutter">
+<div class="w-20 h-24 bg-surface-container-low shrink-0 relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A detailed macro shot of a structured, high-density cotton hoodie in an off-white bone color. The focus is on the intricate stitching and the premium metal aglets on the drawstrings. The background is a seamless, bright white infinity cove. The lighting is crisp and studio-quality, creating subtle shadows that define the shape of the garment, reflecting a high-end streetwear aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKnaEkSUTtsADPLUudgwZ77ttlpo1n4YQOF2BVJYojQ6KNBpdxWpUAKf_pwY7n-kP7zTz0pwBkESInQL7qEzqSgxAwOkGkwSn7Qoq1R25nLXNCDGyjMnXGk98qOGgXLtPSAV-Dgvtmis4VOHYFSj5oEvwRxRSpYVESWH1xtP_iHuT61a_5zc1oHlDprRsQUFXqiElUNjMzr_Vzc2L-Hs1hakvNLxtSz1P0Z8Zrhe1y3h4_Kt2h1I4"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-md text-body-md font-bold text-primary">Hoodie Estructurado Bone</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-base">Color: Bone / Talle: XL</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Cant: 1</p>
+</div>
+<div class="font-body-md text-body-md font-bold text-primary text-right">
+                                $85.000
+                            </div>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-gutter">
+<div class="flex justify-between items-center mb-base">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-primary">$130.000</span>
+</div>
+<div class="flex justify-between items-center mb-base">
+<span class="font-body-md text-body-md text-on-surface-variant">Envío</span>
+<span class="font-body-md text-body-md text-primary">$4.500</span>
+</div>
+<div class="flex justify-between items-center mt-gutter pt-gutter border-t border-outline-variant">
+<span class="font-headline-md text-headline-md text-primary">Total</span>
+<span class="font-headline-md text-headline-md text-primary">$134.500</span>
+</div>
+</div>
+</div>
+<a class="inline-flex items-center justify-center gap-base font-label-sm text-label-sm text-primary hover:opacity-80 transition-opacity border border-outline-variant rounded p-gutter bg-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    Volver al carrito
+                </a>
+</div>
+<!-- Columna Derecha: Formulario -->
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="bg-surface-container-lowest border border-outline-variant p-gutter lg:p-[40px] rounded shadow-[0_4px_20px_rgba(15,20,32,0.15)]">
+<h2 class="font-headline-md text-headline-md text-primary mb-gutter">Datos del cliente</h2>
+<form class="flex flex-col gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="nombre">Nombre</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full" id="nombre" type="text"/>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="apellido">Apellido</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full" id="apellido" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="cuil">CUIL / DNI</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full" id="cuil" type="text"/>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="email">Correo Electrónico</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full" id="email" type="email"/>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-base" for="whatsapp">
+<span class="material-symbols-outlined text-[16px]" data-icon="chat">chat</span>
+                                WhatsApp
+                            </label>
+<div class="flex">
+<span class="inline-flex items-center px-3 border border-r-0 border-outline-variant bg-surface-container-low text-on-surface-variant font-body-md text-body-md rounded-l">+54</span>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-r p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full" id="whatsapp" type="tel"/>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mt-gutter mb-base border-b border-outline-variant pb-base">Dirección de Envío</h3>
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="direccion">Calle y Número</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full" id="direccion" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="ciudad">Ciudad</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full" id="ciudad" type="text"/>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="cp">Código Postal</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full" id="cp" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="provincia">Provincia</label>
+<select class="bg-surface-container-lowest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 outline-none transition-colors w-full appearance-none" id="provincia">
+<option value="">Seleccionar Provincia...</option>
+<option value="ba">Buenos Aires</option>
+<option value="caba">CABA</option>
+<option value="cba">Córdoba</option>
+<option value="sf">Santa Fe</option>
+</select>
+</div>
+<button class="w-full bg-[#0f1420] text-on-primary font-headline-md text-headline-md py-4 mt-gutter rounded hover:opacity-90 transition-opacity" type="button">
+                            Confirmar y Pagar
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-on-surface-variant w-full py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter mt-auto">
+<div>
+<div class="font-headline-md text-headline-md text-primary dark:text-inverse-primary mb-gutter">
+                TOWN ESTILO URBANO
+            </div>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant">
+                © 2024 TOWN ESTILO URBANO. ARQUITECTURA URBANA.
+            </p>
+</div>
+<div class="flex flex-col gap-base font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">AYUDA</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">ENVIOS</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">DEVOLUCIONES</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">CONTACTO</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">TERMINOS</a>
+</div>
+</footer>
+</body></html>

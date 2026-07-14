@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registro - TOWN ESTILO URBANO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#4ae176",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "secondary-container": "#6bff8f",
+                    "on-background": "#191c1e",
+                    "inverse-primary": "#c2c6d7",
+                    "tertiary-container": "#0b1c30",
+                    "on-secondary-fixed": "#002109",
+                    "outline-variant": "#c6c6cc",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "surface-dim": "#d8dadc",
+                    "surface": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "secondary": "#006e2f",
+                    "primary-fixed": "#dee2f3",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "primary-container": "#161b28",
+                    "outline": "#76777c",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary-fixed-variant": "#005321",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-container": "#75859d",
+                    "primary": "#000000",
+                    "on-surface": "#191c1e",
+                    "on-surface-variant": "#45464c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "surface-tint": "#595e6d",
+                    "surface-variant": "#e0e3e5",
+                    "secondary-fixed": "#6bff8f",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary-fixed-dim": "#c2c6d7",
+                    "on-primary-container": "#7f8393",
+                    "on-primary-fixed-variant": "#424654",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-container": "#007432",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed": "#161b28",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "tertiary": "#000000",
+                    "inverse-surface": "#2d3133"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "80px",
+                    "container-max": "1280px",
+                    "base": "4px",
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto bg-primary-container shadow-sm">
+<div class="flex items-center gap-8">
+<h1 class="font-headline-lg text-headline-lg tracking-tighter text-on-primary uppercase">TOWN ESTILO URBANO</h1>
+<div class="hidden md:flex gap-6">
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary hover:opacity-80 transition-all duration-200" href="#">HOMBRES</a>
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary hover:opacity-80 transition-all duration-200" href="#">MUJERES</a>
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary hover:opacity-80 transition-all duration-200" href="#">ACCESORIOS</a>
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary hover:opacity-80 transition-all duration-200" href="#">COLECCIONES</a>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-primary">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity" data-icon="shopping_bag">shopping_bag</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity" data-icon="person">person</span>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="min-h-screen pt-32 pb-20 flex items-center justify-center bg-surface px-margin-mobile">
+<!-- Registration Card Container -->
+<div class="w-full max-w-md bg-surface-container-lowest border border-outline-variant p-10 shadow-[15%_opacity,20px_blur,4px_Y-offset] rounded-DEFAULT">
+<header class="mb-10 text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tight mb-2">Registro</h2>
+<div class="h-1 w-12 bg-primary mx-auto"></div>
+</header>
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- User Field -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Usuario</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none" placeholder="Tu nombre de usuario" type="text"/>
+</div>
+<!-- Name Field -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Nombre</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none" placeholder="Tu nombre completo" type="text"/>
+</div>
+<!-- Email Field -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Email</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none" placeholder="hola@ejemplo.com" type="email"/>
+</div>
+<!-- Password Field -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Contraseña</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none" placeholder="••••••••" type="password"/>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-primary-container text-on-primary font-label-sm text-label-sm py-4 uppercase tracking-widest active:scale-95 transition-transform duration-200">
+                    Crear cuenta
+                </button>
+<!-- Error Message Container -->
+<div class="mt-4 p-3 bg-error-container/20 border-l-4 border-error flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-sm" data-icon="error">error</span>
+<p class="font-label-sm text-label-sm text-on-error-container">El usuario o email ya existe</p>
+</div>
+</form>
+<!-- Links -->
+<footer class="mt-8 pt-8 border-t border-outline-variant space-y-4 text-center">
+<a class="block font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">¿Ya tenés cuenta? Ingresar</a>
+<a class="block font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+                    Volver a la tienda
+                </a>
+</footer>
+</div>
+</main>
+<!-- Visual Background Element (Atmospheric) -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none overflow-hidden">
+
+</div>
+<!-- Footer -->
+<footer class="w-full py-section-gap px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-surface border-t border-outline-variant">
+<div class="col-span-1 md:col-span-1">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">TOWN</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Elevando el estilo urbano a través de la precisión arquitectónica y el minimalismo contemporáneo.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-sm text-label-sm text-on-surface uppercase font-bold mb-2">Soporte</h4>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">AYUDA</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">ENVIOS</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">DEVOLUCIONES</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-sm text-label-sm text-on-surface uppercase font-bold mb-2">Legal</h4>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">TERMINOS</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">CONTACTO</a>
+</div>
+<div class="flex flex-col justify-end">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">© 2024 TOWN ESTILO URBANO. ARQUITECTURA URBANA.</p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for inputs
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label').classList.replace('text-on-surface-variant', 'text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label').classList.replace('text-primary', 'text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>
