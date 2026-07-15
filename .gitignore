@@ -1,0 +1,26 @@
+# ─── .gitignore — WTEU_G7_Gervasoni ─────────────────────────────────────────
+
+# Variables de entorno reales (NUNCA versionar)
+.env
+
+# Dependencias Node (se instalan dentro del contenedor Docker)
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# VS Code (opcionales — quitar si el equipo los comparte)
+# .vscode/
+
+# Docker — artefactos locales (los volúmenes viven fuera del repo)
+# No hace falta ignorar docker-compose.yml ni Dockerfile, esos sí se versionan.
+
+# Archivos temporales
+*.tmp
+*.bak

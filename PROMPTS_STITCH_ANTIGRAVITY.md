@@ -275,31 +275,72 @@ Pagos → Dashboard**, porque cada módulo depende de que el anterior ya
 tenga su capa de Servicios lista (ej. Pedidos necesita el middleware de
 sesión de Seguridad).
 
-### 2.0 Prompt inicial (una sola vez, al abrir el proyecto)
+### 2.0 Prompt inicial — esqueleto + entorno Docker (una sola vez, al abrir el proyecto)
 
 ```
 Este es el proyecto WTEU_G7_Gervasoni. Ya coloqué AGENTS.md en la raíz
 y la skill nuevo-modulo-wteu en .agents/skills/. Leé ambos archivos
-completos antes de hacer nada. Las 11 pantallas HTML exportadas de
+completos antes de hacer nada, en especial la sección 3 (Entorno de
+desarrollo local con Docker). Las 11 pantallas HTML exportadas de
 Stitch ya están pegadas en sus carpetas correspondientes según la
 tabla de mapeo del documento PROMPTS_STITCH_ANTIGRAVITY.md — no las
 regeneres, tomalas como base visual fija.
 
-Necesito que armes el esqueleto inicial del proyecto:
-- package.json con Express, pg, bcrypt, jsonwebtoken, cookie-parser,
-  cors, dotenv
-- app.js como composition root: cookie-parser, cors configurado para
-  cookies cross-domain (credentials: true), middleware de manejo de
-  errores, y placeholders para montar cada Contenedor.js de los módulos
-  a medida que los vayamos creando
-- config/db.js con el pool de PostgreSQL usando variables de entorno
-- config/config.js con el switcher de URL localhost/Railway para el
-  frontend (window.API_URL)
-- Un .env.example con las variables necesarias (sin valores reales)
+Necesito que armes el esqueleto inicial del proyecto, corriendo TODO
+sobre Docker (nunca instalación nativa de PostgreSQL ni node app.js
+suelto como flujo de trabajo estándar):
+
+1) `docker-compose.yml` en la raíz con 2 servicios:
+   - `db`: imagen postgres:16-alpine, puerto 5432:5432, variables
+     POSTGRES_USER/POSTGRES_PASSWORD/POSTGRES_DB desde .env, volumen
+     nombrado wteu_pgdata para persistencia, y un mount de solo lectura
+     de db/init.sql en /docker-entrypoint-initdb.d/.
+   - `api`: build desde un Dockerfile propio, puerto 3000:3000,
+     depends_on db, con nodemon para hot-reload montando el código como
+     volumen, leyendo variables desde .env.
+
+2) `Dockerfile` para el servicio api: Node LTS, instala dependencias
+   con npm, corre nodemon en modo desarrollo.
+
+3) `db/init.sql`: script de creación de las tablas según el modelo de
+   datos lógico (DER) de la documentación (usuarios, pedidos,
+   pedido_items, productos, y las tablas que hagan falta para
+   Cancelación y Pagos si el DER las contempla), con las cardinalidades
+   y ON DELETE CASCADE donde corresponda tal como está documentado.
+
+4) `config/db.js`: pool de PostgreSQL (biblioteca `pg`) que lea host,
+   puerto, usuario, contraseña y nombre de base desde variables de
+   entorno — en Docker el host va a ser el nombre del servicio (`db`),
+   nunca `localhost` hardcodeado. El mismo archivo debe servir también
+   para producción en Railway solo cambiando las variables de entorno.
+
+5) `config/config.js`: switcher de `window.API_URL` para
+   localhost/Railway en el frontend.
+
+6) `package.json` con Express, pg, bcrypt, jsonwebtoken, cookie-parser,
+   cors, dotenv, y nodemon como devDependency.
+
+7) `app.js` como composition root: cookie-parser, cors configurado para
+   cookies cross-domain (credentials: true), middleware de manejo de
+   errores, y placeholders para montar cada Contenedor.js de los
+   módulos a medida que los vayamos creando.
+
+8) `.env.example` con todas las variables necesarias (nombres, sin
+   valores reales) y confirmá que `.env` y `node_modules` estén en
+   `.gitignore`.
 
 No implementes todavía ningún módulo funcional, solo el esqueleto base.
-Al terminar, mostrame el árbol de carpetas resultante.
+Al terminar, mostrame el árbol de carpetas resultante y decime
+exactamente qué comando tengo que correr en la terminal de VS Code
+para levantar todo (`docker compose up -d` o el que corresponda) y
+cómo verifico que la base de datos ya tiene las tablas creadas.
 ```
+
+A partir de acá, con VS Code abierto en paralelo: levantás `docker
+compose up -d` una vez al empezar a trabajar, y lo dejás corriendo en
+segundo plano mientras Antigravity va implementando cada módulo — no
+hace falta reiniciar el contenedor entre módulos (nodemon recarga solo,
+y las tablas ya están creadas desde el arranque).
 
 ### 2.1 Módulo Seguridad (CU-001 a CU-005)
 
@@ -518,3 +559,14 @@ encuentres antes de corregirla vos mismo.
   momento, no se lo corrijas manualmente vos: decile "revisá AGENTS.md,
   esto no respeta la estructura obligatoria" y dejá que lo arregle él
   mismo.
+- **Flujo con Docker + VS Code:** dejá una terminal de VS Code con
+  `docker compose logs -f api` corriendo mientras Antigravity trabaja
+  — así ves en vivo si un endpoint nuevo tira error apenas se guarda el
+  archivo (con nodemon el contenedor se recarga solo). Si en algún
+  momento la base queda en un estado raro durante pruebas, `docker
+  compose down -v && docker compose up -d` te la reinicia limpia desde
+  `db/init.sql` sin tocar nada del código.
+- Si un módulo necesita una tabla nueva que `db/init.sql` no contempla
+  todavía, pedile a Antigravity que la agregue como script nuevo en
+  `db/migrations/`, nunca editando `init.sql` a mano una vez que ya
+  tenés datos de prueba cargados (así no perdés lo que ya probaste).

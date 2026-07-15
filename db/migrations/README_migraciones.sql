@@ -1,0 +1,17 @@
+-- db/migrations/README.md — Convención para scripts de migración
+--
+-- Cuando necesites agregar una tabla, columna o índice DESPUÉS de que ya
+-- tenés datos en el volumen wteu_pgdata, NO modifiques db/init.sql.
+-- En cambio, creá un nuevo archivo en esta carpeta con el formato:
+--
+--   db/migrations/002_descripcion_corta.sql
+--   db/migrations/003_descripcion_corta.sql
+--   ...
+--
+-- Aplicar la migración manualmente:
+--
+--   docker exec -i wteu_db psql -U <DB_USER> -d <DB_NAME> \
+--     < db/migrations/002_descripcion_corta.sql
+--
+-- Este archivo es solo documentación; el primer script real de migración
+-- se creará cuando sea necesario.

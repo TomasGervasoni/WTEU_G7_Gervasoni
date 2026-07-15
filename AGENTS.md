@@ -22,27 +22,86 @@ distinta a la documentada.
 
 ## 2. Stack tecnológico obligatorio (NO reemplazar por otro sin permiso explícito)
 
-- **Backend:** Node.js + Express
-- **Base de datos:** PostgreSQL, acceso mediante el pool nativo de `pg`
-  (sin ORM, salvo que el usuario lo pida expresamente)
+- **Backend:** Node.js + Express, en JavaScript puro (sin TypeScript).
+- **Base de datos:** PostgreSQL, con SQL crudo mediante el pool nativo
+  de `pg` (`pool.query('SELECT ...')`). Sin ORM ni query builder
+  (nada de Sequelize, Prisma, TypeORM, Knex, etc.) — todas las
+  consultas se escriben a mano en los Services.
 - **Autenticación:** JWT guardado en cookie httpOnly
   (`sameSite: 'none'`, `secure: true`). Prohibido usar localStorage o
   sessionStorage para el token de sesión.
 - **Contraseñas:** hasheadas con bcrypt. Nunca texto plano.
-- **Frontend:** HTML + CSS + JavaScript vanilla (sin React/Vue/Angular
-  salvo instrucción explícita del usuario).
+- **Frontend:** HTML + CSS + JavaScript vanilla (DOM nativo, `fetch`).
+  Sin React, Vue, Angular, Svelte, jQuery, ni ningún framework o
+  librería de UI, y sin bundlers/compiladores (Webpack, Vite, Babel).
 - **Config de entorno:** usar el switcher `config.js` para localhost vs.
-  Railway, y `window.API_URL` en todo el frontend (nunca URLs hardcodeadas,
-  por compatibilidad con GitHub Pages).
+  Railway/Docker, y `window.API_URL` en todo el frontend (nunca URLs
+  hardcodeadas, por compatibilidad con GitHub Pages).
 
-## 3. Estructura de carpetas OBLIGATORIA (no negociable)
+Estas 4 tecnologías (HTML, CSS, JavaScript, SQL) más Node/Express son el
+límite del stack para todo el proyecto: no agregar ninguna otra
+tecnología, lenguaje o librería de frontend/backend sin que el usuario
+lo pida explícitamente, ni siquiera con la excusa de que "simplifica"
+o "es una buena práctica".
+
+## 3. Entorno de desarrollo local con Docker (OBLIGATORIO)
+
+Todo el entorno local se levanta con `docker compose`, controlado desde
+VS Code mientras se desarrolla. No se instala PostgreSQL directamente en
+la máquina del usuario: vive únicamente dentro de un contenedor.
+
+Servicios obligatorios en `docker-compose.yml` (raíz del proyecto):
+
+- **`db`**: `postgres:16-alpine`, puerto `5432:5432`, variables
+  `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` leídas desde
+  `.env`, volumen nombrado (`wteu_pgdata`) para persistir los datos
+  entre reinicios, y un mount de solo lectura de un script de
+  inicialización (`db/init.sql`) en `/docker-entrypoint-initdb.d/` para
+  crear el esquema (tablas `usuarios`, `pedidos`, `pedido_items`,
+  `productos`, etc.) según el DER del documento (sección 3.8).
+- **`api`**: build desde un `Dockerfile` en la raíz, corre `app.js` con
+  Node, expone el puerto `3000:3000`, usa `depends_on: db`, monta el
+  código como volumen para hot-reload (`nodemon` en desarrollo) y lee
+  sus variables desde `.env`.
+
+Reglas:
+1. `config/db.js` debe leer la conexión desde variables de entorno
+   (`DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, o una
+   `DATABASE_URL` completa) — nunca hardcodear `localhost` ni
+   credenciales. En Docker, `DB_HOST` va a ser el nombre del servicio
+   (`db`), no `localhost`.
+2. El mismo `config/db.js` debe servir tanto para Docker local como
+   para Railway en producción, cambiando solo las variables de entorno
+   (no el código).
+3. `.env` (con valores reales) va en `.gitignore`. `.env.example` sí se
+   versiona, con los nombres de variable sin valores sensibles.
+4. Comandos estándar de trabajo diario (documentar en el `README.md`):
+   - `docker compose up -d` → levanta `db` y `api` en segundo plano
+   - `docker compose logs -f api` → ver logs de la app en vivo
+   - `docker compose down` → apagar todo (los datos de Postgres
+     persisten gracias al volumen)
+   - `docker compose down -v` → apagar y borrar también los datos
+     (reinicio limpio de la base)
+5. Cualquier cambio de estructura de tablas (nueva migración) se agrega
+   como un script nuevo versionado en `db/` (ej. `db/migrations/002_...
+   .sql`), nunca editando a mano los datos ya persistidos en el
+   volumen.
+
+## 4. Estructura de carpetas OBLIGATORIA (no negociable)
 
 ```
 WTEU_G7_Gervasoni/
+├── docker-compose.yml         (servicios db + api, ver sección 3)
+├── Dockerfile                 (imagen del servicio api)
+├── .env                       (NO versionado — variables reales)
+├── .env.example                (versionado — nombres de variable sin valores)
+├── db/
+│   ├── init.sql                (esquema inicial, montado en el contenedor db)
+│   └── migrations/             (scripts de cambios posteriores, versionados)
 ├── app.js                     (composición raíz global: monta todos los Contenedor.js)
 ├── config/
 │   ├── config.js              (switcher localhost/Railway)
-│   └── db.js                  (pool de PostgreSQL)
+│   └── db.js                  (pool de PostgreSQL, lee variables de entorno)
 │
 ├── Seguridad/
 │   ├── SeguridadContenedor.js
@@ -94,7 +153,7 @@ WTEU_G7_Gervasoni/
     └── DashboardServices/
 ```
 
-## 4. Responsabilidad de cada capa dentro de un módulo
+## 5. Responsabilidad de cada capa dentro de un módulo
 
 - **`<Modulo>Contenedor.js`**: composition root del módulo. Crea el
   `express.Router()`, importa los Adapters, conecta cada Adapter a su ruta
@@ -116,7 +175,7 @@ WTEU_G7_Gervasoni/
   usadas por más de una Page (ej. tarjeta de producto, modal de
   confirmación, selector de talle/color).
 
-## 5. Reglas estrictas
+## 6. Reglas estrictas
 
 1. Antes de crear un archivo, identificar a qué módulo pertenece el CU
    (ver tabla de mapeo abajo) y ubicarlo ahí. Nunca crear archivos sueltos
@@ -134,12 +193,17 @@ WTEU_G7_Gervasoni/
 6. Al implementar un CU, citar su ID en el mensaje de respuesta
    (ej. "Implementando CU-013 Generar Pedido") y respetar el curso normal
    + los flujos alternativos tal como están descriptos en el documento.
-7. Los estados de Pedido (`pendiente → confirmado → en_preparacion →
+7. Nunca proponer instalar PostgreSQL de forma nativa ni correr `node
+   app.js` fuera de Docker como flujo de trabajo estándar — el flujo
+   soportado es `docker compose up -d` (ver sección 3). Scripts de
+   `package.json` (`npm run dev`, etc.) pueden existir para debugging
+   puntual, pero el contenedor `api` es la fuente de verdad.
+8. Los estados de Pedido (`pendiente → confirmado → en_preparacion →
    enviado → entregado`, y el estado final `cancelado`) deben validarse
    según el diagrama de estados del documento antes de aplicar cualquier
    transición.
 
-## 6. Mapeo de módulos (según la documentación)
+## 7. Mapeo de módulos (según la documentación)
 
 | Carpeta        | Módulo (doc.)                     | CUs             |
 |-----------------|-----------------------------------|-----------------|
@@ -150,7 +214,7 @@ WTEU_G7_Gervasoni/
 | Pagos           | Pagos                             | CU-020 a CU-023 |
 | Dashboard       | Reportería y Dashboard            | CU-024 a CU-028 |
 
-## 7. Pendientes conocidos (no resolver salvo pedido explícito)
+## 8. Pendientes conocidos (no resolver salvo pedido explícito)
 
 - Confirmación automática de pago vía webhook de MercadoPago
   (actualmente el pedido no cambia de estado solo con la notificación).

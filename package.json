@@ -1,0 +1,33 @@
+{
+  "name": "wteu-g7-gervasoni",
+  "version": "1.0.0",
+  "description": "Web Town Estilo Urbano — e-commerce de indumentaria personalizada con estampado DTF. TP Final PP3, IES Analista de Sistemas, Ciclo 2026.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "ecommerce",
+    "dtf",
+    "indumentaria",
+    "tp-final"
+  ],
+  "author": "Gervasoni — IES PP3 2026",
+  "license": "ISC"
+}

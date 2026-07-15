@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  # ─── Base de datos ───────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: wteu_db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      # Persistencia de datos entre reinicios
+      - wteu_pgdata:/var/lib/postgresql/data
+      # Script de inicialización del esquema (solo lectura)
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ─── API Node.js ──────────────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wteu_api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    volumes:
+      # Hot-reload: el código fuente se monta en el contenedor
+      - .:/app
+      # Evitar que node_modules del host pise los del contenedor
+      - /app/node_modules
+    command: npx nodemon app.js
+
+volumes:
+  wteu_pgdata:
+    name: wteu_pgdata
