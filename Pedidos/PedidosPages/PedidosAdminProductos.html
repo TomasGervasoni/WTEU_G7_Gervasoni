@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gestión de Productos | TOWN ESTILO URBANO</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind Configuration -->
-<script id="tailwind-config">
+<!DOCTYPE html><html class="light" lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -98,58 +87,32 @@
           },
         },
       }
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        display: inline-block;
-        line-height: 1;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-      }
-      body {
-        background-color: #f7f9fb;
-      }
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 4px;
-        height: 4px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #e0e3e5;
-        border-radius: 10px;
-      }
-    </style>
-</head>
-<body class="font-body-md text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
-<!-- Top Navigation Bar (Admin Shell) -->
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto bg-primary-container shadow-sm">
-<div class="flex items-center gap-8">
-<span class="font-headline-lg text-headline-lg tracking-tighter text-on-primary uppercase">TOWN</span>
-<div class="hidden md:flex gap-6">
-<a class="font-label-sm text-label-sm text-on-primary border-b-2 border-secondary-fixed-dim pb-1" href="#">Gestión</a>
-<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity duration-200" href="#">Pedidos</a>
-<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity duration-200" href="#">Usuarios</a>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest/10 rounded-lg">
-<span class="material-symbols-outlined text-on-primary" style="font-size: 20px;">person</span>
-<span class="font-label-sm text-label-sm text-on-primary">ADMIN</span>
-</div>
-<button class="flex items-center gap-2 font-label-sm text-label-sm text-on-primary-container hover:text-error transition-colors duration-200">
-<span class="material-symbols-outlined" style="font-size: 18px;">logout</span>
-<span>SALIR</span>
-</button>
-</div>
-</nav>
+    }catch(_e){}</script></head><body class="font-body-md text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed flex">
+
+<!-- Left Sidebar -->
+<aside class="fixed top-0 left-0 w-72 h-screen z-50 flex flex-col border-r border-outline-variant hidden lg:flex bg-surface-container-low">
+    <div class="p-8 flex flex-col">
+        <span class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">ADMIN</span>
+        <span class="font-body-md text-on-surface-variant mt-1">Panel de Control</span>
+    </div>
+    
+    <nav class="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-2"><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">dashboard</span><span class="">Resumen</span></a><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md bg-secondary-fixed text-on-secondary-fixed font-medium transition-colors"><span class="material-symbols-outlined">inventory_2</span><span class="">Productos</span></a><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">shopping_cart</span><span class="">Pedidos</span></a><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">group</span><span class="">Clientes</span></a><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">bar_chart</span><span class="">Reportes</span></a></nav>
+    
+    <div class="p-4 border-t border-outline-variant flex flex-col gap-2">
+        <button class="flex items-center gap-3 px-4 py-3 w-full rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors text-left">
+            <span class="material-symbols-outlined">settings</span>
+            <span class="">Configuración</span>
+        </button>
+        <button class="flex items-center gap-3 px-4 py-3 w-full rounded-xl font-body-md text-on-surface-variant hover:text-error hover:bg-error-container transition-colors text-left">
+            <span class="material-symbols-outlined">logout</span>
+            <span class="">Salir</span>
+        </button>
+    </div>
+</aside>
+
+<div class="flex-1 lg:ml-72 flex flex-col min-h-screen">
 <!-- Main Content Canvas -->
-<main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<main class="pt-16 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
 <!-- Header Actions -->
 <header class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
 <div>
@@ -158,7 +121,7 @@
 </div>
 <div class="relative flex-1 max-w-sm">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" style="font-size: 20px;">search</span>
-<input class="w-full pl-10 pr-4 py-4 bg-surface-container-low border border-outline-variant font-body-md text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="Buscar producto por nombre..." type="text"/>
+<input class="w-full pl-10 pr-4 py-4 bg-surface-container-low border border-outline-variant font-body-md text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="Buscar producto por nombre..." type="text">
 </div><button class="flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm hover:opacity-90 active:scale-95 transition-all duration-200 shadow-lg">
 <span class="material-symbols-outlined">add</span>
                 NUEVO PRODUCTO
@@ -171,7 +134,7 @@
 <!-- Basic Info Segment -->
 <div class="flex flex-col md:flex-row gap-6 lg:w-1/3 shrink-0">
 <div class="w-24 h-24 bg-surface-variant border border-outline-variant shrink-0 relative overflow-hidden group">
-<img class="w-full h-full object-cover" data-alt="A professional, high-resolution product studio photograph of a premium black oversized streetwear hoodie displayed against a minimalist clean white background. The lighting is soft and architectural, emphasizing the heavy cotton texture and structural seams. Part of a high-end urban apparel collection, maintaining a clean-cut corporate-tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8VrwI4HCP2GyK-k3kyMKBydTuWuxZzQeo9pV0-mw__gnZO6Qt1SElxAohqC9Olr_xRC_T33OucK_Tn2VMKzUEgumOspF7uX8RoK_Zh4c8Ib3DBnr00Jdx7C3iXQYuWp1zTpjnpZndL1UfRGi_QZCzz25RZeU1kA_u7IvP8khaVK_SrfU5v1exSmtL_EjMBsf8OHWIHN2a3ibJwVJwiDFdc6Q3r99UwKgJaBtbhny7TqKvN8j-JMs"/>
+<img class="w-full h-full object-cover" data-alt="A professional, high-resolution product studio photograph of a premium black oversized streetwear hoodie displayed against a minimalist clean white background. The lighting is soft and architectural, emphasizing the heavy cotton texture and structural seams. Part of a high-end urban apparel collection, maintaining a clean-cut corporate-tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8VrwI4HCP2GyK-k3kyMKBydTuWuxZzQeo9pV0-mw__gnZO6Qt1SElxAohqC9Olr_xRC_T33OucK_Tn2VMKzUEgumOspF7uX8RoK_Zh4c8Ib3DBnr00Jdx7C3iXQYuWp1zTpjnpZndL1UfRGi_QZCzz25RZeU1kA_u7IvP8khaVK_SrfU5v1exSmtL_EjMBsf8OHWIHN2a3ibJwVJwiDFdc6Q3r99UwKgJaBtbhny7TqKvN8j-JMs">
 </div>
 <div class="flex flex-col justify-between py-1">
 <div>
@@ -196,19 +159,19 @@
 <div class="flex gap-4 overflow-x-auto pb-2 custom-scrollbar">
 <!-- Thumbnail with delete -->
 <div class="relative w-20 h-20 shrink-0 group">
-<img class="w-full h-full object-cover border border-outline-variant" data-alt="Detailed studio shot of a black fabric texture with a minimalist white geometric screen print on the chest. High-end lighting captures the crisp edges of the print and the dense weave of the textile, emphasizing premium urban fashion quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn0jkE7NI18bisUtS6pc9zZIaWmjcxofSR8yN6Cxgof_vTuMQYfxKOYYUNOSPO7F5mvpQRpr5et0OVfyZX2vll5-vpIphx3tFyEHMkMlePg2yD4bQR4saIDJ8Lt7TWE-ht_kI7X7FCBkR-5Y39ZytUum8v_0RDnsJQlweIGJBHbCX3DenrhfjFkbqwLoKV8F0Zv-ROcpVRYK9SDBtdJ5sL80lM6kRKHQO3J_5U8hvlHnPe5rXJEEc"/>
+<img class="w-full h-full object-cover border border-outline-variant" data-alt="Detailed studio shot of a black fabric texture with a minimalist white geometric screen print on the chest. High-end lighting captures the crisp edges of the print and the dense weave of the textile, emphasizing premium urban fashion quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn0jkE7NI18bisUtS6pc9zZIaWmjcxofSR8yN6Cxgof_vTuMQYfxKOYYUNOSPO7F5mvpQRpr5et0OVfyZX2vll5-vpIphx3tFyEHMkMlePg2yD4bQR4saIDJ8Lt7TWE-ht_kI7X7FCBkR-5Y39ZytUum8v_0RDnsJQlweIGJBHbCX3DenrhfjFkbqwLoKV8F0Zv-ROcpVRYK9SDBtdJ5sL80lM6kRKHQO3J_5U8hvlHnPe5rXJEEc">
 <button class="absolute -top-2 -right-2 w-6 h-6 bg-error text-on-error flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md">
 <span class="material-symbols-outlined" style="font-size: 14px;">close</span>
 </button>
 </div>
 <div class="relative w-20 h-20 shrink-0 group">
-<img class="w-full h-full object-cover border border-outline-variant" data-alt="Macro close-up photograph of a custom woven neck label with the brand name 'TOWN' in bold, architectural typography. The lighting is sharp, showing every thread detail against the dark garment fabric in a high-tech minimalist apparel design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfaFUHTvoMwns7fwCGPKOpPgPmC3vZbQ4T-o6wwlCXI_7EkCpnPAm6eIi-Lj4NJgCzAbzwdriuTeQrUikGt5gaszuH0fJn1-PE2530dEcc3pNd_s70cQWMG_NHT7zdc0VHbmyOoHlwo1T_HCr66fn6cCEgc3a2_WcpS5Vc6ET-3jERfQ-6LB5NkFc2flNxW3UfY7GvMFeZhMgVsLLkrDoGjZTprR745xMOjWC4-ZZ5ebhRhXgRtI0"/>
+<img class="w-full h-full object-cover border border-outline-variant" data-alt="Macro close-up photograph of a custom woven neck label with the brand name 'TOWN' in bold, architectural typography. The lighting is sharp, showing every thread detail against the dark garment fabric in a high-tech minimalist apparel design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfaFUHTvoMwns7fwCGPKOpPgPmC3vZbQ4T-o6wwlCXI_7EkCpnPAm6eIi-Lj4NJgCzAbzwdriuTeQrUikGt5gaszuH0fJn1-PE2530dEcc3pNd_s70cQWMG_NHT7zdc0VHbmyOoHlwo1T_HCr66fn6cCEgc3a2_WcpS5Vc6ET-3jERfQ-6LB5NkFc2flNxW3UfY7GvMFeZhMgVsLLkrDoGjZTprR745xMOjWC4-ZZ5ebhRhXgRtI0">
 <button class="absolute -top-2 -right-2 w-6 h-6 bg-error text-on-error flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md">
 <span class="material-symbols-outlined" style="font-size: 14px;">close</span>
 </button>
 </div>
 <div class="relative w-20 h-20 shrink-0 group">
-<img class="w-full h-full object-cover border border-outline-variant" data-alt="Back view of an urban streetwear garment featuring a large architectural graphic in high-contrast white on black cotton. The garment hangs perfectly in a bright studio environment, reflecting a minimalist and sophisticated corporate-tech design philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqYW6q0d2ohtfgoVh44TojO7ekjASE3BrJ8S9z2X6eYqW25PYWYCuCeFONZqL1SuZKr77LrcM57LA8BBqV8RsmnqxRKMSp4sEuf3FZw0EPZwVC7D_xlu0EWYB435AZQHk0xfHUy0T6DWNwSTbQXWAHiFIqb87Vpxk_WwrjfCak6A7o89jqzSA5s5GF2d-d_SYxXhu10HfhEMuib7xljkBsjLhAxfFL9z6V21cCcMFlq6m0sk-YXAQ"/>
+<img class="w-full h-full object-cover border border-outline-variant" data-alt="Back view of an urban streetwear garment featuring a large architectural graphic in high-contrast white on black cotton. The garment hangs perfectly in a bright studio environment, reflecting a minimalist and sophisticated corporate-tech design philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqYW6q0d2ohtfgoVh44TojO7ekjASE3BrJ8S9z2X6eYqW25PYWYCuCeFONZqL1SuZKr77LrcM57LA8BBqV8RsmnqxRKMSp4sEuf3FZw0EPZwVC7D_xlu0EWYB435AZQHk0xfHUy0T6DWNwSTbQXWAHiFIqb87Vpxk_WwrjfCak6A7o89jqzSA5s5GF2d-d_SYxXhu10HfhEMuib7xljkBsjLhAxfFL9z6V21cCcMFlq6m0sk-YXAQ">
 <button class="absolute -top-2 -right-2 w-6 h-6 bg-error text-on-error flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md">
 <span class="material-symbols-outlined" style="font-size: 14px;">close</span>
 </button>
@@ -229,7 +192,7 @@
 <div class="bg-surface-container-lowest border border-outline-variant p-6 md:p-8 flex flex-col lg:flex-row gap-8 hover:shadow-xl transition-shadow duration-300 opacity-80">
 <div class="flex flex-col md:flex-row gap-6 lg:w-1/3 shrink-0">
 <div class="w-24 h-24 bg-surface-variant border border-outline-variant shrink-0 relative overflow-hidden grayscale">
-<img class="w-full h-full object-cover" data-alt="Professional studio flat lay of a minimalist tech-wear inspired cargo jacket in charcoal gray. The garment is laid perfectly flat against a clean off-white background with professional studio lighting highlighting the waterproof zippers and structured pockets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb2zDetPmhB6ewCblVLyz36JB9z6-eB_hiV_0J6Csq1LtHR2zVS7XGuTUTKB-1o3UmdBHwqEVBxuXvYxlEf-gehrN6eDWt3gAQ66MnpB_LV0-AimY-lLQXNRpZHj9zEKGi7U7Gd4PPxF81Kt-GjdQdkyjTZGG199GY38IRG5mgb0zpA5h4HY0WmV8lHaPhg2N0zyvdB6W0hjSurfbUtEmlKn5bmaPTB7b1n_tfpxE-QT98GxNncYw"/>
+<img class="w-full h-full object-cover" data-alt="Professional studio flat lay of a minimalist tech-wear inspired cargo jacket in charcoal gray. The garment is laid perfectly flat against a clean off-white background with professional studio lighting highlighting the waterproof zippers and structured pockets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb2zDetPmhB6ewCblVLyz36JB9z6-eB_hiV_0J6Csq1LtHR2zVS7XGuTUTKB-1o3UmdBHwqEVBxuXvYxlEf-gehrN6eDWt3gAQ66MnpB_LV0-AimY-lLQXNRpZHj9zEKGi7U7Gd4PPxF81Kt-GjdQdkyjTZGG199GY38IRG5mgb0zpA5h4HY0WmV8lHaPhg2N0zyvdB6W0hjSurfbUtEmlKn5bmaPTB7b1n_tfpxE-QT98GxNncYw">
 </div>
 <div class="flex flex-col justify-between py-1">
 <div>
@@ -252,7 +215,7 @@
 </div>
 <div class="flex gap-4 overflow-x-auto pb-2 custom-scrollbar">
 <div class="relative w-20 h-20 shrink-0 group">
-<img class="w-full h-full object-cover border border-outline-variant" data-alt="Sleek studio photography of the technical cuff detailing on a high-performance urban jacket. Focus is sharp on the adjustable strap and the premium metallic hardware, set against a clean, bright minimalist backdrop with cool-toned shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKvHIAAcNqGngumuZmGeIzs-D3UzhE1eJI30BKszTwKufy-lX8QnSMihwcRpnNUS64JQp2zGo09Hf40-_9_PbzjyWpGPJNbBkwp5DbGevn_KDWaHqhIJHH35Vz6gH03Fja3PXUe58P5XEuiQVGagwCo-MEVRshy5H8ER8SbI-uyKvuhijq-a4RtIN0VFPQjeCoySDEbxP6STiM68tbx6qDaqH3s3MhCEkIGG-TtYS8riE9WExkxyA"/>
+<img class="w-full h-full object-cover border border-outline-variant" data-alt="Sleek studio photography of the technical cuff detailing on a high-performance urban jacket. Focus is sharp on the adjustable strap and the premium metallic hardware, set against a clean, bright minimalist backdrop with cool-toned shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKvHIAAcNqGngumuZmGeIzs-D3UzhE1eJI30BKszTwKufy-lX8QnSMihwcRpnNUS64JQp2zGo09Hf40-_9_PbzjyWpGPJNbBkwp5DbGevn_KDWaHqhIJHH35Vz6gH03Fja3PXUe58P5XEuiQVGagwCo-MEVRshy5H8ER8SbI-uyKvuhijq-a4RtIN0VFPQjeCoySDEbxP6STiM68tbx6qDaqH3s3MhCEkIGG-TtYS8riE9WExkxyA">
 <button class="absolute -top-2 -right-2 w-6 h-6 bg-error text-on-error flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">
 <span class="material-symbols-outlined" style="font-size: 14px;">close</span>
 </button>
@@ -275,7 +238,7 @@
 <div class="bg-surface-container-lowest border border-outline-variant p-6 md:p-8 flex flex-col lg:flex-row gap-8 hover:shadow-xl transition-shadow duration-300">
 <div class="flex flex-col md:flex-row gap-6 lg:w-1/3 shrink-0">
 <div class="w-24 h-24 bg-surface-variant border border-outline-variant shrink-0 relative overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="High-contrast studio fashion photography of premium heavyweight cotton cargo pants in a deep navy color. The image is clean and minimalist, showing the architectural cut and reinforced stitching in a bright light-mode environment with subtle urban tech vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsXMmiegSQgS3ydbPDkM2rfDyHtitTpQV_F6cBose2YyzJP6IvpQ5aJTju80q13LIgPN2QUlYYDfA7964t7GIVb6IPbGCDtAF5m4H-7aLEbazHaF1YEokZfckFvsaQwoEBBCriHndnXjX0fTvp_mR0peOukrXY0bcaQdAH4BxSuFEbciM2Ohriphdxv4Fxymc4-dkPyjYdDth-uEigpZuyCWKOmac4NYSMs7A1PP5IZUA4NsdlDxo"/>
+<img class="w-full h-full object-cover" data-alt="High-contrast studio fashion photography of premium heavyweight cotton cargo pants in a deep navy color. The image is clean and minimalist, showing the architectural cut and reinforced stitching in a bright light-mode environment with subtle urban tech vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsXMmiegSQgS3ydbPDkM2rfDyHtitTpQV_F6cBose2YyzJP6IvpQ5aJTju80q13LIgPN2QUlYYDfA7964t7GIVb6IPbGCDtAF5m4H-7aLEbazHaF1YEokZfckFvsaQwoEBBCriHndnXjX0fTvp_mR0peOukrXY0bcaQdAH4BxSuFEbciM2Ohriphdxv4Fxymc4-dkPyjYdDth-uEigpZuyCWKOmac4NYSMs7A1PP5IZUA4NsdlDxo">
 </div>
 <div class="flex flex-col justify-between py-1">
 <div>
@@ -298,13 +261,13 @@
 </div>
 <div class="flex gap-4 overflow-x-auto pb-2 custom-scrollbar">
 <div class="relative w-20 h-20 shrink-0 group">
-<img class="w-full h-full object-cover border border-outline-variant" data-alt="Close up of a metallic buckle on a streetwear garment. The lighting is crisp and cool, highlighting the industrial design and polished surface of the buckle. Minimalist white background creates a premium, high-end catalog feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTn5MtphvmqqiBxdU3HurxjXRBV1VZZ7t3hvWpWYSWoykEdMNRu3VPlBfNzmTCD1NxUPaQ78xxbbEyGOv9Q-S6Q6aAzG7o1TYHwCJWzorUCqgmnJQiujpSreblehxgttbLQS3DJrzCCgC1QojIvCNSpL5xTGPFjHnN5nDJdhv3gS6LUnQqWyPCM14nufyLcjrAPcvCHtes2-Pi-cF26vgQIM1ZAfv2HbYcrJc3KPMTlGMl1OvmYxc"/>
+<img class="w-full h-full object-cover border border-outline-variant" data-alt="Close up of a metallic buckle on a streetwear garment. The lighting is crisp and cool, highlighting the industrial design and polished surface of the buckle. Minimalist white background creates a premium, high-end catalog feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTn5MtphvmqqiBxdU3HurxjXRBV1VZZ7t3hvWpWYSWoykEdMNRu3VPlBfNzmTCD1NxUPaQ78xxbbEyGOv9Q-S6Q6aAzG7o1TYHwCJWzorUCqgmnJQiujpSreblehxgttbLQS3DJrzCCgC1QojIvCNSpL5xTGPFjHnN5nDJdhv3gS6LUnQqWyPCM14nufyLcjrAPcvCHtes2-Pi-cF26vgQIM1ZAfv2HbYcrJc3KPMTlGMl1OvmYxc">
 <button class="absolute -top-2 -right-2 w-6 h-6 bg-error text-on-error flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">
 <span class="material-symbols-outlined" style="font-size: 14px;">close</span>
 </button>
 </div>
 <div class="relative w-20 h-20 shrink-0 group">
-<img class="w-full h-full object-cover border border-outline-variant" data-alt="Detailed view of a side pocket on a premium urban trouser, showing technical fabric reinforcements and precise stitching. High-key studio lighting emphasizes the structural quality and contemporary minimalist aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCifnY1odChFzfd7XJAC1fnO0Dv9UBArG5zjnpRTRS-RiLtha2CoZRGOjK3x1GBpEgMmXJMJd7WIDYPOI4GgcCbNhQ2u4bXgtb5gcLQWVDnMYRtBPSh53pOo86cGwV6a2lDGrNB6jlJjfhHwyiWPoDbvUJ7xjS82P5QmipdqngIPZeFw-tawFEpJaLb3SJgnLVtpmN5HHIkSbnR2LvX-GkrvKreJmeKGek5M6SUmZKM-z2c_Tlg_xc"/>
+<img class="w-full h-full object-cover border border-outline-variant" data-alt="Detailed view of a side pocket on a premium urban trouser, showing technical fabric reinforcements and precise stitching. High-key studio lighting emphasizes the structural quality and contemporary minimalist aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCifnY1odChFzfd7XJAC1fnO0Dv9UBArG5zjnpRTRS-RiLtha2CoZRGOjK3x1GBpEgMmXJMJd7WIDYPOI4GgcCbNhQ2u4bXgtb5gcLQWVDnMYRtBPSh53pOo86cGwV6a2lDGrNB6jlJjfhHwyiWPoDbvUJ7xjS82P5QmipdqngIPZeFw-tawFEpJaLb3SJgnLVtpmN5HHIkSbnR2LvX-GkrvKreJmeKGek5M6SUmZKM-z2c_Tlg_xc">
 <button class="absolute -top-2 -right-2 w-6 h-6 bg-error text-on-error flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">
 <span class="material-symbols-outlined" style="font-size: 14px;">close</span>
 </button>
@@ -333,7 +296,7 @@
 </footer>
 </main>
 <!-- Global Footer (Informative) -->
-<footer class="w-full py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-surface border-t border-outline-variant">
+<footer class="w-full mt-auto py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-surface border-t border-outline-variant">
 <div class="col-span-1 md:col-span-2">
 <span class="font-headline-md text-headline-md text-primary uppercase">TOWN ESTILO URBANO</span>
 <p class="font-body-md text-on-surface-variant mt-4 max-w-sm">Sistema de gestión centralizado para la administración de inventario y activos digitales de la marca.</p>
@@ -351,8 +314,10 @@
 <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">TERMINOS</a>
 </div>
 </footer>
+</div>
+
 <!-- Interactive Layer -->
-<script>
+<script class="">
         // Simple Micro-interaction for UI feel
         document.querySelectorAll('button').forEach(btn => {
             btn.addEventListener('mousedown', () => {
@@ -364,16 +329,4 @@
             btn.addEventListener('mouseleave', () => {
                 btn.style.transform = 'scale(1)';
             });
-        });
-
-        // Hover effect for product cards (visual accent)
-        document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.borderColor = '#000';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.borderColor = '#c6c6cc';
-            });
-        });
-    </script>
-</body></html>
+        });</script></body></html>  

@@ -9,18 +9,52 @@ Cómo instalar lo anterior:
    **"Review-driven development"** (revisa antes de tocar la DB o hacer
    commits grandes) — es el más razonable para un TP que vas a defender.
 
-Como estás en planes gratuitos de ambas herramientas (Stitch: ~350
-generaciones/mes en modo estándar; Antigravity: cuota diaria de uso),
-la estrategia es: **diseñar todo en Stitch primero, en pocas tandas
-grandes**, y después construir con Antigravity **módulo por módulo**
-(no todo el proyecto de una vez), así podés revisar cada uno antes de
-gastar cuota en el siguiente.
+Estado actual (referencia rápida): las 11 pantallas de Stitch ya están
+diseñadas, exportadas y pegadas como `.html` en su carpeta correspondiente
+según AGENTS.md. Las 4 pantallas de administración (Productos, Pedidos,
+Clientes, Dashboard) ya comparten el mismo sidebar estándar. La Parte 1
+de este documento queda como **historial** de qué se le pidió a Stitch
+y por qué (útil para la memoria del TP y para el informe de auditoría);
+si necesitás una pantalla nueva más adelante, la Parte 1 te sirve de
+referencia de estilo. La Parte 2 es la que usás **ahora** para seguir
+con Antigravity.
 
 ---
 
-## PARTE 1 — Prompts para Stitch (diseño de interfaces)
+## PARTE 0 — Estándar de administración (vigente, no volver a tocar salvo necesidad)
 
-### 1.0 Prompt base de sistema de diseño (correlo primero, una sola vez)
+Todas las pantallas donde entra el administrador (`Pedidos/PedidosPages/PedidosAdminListado.html`,
+`Pedidos/PedidosPages/PedidosAdminProductos.html`,
+`Clientes/ClientesPages/ClientesAdminListado.html`,
+`Dashboard/DashboardPages/DashboardAdmin.html`) comparten:
+
+- **Sidebar fijo a la izquierda**: "ADMIN" + "Panel de Control" arriba,
+  menú vertical (Resumen, Productos, Pedidos, Clientes, Reportes) con el
+  ítem activo resaltado en verde, y abajo "Configuración" / "Salir"
+  separados por una línea.
+- Cada pantalla resalta su propio ítem: Productos → "Productos",
+  PedidosAdminListado → "Pedidos", ClientesAdminListado → "Clientes",
+  DashboardAdmin → "Resumen".
+
+Filtros/búsqueda ya incorporados a cada pantalla:
+- **Productos**: barra de búsqueda con lupa (filtra por nombre) + botón
+  "Nuevo producto".
+- **Pedidos admin**: tabs "Esta semana" / "Este mes" / "Todos los
+  pedidos" + barra de búsqueda con lupa (por número de pedido o nombre
+  de cliente).
+- **Clientes admin**: barra de búsqueda con lupa (por nombre, usuario o
+  email) + botón "Nuevo cliente", drawer lateral de "Ver historial" y
+  modal de "Editar".
+
+Si en el futuro agregás una pantalla admin nueva, replicá este mismo
+sidebar desde el arranque (pedíselo a Stitch citando esta sección como
+referencia) en vez de generar un navbar propio.
+
+---
+
+## PARTE 1 — Prompts para Stitch (diseño de interfaces) — HISTORIAL
+
+### 1.0 Prompt base de sistema de diseño
 
 ```
 Quiero crear un sistema de diseño consistente para un e-commerce de
@@ -101,7 +135,7 @@ estado), total, lista de ítems, y un botón verde "Pagar con Mercado
 Pago" cuando el estado es "pendiente".
 ```
 
-### 1.4 Módulo Pedidos/Cancelación/Pagos — Panel de administración
+### 1.4 Módulo Pedidos — Panel de administración (Pedidos y Productos)
 
 ```
 Diseñá 2 pantallas de panel de administración web (desktop, densidad de
@@ -121,7 +155,54 @@ botón "Subir imagen"). Botón oscuro "Nuevo producto" arriba a la
 derecha.
 ```
 
-### 1.5 Módulo Dashboard
+### 1.4.1 Edición — búsqueda en Productos y tabs + búsqueda en Pedidos
+
+```
+Editá las 2 pantallas de admin que generaste antes ("Pedidos (admin)" y
+"Gestión de productos"), manteniendo el mismo sistema de diseño, con
+estos cambios:
+
+1) En "Gestión de productos": agregá una barra de búsqueda con ícono de
+lupa arriba de la tabla/grid, con placeholder "Buscar producto por
+nombre...", ubicada a la izquierda del botón "Nuevo producto" (que
+sigue arriba a la derecha).
+
+2) En "Pedidos (admin)": separá el listado en 3 pestañas (tabs)
+horizontales arriba del título "Pedidos": "Esta semana", "Este mes" y
+"Todos los pedidos", con la pestaña activa resaltada en el mismo tono
+oscuro del navbar. Debajo de las tabs va el listado de tarjetas de
+pedido que ya tenías, filtrado según la pestaña seleccionada. Al lado
+de las tabs, a la derecha, agregá también una barra de búsqueda con
+lupa para buscar pedido por número o por nombre de cliente.
+```
+
+### 1.5 Módulo Clientes — panel admin
+
+```
+Diseñá 1 pantalla de panel de administración web (desktop, densidad de
+información media) para "Town Estilo Urbano", mismo sistema de diseño,
+versión admin (navbar oscura que dice "Admin" y link "Salir"):
+
+"Clientes (admin)": título "Clientes", barra de búsqueda con ícono de
+lupa arriba a la izquierda (placeholder "Buscar cliente por nombre,
+usuario o email...") y botón oscuro "Nuevo cliente" arriba a la
+derecha. Debajo, una tabla con columnas: Nombre, Usuario, Email,
+Estado (badge activo/inactivo), y una columna de acciones con 3
+íconos/botones pequeños: "Ver historial", "Editar" y "Dar de baja"
+(este último en rojo).
+
+Al hacer click en "Ver historial" se abre un panel lateral (drawer)
+desde la derecha mostrando: datos del cliente arriba, y debajo la
+lista de sus pedidos (número de pedido, fecha, total, badge de
+estado), igual al estilo de las tarjetas de pedido que ya usamos en
+"Pedidos (admin)".
+
+Al hacer click en "Editar" se abre un modal con el formulario de datos
+del cliente (Nombre, Usuario, Email) y botones "Guardar cambios" /
+"Cancelar".
+```
+
+### 1.6 Módulo Dashboard
 
 ```
 Diseñá una pantalla de "Dashboard" para el panel admin de "Town Estilo
@@ -132,7 +213,7 @@ barras (ventas por mes) y uno de torta (pedidos por estado). Al costado
 un botón "Exportar reportes a Excel".
 ```
 
-### 1.6 Módulo Cancelación
+### 1.7 Módulo Cancelación
 
 ```
 Diseñá una pantalla web para que un cliente autenticado vea el detalle
@@ -142,18 +223,52 @@ hacer click un modal de confirmación con un campo opcional de motivo y
 botones "Confirmar solicitud" / "Cancelar".
 ```
 
-### Cómo exportar de Stitch
+### 1.8 Estandarización de sidebar admin (multi-select)
 
-Por cada pantalla: click en el diseño → pestaña **Code** → copiar
-HTML/CSS. Guardalo directamente como el archivo `.html` que le
-corresponde según `AGENTS.md` (ej. el HTML del login va en
-`Seguridad/SeguridadPages/SeguridadLogin.html`). No lo pegues en el chat
-de Antigravity como texto largo: subí el archivo al repo y decile a
-Antigravity que lo tome como base (ver prompts de la Parte 2).
+```
+[Aplicado con Shift+click sobre las 4 pantallas admin: Gestión de
+productos, Pedidos (admin), Clientes (admin), Dashboard]
+
+Reemplazá el navbar/header que tiene cada una de estas 4 pantallas por
+un sidebar de navegación fijo a la izquierda, idéntico en las 4,
+compuesto por:
+
+- Arriba: título "ADMIN" en negrita, y debajo "Panel de Control" como
+  subtítulo, en gris.
+- Debajo, un menú vertical con ícono + texto para cada ítem, en este
+  orden: "Resumen", "Productos", "Pedidos", "Clientes", "Reportes".
+- El ítem correspondiente a la pantalla actual debe quedar resaltado
+  con fondo verde y esquinas redondeadas.
+- Abajo del todo del sidebar, separado por una línea divisoria: ícono +
+  texto "Configuración" y debajo ícono + texto "Salir".
+- El sidebar debe tener un fondo con un degradé sutil de un tono oscuro
+  arriba hacia blanco/gris claro abajo.
+
+Ajustá el contenido de cada pantalla para que ocupe el espacio restante
+a la derecha del sidebar. No cambies nada del contenido interno de cada
+pantalla.
+```
+
+### Mapeo final pantalla Stitch → archivo del repo
+
+| Pantalla de Stitch | Archivo |
+|---|---|
+| Registro | `Seguridad/SeguridadPages/SeguridadRegistro.html` |
+| Login | `Seguridad/SeguridadPages/SeguridadLogin.html` |
+| Catálogo | `Pedidos/PedidosPages/PedidosCatalogo.html` |
+| Detalle de producto | `Pedidos/PedidosPages/PedidosDetalleProducto.html` |
+| Carrito | `Pedidos/PedidosPages/PedidosCarrito.html` |
+| Checkout | `Pedidos/PedidosPages/PedidosCheckout.html` |
+| Mis pedidos (cliente) | `Pedidos/PedidosPages/PedidosMisPedidos.html` |
+| Pedidos (admin) | `Pedidos/PedidosPages/PedidosAdminListado.html` |
+| Gestión de productos (admin) | `Pedidos/PedidosPages/PedidosAdminProductos.html` |
+| Clientes (admin) | `Clientes/ClientesPages/ClientesAdminListado.html` |
+| Dashboard (admin) | `Dashboard/DashboardPages/DashboardAdmin.html` |
+| Solicitud de cancelación | `Cancelacion/CancelacionPages/CancelacionSolicitud.html` |
 
 ---
 
-## PARTE 2 — Prompts para Antigravity (construcción del código)
+## PARTE 2 — Prompts para Antigravity (construcción del código) — USAR AHORA
 
 Encará esto en orden: **Seguridad → Clientes → Pedidos → Cancelación →
 Pagos → Dashboard**, porque cada módulo depende de que el anterior ya
@@ -165,7 +280,10 @@ sesión de Seguridad).
 ```
 Este es el proyecto WTEU_G7_Gervasoni. Ya coloqué AGENTS.md en la raíz
 y la skill nuevo-modulo-wteu en .agents/skills/. Leé ambos archivos
-completos antes de hacer nada.
+completos antes de hacer nada. Las 11 pantallas HTML exportadas de
+Stitch ya están pegadas en sus carpetas correspondientes según la
+tabla de mapeo del documento PROMPTS_STITCH_ANTIGRAVITY.md — no las
+regeneres, tomalas como base visual fija.
 
 Necesito que armes el esqueleto inicial del proyecto:
 - package.json con Express, pg, bcrypt, jsonwebtoken, cookie-parser,
@@ -176,7 +294,7 @@ Necesito que armes el esqueleto inicial del proyecto:
   a medida que los vayamos creando
 - config/db.js con el pool de PostgreSQL usando variables de entorno
 - config/config.js con el switcher de URL localhost/Railway para el
-  frontend
+  frontend (window.API_URL)
 - Un .env.example con las variables necesarias (sin valores reales)
 
 No implementes todavía ningún módulo funcional, solo el esqueleto base.
@@ -195,7 +313,7 @@ Fuente de verdad: la ficha de cada CU en la sección 3.4 del documento
 alternativas) — ya te lo compartí antes, usalo tal cual, no inventes
 reglas nuevas.
 
-Ya subí el HTML exportado de Stitch en:
+El HTML exportado de Stitch ya está en:
 - Seguridad/SeguridadPages/SeguridadLogin.html
 - Seguridad/SeguridadPages/SeguridadRegistro.html
 
@@ -231,16 +349,28 @@ de cliente ocurre automáticamente cuando un usuario se registra en
 Seguridad (rol "cliente") — este módulo gestiona los datos adicionales
 del cliente y su consulta/edición/baja lógica por parte del admin.
 
-Todos los endpoints de este módulo requieren sesión iniciada
-(requireAuth de Seguridad/SeguridadServices) y los de administración
-requieren además requireRole('administrador').
+El HTML de la pantalla admin ya está en:
+- Clientes/ClientesPages/ClientesAdminListado.html
 
-Seguí la estructura: ClientesContenedor.js, ClientesAdapters/,
-ClientesServices/. Si necesitás pantallas (panel de clientes en admin),
-avisame antes de diseñarlas vos mismo — prefiero pasarte primero el
-HTML de Stitch.
+Esta pantalla incluye: barra de búsqueda con lupa (nombre/usuario/
+email — CU-008 con filtro), botón "Nuevo cliente" (CU-006), un drawer
+lateral de "Ver historial" (CU-010, historial de pedidos del cliente —
+para esto vas a necesitar cross-module con PedidosServices; poné el
+comentario `// cross-module` correspondiente) y un modal de "Editar"
+(CU-007). El botón "Dar de baja" en rojo es CU-009 (baja lógica, no
+DELETE físico).
 
-Registrá el router en app.js y resumí los archivos creados.
+Tomá ese HTML como base visual y agregale el JS de página
+(ClientesAdminListado.js) para que haga fetch a la API vía
+window.API_URL. Todos los endpoints de este módulo requieren
+requireAuth + requireRole('administrador') de Seguridad/
+SeguridadServices, excepto los que el propio cliente consulta sobre sí
+mismo (si los hubiera).
+
+Estructura: ClientesContenedor.js, ClientesAdapters/, ClientesServices/,
+ClientesComponents/ (si hace falta extraer el drawer o el modal como
+componente reutilizable). Registrá el router en app.js y resumí los
+archivos creados por CU.
 ```
 
 ### 2.3 Módulo Pedidos (CU-011 a CU-016)
@@ -251,20 +381,33 @@ CU-012 (Agregar al carrito), CU-013 (Generar pedido), CU-014 (Consultar
 estado de pedido), CU-015 (Listar pedidos - admin) y CU-016 (Actualizar
 estado de pedido - admin).
 
-Ya subí el HTML de Stitch en:
+El HTML de Stitch ya está en:
 - Pedidos/PedidosPages/PedidosCatalogo.html
 - Pedidos/PedidosPages/PedidosDetalleProducto.html
 - Pedidos/PedidosPages/PedidosCarrito.html
 - Pedidos/PedidosPages/PedidosCheckout.html
 - Pedidos/PedidosPages/PedidosMisPedidos.html
 - Pedidos/PedidosPages/PedidosAdminListado.html
+- Pedidos/PedidosPages/PedidosAdminProductos.html
 
 Tomalos como base visual y agregales el JS de página correspondiente.
 
+Notas sobre la pantalla PedidosAdminListado.html: tiene 3 tabs ("Esta
+semana", "Este mes", "Todos los pedidos") — es una variante de CU-015,
+no un CU nuevo: el filtro es un WHERE sobre `creado_en` en
+PedidosServices (esta semana / este mes / sin filtro de fecha). También
+tiene una barra de búsqueda por número de pedido o nombre de cliente —
+mismo Service, filtro adicional opcional.
+
+Notas sobre PedidosAdminProductos.html: tiene una barra de búsqueda por
+nombre de producto — variante de CU-011 del lado admin, mismo Service
+de catálogo con filtro de texto.
+
 Reglas clave del documento a respetar:
 - El carrito de un visitante no autenticado persiste solo en el
-  navegador; al iniciar sesión se sincroniza con el servidor (¡ojo con
-  no confundir pullFromServer con pushFromServer al sincronizar!).
+  navegador; al iniciar sesión se sincroniza con el servidor
+  (pullFromServer al loguearse, no pushFromServer — cuidado con este
+  bug ya detectado antes en el proyecto).
 - CU-013 debe usar una transacción real (BEGIN/COMMIT/ROLLBACK): crea
   el pedido en estado "pendiente", inserta los pedido_items
   desnormalizando nombre/imagen/precio del producto, y vacía el
@@ -295,9 +438,10 @@ solo lo estrictamente necesario (la función de cambiar estado del
 pedido) y dejá el comentario cross-module correspondiente, tal como
 indica AGENTS.md.
 
-Si ya te pasé el HTML de Stitch para la pantalla de solicitud de
-cancelación, tomalo como base; si no, avisame antes de diseñar vos la
-pantalla.
+El HTML de Stitch ya está en:
+- Cancelacion/CancelacionPages/CancelacionSolicitud.html
+
+Tomalo como base visual y agregale el JS de página.
 
 Estructura: CancelacionContenedor.js, CancelacionAdapters/,
 CancelacionServices/. Registrá el router en app.js.
@@ -314,7 +458,9 @@ CU-021 es el más sensible: seguí exactamente el diagrama de secuencia
 del documento (crear preferencia → redirigir a MercadoPago → recibir
 webhook → validar notificación → actualizar estado del pedido a
 "confirmado" si se aprueba). Usá las credenciales de test de
-MercadoPago desde variables de entorno, nunca hardcodeadas.
+MercadoPago desde variables de entorno, nunca hardcodeadas. Ya se sacó
+el parámetro auto_return anteriormente para evitar el error conocido
+de MercadoPago sandbox — no lo vuelvas a agregar.
 
 Nota: la confirmación automática vía webhook es un pendiente conocido
 del proyecto (está anotado en AGENTS.md) — si no tenés el endpoint de
@@ -337,10 +483,12 @@ Todos los endpoints requieren rol administrador. Para CU-028 generá el
 archivo Excel en el backend (biblioteca liviana tipo exceljs) y
 devolvelo como descarga.
 
-Si te pasé el HTML de Stitch del dashboard, tomalo como base y
-conectale los gráficos a los datos reales agregados desde
-PedidosServices, PagosServices y ClientesServices (import explícito
-cross-module, con el comentario correspondiente).
+El HTML de Stitch ya está en:
+- Dashboard/DashboardPages/DashboardAdmin.html
+
+Tomalo como base visual y conectale los gráficos a los datos reales
+agregados desde PedidosServices, PagosServices y ClientesServices
+(import explícito cross-module, con el comentario correspondiente).
 
 Estructura: DashboardContenedor.js, DashboardAdapters/,
 DashboardServices/. Registrá el router en app.js.
@@ -362,16 +510,11 @@ encuentres antes de corregirla vos mismo.
 ## Tips generales
 
 - **Cuota gratuita:** hacé un módulo por sesión de Antigravity y revisá
-  el resultado antes de pasar al siguiente — así no gastás cuota
-  reconstruyendo algo que salió mal en un módulo temprano.
+  el resultado antes de pasar al siguiente.
 - **Modo de autonomía:** usá "Review-driven development" al menos hasta
   terminar Seguridad y Pedidos (son los más críticos para la defensa del
-  TP). Podés pasar a un modo más autónomo para Dashboard, que es más
-  autocontenido.
-- **Stitch:** generá primero el prompt base de sistema de diseño (1.0) y
-  después las pantallas — así todas comparten paleta y tipografía sin
-  gastar generaciones corrigiendo inconsistencias.
+  TP). Podés pasar a un modo más autónomo para Dashboard.
 - Si Antigravity se desvía de la estructura de carpetas en algún
   momento, no se lo corrijas manualmente vos: decile "revisá AGENTS.md,
   esto no respeta la estructura obligatoria" y dejá que lo arregle él
-  mismo — así el agente refuerza el patrón para el resto de la sesión.
+  mismo.

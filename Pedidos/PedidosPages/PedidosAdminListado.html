@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!DOCTYPE html><html class="light" lang="es" ><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Pedidos Admin - TOWN ESTILO URBANO</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -112,30 +110,29 @@
         }
     </style>
 </head>
-<body class="font-body-md text-body-md overflow-x-hidden">
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto bg-primary-container text-on-primary shadow-sm">
-<div class="flex items-center gap-4">
-<span class="font-headline-lg text-headline-lg tracking-tighter text-on-primary uppercase">Admin</span>
-<div class="h-6 w-px bg-on-primary-container mx-2 opacity-30"></div>
-<span class="font-label-sm text-label-sm text-on-primary-container">TOWN ESTILO URBANO</span>
-</div>
-<div class="flex items-center gap-8">
-<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity duration-200 uppercase tracking-widest" href="#">Salir</a>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-on-primary">person</span>
-<span class="font-label-sm text-label-sm text-on-primary">Gestor_Urban</span>
-</div>
-</div>
-</nav>
+<body class="font-body-md text-body-md overflow-x-hidden flex">
+<!-- Sidebar -->
+<aside class="fixed top-0 left-0 h-full w-64 z-50 flex flex-col border-r border-outline-variant bg-surface-container-low p-6">
+<div class="p-6 border-b border-outline-variant/30"><h1 class="font-headline-lg text-[18px] font-bold text-[#0f1420] uppercase leading-tight">ADMIN</h1><p class="font-headline-lg text-[14px] font-normal text-[#717171] leading-tight">Panel de control</p></div>
+<nav class="flex-1 mt-8 space-y-1 overflow-y-auto"><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">dashboard</span>Resumen</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">inventory_2</span>Productos</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-xl bg-[#00ff85] text-black font-headline-md font-medium shadow-sm" href="#"><span class="material-symbols-outlined">local_shipping</span>Pedidos</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">group</span>Clientes</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">bar_chart</span>Reportes</a></nav>
+<div class="mt-auto"><div class="border-t border-outline-variant/30 pt-4 space-y-1"><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">settings</span>Configuración</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg hover:text-error hover:bg-error-container/20 transition-colors font-headline-md font-medium text-error bg-error-container/10" href="#"><span class="material-symbols-outlined">logout</span>Salir</a></div></div>
+</aside>
+<!-- Layout Wrapper for Main Content to shift right -->
+<div class="flex-1 ml-64 min-h-screen flex flex-col">
 <!-- Main Content -->
-<main class="mt-20 px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+<main class="flex-1 px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto w-full">
 <!-- Header Section -->
-<header class="mb-10 flex-col md:items-end gap-6"><div class="w-full flex flex-col md:flex-row justify-between items-center gap-6 border-b border-outline-variant mb-6 pb-4"><div class="flex gap-8"><button class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary bg-primary-container px-4 py-2 rounded-sm">Esta semana</button><button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Este mes</button><button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Todos los pedidos</button></div><div class="relative w-full md:w-80"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span><input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:ring-1 focus:ring-primary focus:border-primary outline-none font-body-md" placeholder="Buscar por pedido o cliente" type="text"/></div></div>
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Pedidos</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">
+                    Gestión centralizada de órdenes y logística de TOWN Estilo Urbano. Supervise estados de envío y datos de facturación.
+                </p>
+</div>
 <div class="flex gap-4">
 <div class="relative">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-<input class="pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all w-full md:w-64 font-body-md" placeholder="Buscar por pedido o cliente..." type="text"/>
+<input class="pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all w-full md:w-64 font-body-md" placeholder="Buscar por pedido o cliente..." type="text">
 </div>
 </div>
 </header>
@@ -187,7 +184,7 @@
 <p class="font-label-sm text-label-sm text-on-surface-variant mb-3 uppercase tracking-tighter">Items Comprados</p>
 <ul class="space-y-2">
 <li class="flex justify-between items-center text-body-md">
-<span>1x Urban Parka "Shadow" (L)</span>
+<span class="">1x Urban Parka "Shadow" (L)</span>
 <span class="font-label-sm text-label-sm">$240.00</span>
 </li>
 <li class="flex justify-between items-center text-body-md border-t border-outline-variant pt-2 mt-2">
@@ -248,11 +245,11 @@
 <p class="font-label-sm text-label-sm text-on-surface-variant mb-3 uppercase tracking-tighter">Items Comprados</p>
 <ul class="space-y-2">
 <li class="flex justify-between items-center text-body-md">
-<span>2x Cargo Pant "Grid" (M)</span>
+<span class="">2x Cargo Pant "Grid" (M)</span>
 <span class="font-label-sm text-label-sm">$360.00</span>
 </li>
 <li class="flex justify-between items-center text-body-md">
-<span>1x Urban Cap "Structure"</span>
+<span class="">1x Urban Cap "Structure"</span>
 <span class="font-label-sm text-label-sm">$45.00</span>
 </li>
 <li class="flex justify-between items-center text-body-md border-t border-outline-variant pt-2 mt-2">
@@ -310,7 +307,7 @@
 <p class="font-label-sm text-label-sm text-on-surface-variant mb-3 uppercase tracking-tighter">Items Comprados</p>
 <ul class="space-y-2">
 <li class="flex justify-between items-center text-body-md line-through opacity-50">
-<span>1x Urban Hoodie "Cement" (S)</span>
+<span class="">1x Urban Hoodie "Cement" (S)</span>
 <span class="font-label-sm text-label-sm">$110.00</span>
 </li>
 <li class="flex justify-between items-center text-body-md border-t border-outline-variant pt-2 mt-2">
@@ -370,10 +367,10 @@
 <div>
 <h5 class="font-label-sm text-label-sm text-primary font-bold mb-4 uppercase">Accesos Rápidos</h5>
 <ul class="space-y-2">
-<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Panel de Control</a></li>
-<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Inventario</a></li>
-<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Usuarios</a></li>
-<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Reportes</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Panel de Control</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Inventario</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Usuarios</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Reportes</a></li>
 </ul>
 </div>
 <div>
@@ -387,6 +384,7 @@
 </div>
 </div>
 </footer>
+</div>
 <script>
         // Simple Micro-interactions for buttons
         document.querySelectorAll('button').forEach(btn => {
@@ -419,4 +417,6 @@
             });
         });
     </script>
+
+
 </body></html>
