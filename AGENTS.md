@@ -27,9 +27,14 @@ distinta a la documentada.
   de `pg` (`pool.query('SELECT ...')`). Sin ORM ni query builder
   (nada de Sequelize, Prisma, TypeORM, Knex, etc.) — todas las
   consultas se escriben a mano en los Services.
-- **Autenticación:** JWT guardado en cookie httpOnly
-  (`sameSite: 'none'`, `secure: true`). Prohibido usar localStorage o
-  sessionStorage para el token de sesión.
+- **Autenticación:** JWT guardado en cookie httpOnly. En producción
+  (Railway, `NODE_ENV=production`): `sameSite: 'none'`, `secure: true`.
+  En desarrollo local con Docker (HTTP, sin TLS): `sameSite: 'lax'`,
+  `secure: false`, porque los navegadores descartan cookies `secure`
+  sobre HTTP plano. Esta rama condicional por `NODE_ENV` va en
+  `SeguridadServices.js` (donde se emite la cookie), no se resuelve
+  editando `AGENTS.md` cada vez. Prohibido usar localStorage o
+  sessionStorage para el token de sesión, en cualquier entorno.
 - **Contraseñas:** hasheadas con bcrypt. Nunca texto plano.
 - **Frontend:** HTML + CSS + JavaScript vanilla (DOM nativo, `fetch`).
   Sin React, Vue, Angular, Svelte, jQuery, ni ningún framework o
@@ -52,13 +57,19 @@ la máquina del usuario: vive únicamente dentro de un contenedor.
 
 Servicios obligatorios en `docker-compose.yml` (raíz del proyecto):
 
-- **`db`**: `postgres:16-alpine`, puerto `5432:5432`, variables
-  `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` leídas desde
-  `.env`, volumen nombrado (`wteu_pgdata`) para persistir los datos
-  entre reinicios, y un mount de solo lectura de un script de
-  inicialización (`db/init.sql`) en `/docker-entrypoint-initdb.d/` para
-  crear el esquema (tablas `usuarios`, `pedidos`, `pedido_items`,
-  `productos`, etc.) según el DER del documento (sección 3.8).
+- **`db`**: `postgres:16-alpine`, puerto **`5433:5432`** (mapeo NO
+  estándar — el usuario tiene un PostgreSQL 18 nativo corriendo como
+  servicio de Windows que ya ocupa el 5432 del host; el contenedor usa
+  internamente el 5432 de siempre, `api` se conecta a `db` por nombre
+  de servicio sin verse afectado, pero cualquier cliente externo desde
+  Windows —DBClient, pgAdmin, `psql` nativo— debe apuntar al puerto
+  **5433**), variables `POSTGRES_USER`, `POSTGRES_PASSWORD`,
+  `POSTGRES_DB` leídas desde `.env`, volumen nombrado (`wteu_pgdata`)
+  para persistir los datos entre reinicios, y un mount de solo lectura
+  de un script de inicialización (`db/init.sql`) en
+  `/docker-entrypoint-initdb.d/` para crear el esquema (tablas
+  `usuarios`, `pedidos`, `pedido_items`, `productos`, etc.) según el
+  DER del documento (sección 3.8).
 - **`api`**: build desde un `Dockerfile` en la raíz, corre `app.js` con
   Node, expone el puerto `3000:3000`, usa `depends_on: db`, monta el
   código como volumen para hot-reload (`nodemon` en desarrollo) y lee
@@ -82,7 +93,15 @@ Reglas:
      persisten gracias al volumen)
    - `docker compose down -v` → apagar y borrar también los datos
      (reinicio limpio de la base)
-5. Cualquier cambio de estructura de tablas (nueva migración) se agrega
+   - `docker exec -it wteu_db psql -U wteu_user -d wteu_db` → conectarse
+     a la base desde la terminal sin depender de un cliente gráfico
+     (útil si DBClient/pgAdmin tienen problemas de puerto, ver más abajo)
+6. Watch de nodemon en Windows: los bind mounts de Docker Desktop no
+   siempre propagan bien los eventos de archivo. Configurado con
+   `CHOKIDAR_USEPOLLING=true` (docker-compose.yml) + `legacyWatch: true`
+   (`nodemon.json`) para que los cambios se detecten de forma confiable
+   sin necesidad de `docker compose restart api` manual.
+7. Cualquier cambio de estructura de tablas (nueva migración) se agrega
    como un script nuevo versionado en `db/` (ej. `db/migrations/002_...
    .sql`), nunca editando a mano los datos ya persistidos en el
    volumen.
