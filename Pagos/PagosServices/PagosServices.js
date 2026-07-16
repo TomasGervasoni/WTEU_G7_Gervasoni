@@ -169,8 +169,11 @@ async function crearPreferenciaMercadoPago(pedidoId, usuarioId) {
     [pedidoId, pedido.total, preferencia.id]
   );
 
+  const esProduccion = process.env.MP_ENV === 'production';
+
   return {
     preference_id: preferencia.id,
+    checkout_url:  esProduccion ? preferencia.init_point : preferencia.sandbox_init_point,
     init_point:    preferencia.init_point,       // URL de pago (producción)
     sandbox_init_point: preferencia.sandbox_init_point, // URL de pago (sandbox test)
   };

@@ -175,9 +175,8 @@
       const data = await resp.json();
       if (!resp.ok) throw new Error(data.mensaje || 'Error al crear preferencia');
 
-      // Redirigir al checkout de MercadoPago
-      // En sandbox usamos sandbox_init_point; en producción, init_point
-      const url = data.sandbox_init_point || data.init_point;
+      // Redirigir al checkout de MercadoPago (el backend decide prod o sandbox)
+      const url = data.checkout_url || data.init_point;
       window.location.href = url;
     } catch (err) {
       alert(`Error MercadoPago: ${err.message}`);
