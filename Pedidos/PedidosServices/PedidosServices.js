@@ -432,28 +432,21 @@ async function listarPedidosAdmin({ filtroFecha = null, busqueda = '' } = {}) {
 
   // Construimos la query dinámicamente para los filtros opcionales
   const condiciones = [`p.estado != '__carrito__'`];
-  const params = [];
+  const finalParams = [];
 
   if (fechaFiltro) {
-    params.push(null); // placeholder — usaremos literal SQL seguro
     condiciones.push(`p.creado_en >= ${fechaFiltro}`);
   }
 
   if (termino) {
-    params.push(termino);
+    finalParams.push(termino);
     condiciones.push(`(
-      p.nombre_cliente ILIKE $${params.length}
-      OR CAST(p.id AS TEXT) LIKE $${params.length}
+      p.nombre_cliente ILIKE $${finalParams.length}
+      OR CAST(p.id AS TEXT) LIKE $${finalParams.length}
     )`);
   }
 
-  const where = condiciones.length ? `WHERE ${condiciones.join(' AND ')}` : '';
-
-  // Reconstruimos sin el placeholder vacío
-  const finalParams = params.filter(p => p !== null);
-  // Reindexar correctamente
-  let idx = 1;
-  const whereIndexed = where.replace(/\$\d+/g, () => `$${idx++}`);
+  const whereIndexed = condiciones.length ? `WHERE ${condiciones.join(' AND ')}` : '';
 
   const res = await pool.query(
     `SELECT
