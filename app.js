@@ -50,6 +50,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/imagenes', express.static(path.join(__dirname, 'imagenes')));
 
 // ---------------------------------------------------------------------------
 // Archivos estáticos del frontend

@@ -40,16 +40,15 @@
     return;
   }
 
-  // ── Referencias al DOM del Stitch ─────────────────────────────────────────
-  // Stitch no tiene IDs; identificamos por rol/posición
-  const imgPrincipal   = document.querySelector('img.w-full.flex-grow') ||
-                          document.querySelector('main img');
-  const contenedorNombre = document.querySelector('h1') || document.querySelector('[class*="headline-lg"]');
-  const contenedorPrecio = document.querySelector('[class*="headline-md"]');
-  const colorContainer   = document.getElementById('colorContainer');
-  const talleContainer   = document.getElementById('talleContainer');
-  const colorSelTexto    = document.getElementById('colorSeleccionadoTexto');
-  const btnAgregar       = document.getElementById('btnAgregarCarrito') || document.querySelector('button[class*="bg-primary"]');
+  // Referencias seguras por ID
+  const imgPrincipal       = document.getElementById('imagenPrincipal');
+  const contenedorNombre   = document.getElementById('productoNombre');
+  const contenedorPrecio   = document.getElementById('productoPrecio');
+  const contenedorDesc     = document.getElementById('productoDescripcion');
+  const colorContainer     = document.getElementById('colorContainer');
+  const talleContainer     = document.getElementById('talleContainer');
+  const colorSelTexto      = document.getElementById('colorSeleccionadoTexto');
+  const btnAgregar         = document.getElementById('btnAgregarCarrito');
   const thumbnailsWrap   = document.querySelector('.flex.md\\:flex-col.gap-base');
 
   // Estado local de selección
@@ -74,9 +73,10 @@
   }
 
   function renderizarProducto(p) {
-    // Título y precio
+    // Título, precio y descripción
     if (contenedorNombre) contenedorNombre.textContent = p.nombre;
     if (contenedorPrecio) contenedorPrecio.textContent = `$${Number(p.precio).toFixed(2)}`;
+    if (contenedorDesc) contenedorDesc.textContent = p.descripcion || 'Sin descripción disponible.';
     document.title = `${p.nombre} — TOWN ESTILO URBANO`;
 
     // Imágenes
