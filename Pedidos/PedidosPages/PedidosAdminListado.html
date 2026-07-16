@@ -114,8 +114,8 @@
 <!-- Sidebar -->
 <aside class="fixed top-0 left-0 h-full w-64 z-50 flex flex-col border-r border-outline-variant bg-surface-container-low p-6">
 <div class="p-6 border-b border-outline-variant/30"><h1 class="font-headline-lg text-[18px] font-bold text-[#0f1420] uppercase leading-tight">ADMIN</h1><p class="font-headline-lg text-[14px] font-normal text-[#717171] leading-tight">Panel de control</p></div>
-<nav class="flex-1 mt-8 space-y-1 overflow-y-auto"><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">dashboard</span>Resumen</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">inventory_2</span>Productos</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-xl bg-[#00ff85] text-black font-headline-md font-medium shadow-sm" href="#"><span class="material-symbols-outlined">local_shipping</span>Pedidos</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">group</span>Clientes</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">bar_chart</span>Reportes</a></nav>
-<div class="mt-auto"><div class="border-t border-outline-variant/30 pt-4 space-y-1"><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">settings</span>Configuración</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg hover:text-error hover:bg-error-container/20 transition-colors font-headline-md font-medium text-error bg-error-container/10" href="#"><span class="material-symbols-outlined">logout</span>Salir</a></div></div>
+<nav class="flex-1 mt-8 space-y-1 overflow-y-auto"><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Dashboard/DashboardPages/DashboardAdmin.html"><span class="material-symbols-outlined">dashboard</span>Resumen</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="PedidosAdminProductos.html"><span class="material-symbols-outlined">inventory_2</span>Productos</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-xl bg-[#00ff85] text-black font-headline-md font-medium shadow-sm" href="PedidosAdminListado.html"><span class="material-symbols-outlined">local_shipping</span>Pedidos</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Cancelacion/CancelacionPages/CancelacionAdminListado.html"><span class="material-symbols-outlined">cancel</span>Cancelaciones</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Pagos/PagosPages/PagosAdmin.html"><span class="material-symbols-outlined">payments</span>Pagos</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Clientes/ClientesPages/ClientesAdminListado.html"><span class="material-symbols-outlined">group</span>Clientes</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Dashboard/DashboardPages/DashboardAdmin.html"><span class="material-symbols-outlined">bar_chart</span>Reportes</a></nav>
+<div class="mt-auto"><div class="border-t border-outline-variant/30 pt-4 space-y-1"><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="#"><span class="material-symbols-outlined">settings</span>Configuración</a><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg hover:text-error hover:bg-error-container/20 transition-colors font-headline-md font-medium text-error bg-error-container/10" href="../../Seguridad/SeguridadPages/SeguridadLogin.html"><span class="material-symbols-outlined">logout</span>Salir</a></div></div>
 </aside>
 <!-- Layout Wrapper for Main Content to shift right -->
 <div class="flex-1 ml-64 min-h-screen flex flex-col">
@@ -370,7 +370,7 @@
 <li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Panel de Control</a></li>
 <li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Inventario</a></li>
 <li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Usuarios</a></li>
-<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="#">Reportes</a></li>
+<li class=""><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all uppercase" href="../../Dashboard/DashboardPages/DashboardAdmin.html">Reportes</a></li>
 </ul>
 </div>
 <div>
@@ -385,38 +385,7 @@
 </div>
 </footer>
 </div>
-<script>
-        // Simple Micro-interactions for buttons
-        document.querySelectorAll('button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const originalContent = btn.innerHTML;
-                if(btn.innerText.includes('CAMBIAR ESTADO')) {
-                    btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> ACTUALIZANDO...';
-                    btn.disabled = true;
-                    setTimeout(() => {
-                        btn.innerHTML = originalContent;
-                        btn.disabled = false;
-                        // Flash green effect
-                        btn.classList.add('bg-secondary');
-                        setTimeout(() => btn.classList.remove('bg-secondary'), 1000);
-                    }, 1500);
-                }
-            });
-        });
-
-        // Delete animation
-        document.querySelectorAll('.text-error').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if(confirm('¿Está seguro de eliminar este pedido? Esta acción no se puede deshacer.')) {
-                    const card = e.target.closest('.bg-surface-container-lowest');
-                    card.style.transition = 'all 0.5s ease-out';
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateX(100px)';
-                    setTimeout(() => card.remove(), 500);
-                }
-            });
-        });
-    </script>
-
+<script src="/config/config.js"></script>
+<script src="/Pedidos/PedidosPages/PedidosAdminListado.js"></script>
 
 </body></html>

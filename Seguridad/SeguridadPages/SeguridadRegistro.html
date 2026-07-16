@@ -158,7 +158,7 @@
 <!-- Links -->
 <footer class="mt-8 pt-8 border-t border-outline-variant space-y-4 text-center">
 <a class="block font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">¿Ya tenés cuenta? Ingresar</a>
-<a class="block font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2" href="#">
+<a class="block font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2" href="../../Pedidos/PedidosPages/PedidosCatalogo.html">
 <span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
                     Volver a la tienda
                 </a>
@@ -190,15 +190,8 @@
 <p class="font-label-sm text-label-sm text-on-surface-variant uppercase">© 2024 TOWN ESTILO URBANO. ARQUITECTURA URBANA.</p>
 </div>
 </footer>
-<script>
-        // Micro-interaction for inputs
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('focus', () => {
-                input.parentElement.querySelector('label').classList.replace('text-on-surface-variant', 'text-primary');
-            });
-            input.addEventListener('blur', () => {
-                input.parentElement.querySelector('label').classList.replace('text-primary', 'text-on-surface-variant');
-            });
-        });
-    </script>
+<!-- config.js define window.API_URL según el entorno (localhost vs Railway) -->
+<script src="/config/config.js"></script>
+<!-- SeguridadRegistro.js: fetch real a la API — CU-001 Registrar Usuario -->
+<script src="/Seguridad/SeguridadPages/SeguridadRegistro.js"></script>
 </body></html>

@@ -1,4 +1,3 @@
-version: "3.9"
 
 services:
   # ─── Base de datos ───────────────────────────────────────────────────────────
@@ -7,7 +6,7 @@ services:
     container_name: wteu_db
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -37,6 +36,9 @@ services:
         condition: service_healthy
     env_file:
       - .env
+    environment:
+      # Fuerza polling en chokidar para hot-reload confiable en Windows + Docker Desktop
+      CHOKIDAR_USEPOLLING: "true"
     volumes:
       # Hot-reload: el código fuente se monta en el contenedor
       - .:/app

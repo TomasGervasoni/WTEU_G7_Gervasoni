@@ -118,15 +118,15 @@
 <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full text-on-primary">
 <h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-on-primary">URBAN ARCHIVE</h1>
 <nav class="hidden md:flex gap-8 items-center">
-<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/70 font-medium hover:text-on-primary transition-opacity" href="#">Collections</a>
-<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/70 font-medium hover:text-on-primary transition-opacity" href="#">New Arrivals</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/70 font-medium hover:text-on-primary transition-opacity" href="../../Pedidos/PedidosPages/PedidosCatalogo.html">Collections</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/70 font-medium hover:text-on-primary transition-opacity" href="../../Pedidos/PedidosPages/PedidosCatalogo.html">New Arrivals</a>
 <a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/70 font-medium hover:text-on-primary transition-opacity" href="#">Archive</a>
 </nav>
 <div class="flex gap-4 items-center">
-<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150" onclick="window.location.href='../../Pedidos/PedidosPages/PedidosCarrito.html'">
 <span class="material-symbols-outlined">shopping_bag</span>
 </button>
-<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150" onclick="window.location.href='../../Seguridad/SeguridadPages/SeguridadLogin.html'">
 <span class="material-symbols-outlined">person</span>
 </button>
 </div>
@@ -136,7 +136,7 @@
 <!-- Breadcrumb / Back Navigation -->
 <nav class="mb-8 flex items-center gap-2 text-on-surface-variant">
 <span class="material-symbols-outlined text-[20px]">chevron_left</span>
-<a class="font-label-sm text-label-sm uppercase hover:text-primary transition-colors" href="#">Volver a mis pedidos</a>
+<a class="font-label-sm text-label-sm uppercase hover:text-primary transition-colors" href="../../Pedidos/PedidosPages/PedidosMisPedidos.html">Volver a mis pedidos</a>
 </nav>
 <!-- Order Header Section -->
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 border-l-4 border-primary pl-6">
@@ -284,7 +284,9 @@
 </div>
 </div>
 </div>
-<script>
+    <script src="../../config/config.js"></script>
+    <script src="CancelacionSolicitud.js"></script>
+    <script>
         // Simple logic to close modal on background click
         window.onclick = function(event) {
             const modal = document.getElementById('cancelModal');

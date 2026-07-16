@@ -3,15 +3,33 @@
 // =============================================================================
 // Cancelacion/CancelacionContenedor.js — Router del módulo Cancelación
 // CU-017 Solicitar Cancelación, CU-018 Aprobar, CU-019 Rechazar
-// =============================================================================
-// PLACEHOLDER — se completa al implementar con el prompt 2.4.
+// Montado en app.js como: app.use('/api/v1/cancelacion', CancelacionContenedor)
 // =============================================================================
 
 const express = require('express');
-const router = express.Router();
+const router  = express.Router();
 
-// TODO (CU-017): POST /:pedidoId/solicitar   ← cliente solicita cancelación
-// TODO (CU-018): PUT  /:id/aprobar           ← admin aprueba (pedido → cancelado)
-// TODO (CU-019): PUT  /:id/rechazar          ← admin rechaza (pedido vuelve a estado previo)
+const adapters = require('./CancelacionAdapters/CancelacionAdapters');
+const { requireAuth, requireRole } = require('../Seguridad/SeguridadServices/SeguridadServices');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CU-017 — Solicitar cancelación (cliente autenticado)
+// ─────────────────────────────────────────────────────────────────────────────
+router.post('/:pedidoId/solicitar', requireAuth, adapters.solicitar);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CU-018 — Aprobar solicitud de cancelación (admin)
+// ─────────────────────────────────────────────────────────────────────────────
+router.put('/:id/aprobar', requireAuth, requireRole('administrador'), adapters.aprobar);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CU-019 — Rechazar solicitud de cancelación (admin)
+// ─────────────────────────────────────────────────────────────────────────────
+router.put('/:id/rechazar', requireAuth, requireRole('administrador'), adapters.rechazar);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GET — Listar solicitudes de cancelación (admin, panel de gestión)
+// ─────────────────────────────────────────────────────────────────────────────
+router.get('/', requireAuth, requireRole('administrador'), adapters.listar);
 
 module.exports = router;

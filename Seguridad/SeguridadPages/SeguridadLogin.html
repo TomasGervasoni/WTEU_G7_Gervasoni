@@ -125,10 +125,10 @@
 <a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity duration-200" href="#">COLECCIONES</a>
 </nav>
 <div class="flex items-center gap-6">
-<button class="text-on-primary hover:opacity-80 transition-opacity duration-200">
+<button class="text-on-primary hover:opacity-80 transition-opacity duration-200" onclick="window.location.href='../../Pedidos/PedidosPages/PedidosCarrito.html'">
 <span class="material-symbols-outlined">shopping_bag</span>
 </button>
-<button class="text-on-primary border-b-2 border-secondary-fixed-dim pb-1 active:scale-95 transition-transform">
+<button class="text-on-primary border-b-2 border-secondary-fixed-dim pb-1 active:scale-95 transition-transform" onclick="window.location.href='SeguridadLogin.html'">
 <span class="material-symbols-outlined">person</span>
 </button>
 </div>
@@ -167,7 +167,7 @@
 </div>
 <div class="flex flex-col items-center gap-4 pt-4 border-t border-outline-variant/30">
 <a class="font-label-sm text-label-sm text-primary hover:underline transition-all uppercase" href="#">¿No tenés cuenta? Registrate</a>
-<a class="group flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">
+<a class="group flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase" href="../../Pedidos/PedidosPages/PedidosCatalogo.html">
 <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
                         Volver a la tienda
                     </a>
@@ -208,30 +208,8 @@
 </ul>
 </div>
 </footer>
-<script>
-        // Micro-interaction: Toggle Password Visibility
-        const toggleBtn = document.querySelector('form button[type="button"]');
-        const passInput = document.getElementById('password');
-        
-        toggleBtn?.addEventListener('click', () => {
-            const isPass = passInput.type === 'password';
-            passInput.type = isPass ? 'text' : 'password';
-            toggleBtn.querySelector('span').textContent = isPass ? 'visibility_off' : 'visibility';
-        });
-
-        // Form Simulation
-        const loginForm = document.getElementById('loginForm');
-        const errorMessage = document.getElementById('errorMessage');
-        
-        loginForm?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Show error as requested in the prompt
-            errorMessage.style.display = 'flex';
-            
-            // Animation reset
-            errorMessage.classList.remove('animate-in');
-            void errorMessage.offsetWidth;
-            errorMessage.classList.add('animate-in');
-        });
-    </script>
+<!-- config.js define window.API_URL según el entorno (localhost vs Railway) -->
+<script src="/config/config.js"></script>
+<!-- SeguridadLogin.js: fetch real a la API — CU-002 Iniciar Sesión -->
+<script src="/Seguridad/SeguridadPages/SeguridadLogin.js"></script>
 </body></html>

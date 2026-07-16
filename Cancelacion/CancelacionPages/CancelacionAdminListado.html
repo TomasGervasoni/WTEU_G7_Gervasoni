@@ -1,0 +1,97 @@
+<!DOCTYPE html><html class="light" lang="es" ><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Cancelaciones Admin - TOWN ESTILO URBANO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f7f9fb",
+                    "primary": "#000000",
+                    "on-surface-variant": "#45464c",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "outline-variant": "#c6c6cc",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a"
+            },
+            "fontFamily": {
+                    "label-sm": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"]
+            }
+          }
+        }
+      }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+    }
+    body {
+        background-color: #f7f9fb;
+        color: #191c1e;
+    }
+    .order-card-shadow {
+        box-shadow: 0 4px 20px rgba(15, 20, 32, 0.08);
+    }
+</style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden flex">
+<!-- Sidebar -->
+<aside class="fixed top-0 left-0 h-full w-64 z-50 flex flex-col border-r border-outline-variant bg-surface-container-low p-6">
+<div class="p-6 border-b border-outline-variant/30"><h1 class="font-headline-lg text-[18px] font-bold text-[#0f1420] uppercase leading-tight">ADMIN</h1><p class="font-headline-lg text-[14px] font-normal text-[#717171] leading-tight">Panel de control</p></div>
+<nav class="flex-1 mt-8 space-y-1 overflow-y-auto">
+  <a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Dashboard/DashboardPages/DashboardAdmin.html"><span class="material-symbols-outlined">dashboard</span>Resumen</a>
+  <a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Pedidos/PedidosPages/PedidosAdminProductos.html"><span class="material-symbols-outlined">inventory_2</span>Productos</a>
+  <a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Pedidos/PedidosPages/PedidosAdminListado.html"><span class="material-symbols-outlined">local_shipping</span>Pedidos</a>
+  <a class="flex items-center gap-3 px-4 h-[48px] rounded-xl bg-[#ff5252] text-white font-headline-md font-medium shadow-sm" href="CancelacionAdminListado.html"><span class="material-symbols-outlined">cancel</span>Cancelaciones</a>
+  <a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Clientes/ClientesPages/ClientesAdminListado.html"><span class="material-symbols-outlined">group</span>Clientes</a>
+  <a class="flex items-center gap-3 px-4 h-[48px] rounded-lg text-on-surface hover:bg-surface-container-high transition-colors font-headline-md font-medium" href="../../Dashboard/DashboardPages/DashboardAdmin.html"><span class="material-symbols-outlined">bar_chart</span>Reportes</a>
+</nav>
+<div class="mt-auto"><div class="border-t border-outline-variant/30 pt-4 space-y-1"><a class="flex items-center gap-3 px-4 h-[48px] rounded-lg hover:text-error hover:bg-error-container/20 transition-colors font-headline-md font-medium text-error bg-error-container/10" href="#" id="btn-logout"><span class="material-symbols-outlined">logout</span>Salir</a></div></div>
+</aside>
+
+<!-- Layout Wrapper for Main Content to shift right -->
+<div class="flex-1 ml-64 min-h-screen flex flex-col">
+<!-- Main Content -->
+<main class="flex-1 px-4 md:px-10 py-12 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline-lg text-[32px] font-bold text-primary mb-2">Solicitudes de Cancelación</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">
+    Gestión de devoluciones y cancelaciones iniciadas por los clientes.
+</p>
+</div>
+<div class="flex gap-2">
+  <select id="filtroEstado" class="px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary outline-none text-on-surface">
+    <option value="">Todas las solicitudes</option>
+    <option value="solicitada" selected>Pendientes (Solicitada)</option>
+    <option value="aprobada">Aprobadas</option>
+    <option value="rechazada">Rechazadas</option>
+  </select>
+</div>
+</header>
+
+<!-- Solicitudes List -->
+<div class="space-y-6" id="listaSolicitudes">
+  <!-- JavaScript inyectará las tarjetas aquí -->
+</div>
+</main>
+</div>
+
+<!-- JS Configuration & Logic -->
+<script src="../../config/config.js"></script>
+<script src="CancelacionAdminListado.js"></script>
+</body></html>

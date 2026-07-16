@@ -1,0 +1,5 @@
+{
+  "legacyWatch": true,
+  "ext": "js,json",
+  "ignore": ["node_modules", "*.test.js"]
+}

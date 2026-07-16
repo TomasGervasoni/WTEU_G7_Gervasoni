@@ -5,17 +5,30 @@
 // CU-001 Registrar Usuario, CU-002 Iniciar Sesión, CU-003 Cerrar Sesión,
 // CU-004 Recuperar Contraseña, CU-005 Gestionar Roles y Permisos
 // =============================================================================
-// PLACEHOLDER — este archivo se completa al implementar el módulo Seguridad
-// con el prompt 2.1 de PROMPTS_STITCH_ANTIGRAVITY.md.
+// Montado en app.js como: app.use('/api/v1/seguridad', SeguridadContenedor)
 // =============================================================================
 
-const express = require('express');
-const router = express.Router();
+const express  = require('express');
+const router   = express.Router();
+const adapters = require('./SeguridadAdapters/SeguridadAdapters');
+const { requireAuth } = require('./SeguridadServices/SeguridadServices');
 
-// TODO (CU-001): POST /registro
-// TODO (CU-002): POST /autenticacion
-// TODO (CU-003): GET  /logout
-// TODO (CU-004): POST /recuperar-password
-// TODO (CU-005): middleware requireAuth y requireRole exportados desde SeguridadServices
+// CU-001 — Registrar usuario
+router.post('/registro', adapters.registro);
+
+// CU-002 — Iniciar sesión
+router.post('/autenticacion', adapters.autenticacion);
+
+// CU-003 — Cerrar sesión
+router.get('/logout', adapters.logout);
+
+// CU-004 — Solicitar recuperación de contraseña (paso 1)
+router.post('/recuperar-password', adapters.recuperarPassword);
+
+// CU-004 — Cambiar contraseña con token (paso 2)
+router.post('/cambiar-password', adapters.cambiarPassword);
+
+// Utilidad: datos del usuario logueado (requiere sesión — CU-005)
+router.get('/me', requireAuth, adapters.me);
 
 module.exports = router;

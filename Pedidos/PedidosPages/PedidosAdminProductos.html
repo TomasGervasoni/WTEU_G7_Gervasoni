@@ -96,7 +96,7 @@
         <span class="font-body-md text-on-surface-variant mt-1">Panel de Control</span>
     </div>
     
-    <nav class="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-2"><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">dashboard</span><span class="">Resumen</span></a><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md bg-secondary-fixed text-on-secondary-fixed font-medium transition-colors"><span class="material-symbols-outlined">inventory_2</span><span class="">Productos</span></a><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">shopping_cart</span><span class="">Pedidos</span></a><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">group</span><span class="">Clientes</span></a><a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">bar_chart</span><span class="">Reportes</span></a></nav>
+    <nav class="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-2"><a href="../../Dashboard/DashboardPages/DashboardAdmin.html" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">dashboard</span><span class="">Resumen</span></a><a href="PedidosAdminProductos.html" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md bg-secondary-fixed text-on-secondary-fixed font-medium transition-colors"><span class="material-symbols-outlined">inventory_2</span><span class="">Productos</span></a><a href="PedidosAdminListado.html" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">shopping_cart</span><span class="">Pedidos</span></a><a href="../../Cancelacion/CancelacionPages/CancelacionAdminListado.html" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">cancel</span><span class="">Cancelaciones</span></a><a href="../../Pagos/PagosPages/PagosAdmin.html" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">payments</span><span class="">Pagos</span></a><a href="../../Clientes/ClientesPages/ClientesAdminListado.html" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">group</span><span class="">Clientes</span></a><a href="../../Dashboard/DashboardPages/DashboardAdmin.html" class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">bar_chart</span><span class="">Reportes</span></a></nav>
     
     <div class="p-4 border-t border-outline-variant flex flex-col gap-2">
         <button class="flex items-center gap-3 px-4 py-3 w-full rounded-xl font-body-md text-on-surface-variant hover:bg-surface-container-high transition-colors text-left">
@@ -317,16 +317,7 @@
 </div>
 
 <!-- Interactive Layer -->
-<script class="">
-        // Simple Micro-interaction for UI feel
-        document.querySelectorAll('button').forEach(btn => {
-            btn.addEventListener('mousedown', () => {
-                btn.style.transform = 'scale(0.98)';
-            });
-            btn.addEventListener('mouseup', () => {
-                btn.style.transform = 'scale(1)';
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'scale(1)';
-            });
-        });</script></body></html>  
+<script src="/config/config.js"></script>
+<script src="/Pedidos/PedidosComponents/PedidosProductoCard.js"></script>
+<script src="/Pedidos/PedidosPages/PedidosAdminProductos.js"></script>
+</body></html>

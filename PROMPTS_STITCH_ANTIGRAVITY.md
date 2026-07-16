@@ -21,6 +21,20 @@ con Antigravity.
 
 ---
 
+## ESTADO DEL PROYECTO (actualizar cada vez que se cierra un módulo)
+
+| Módulo | Estado | Notas |
+|---|---|---|
+| Docker + esqueleto (2.0) | ✅ Cerrado | Postgres expuesto en host en **puerto 5433** (5432 lo ocupa un Postgres nativo de Windows). El `.env` del contenedor `api` usa `DB_PORT=5432` (interno, red Docker) — **nunca 5433 en el `.env`**, ese puerto es solo para clientes externos (DBClient). Nodemon con `CHOKIDAR_USEPOLLING=true` + `legacyWatch` para watch confiable en Windows. |
+| Seguridad (2.1) | ✅ Cerrado y probado | CU-001 a CU-005. `requireAuth` valida firma JWT **y** consulta `usuarios.activo` en cada request (no solo al momento de loguear) — así una baja lógica invalida la sesión de inmediato. Cookie con `sameSite`/`secure` condicional por `NODE_ENV` (lax/false en Docker local HTTP, none/true en producción). |
+| Clientes (2.2) | ✅ Cerrado y probado | CU-006 a CU-010. Reactivación de cliente agregada como extensión de CU-009 (mismo WHERE `rol='cliente'` que la baja). `historialPedidosCliente()` usa `PedidosServices.obtenerPedidosPorUsuario()` (cross-module correcto, sin query duplicada). |
+| Pedidos (2.3) | ✅ Cerrado y probado | CU-011 a CU-016. **Sin control de stock** (negocio es DTF bajo demanda, "Gestión de Insumos/Producción" son módulos evolutivos fuera de alcance — no reintroducir validación de stock). Suma de carrito/checkout verificada con productos reales (no números de mockup de Stitch). Subida de imágenes de producto con `multer` implementada (endpoint `POST /admin/productos/:id/imagenes`) pero **sin verificar del todo** — quedó pendiente de probar a fondo, no bloqueante. |
+| Cancelación (2.4) | ✅ Cerrado y probado | CU-017 a CU-019. Usa la tabla original `solicitudes_cancelacion` del `init.sql` (se detectó y corrigió un duplicado `cancelacion_solicitudes` que Antigravity había creado por error en una migración — ya eliminado). El `UNIQUE(pedido_id)` original se reemplazó por un índice único parcial (`WHERE estado='solicitada'`, migración `003_fix_unique_cancelacion.sql`) para permitir una nueva solicitud después de un rechazo. Pantalla de gestión para el admin: `Cancelacion/CancelacionPages/CancelacionAdminListado.html` (no estaba en el mapeo original de Stitch — se creó copiando la base de `PedidosAdminListado` con un ítem de sidebar propio). Botón "Solicitar cancelación" en `PedidosMisPedidos` solo visible si el pedido no está en `entregado` ni `cancelado`. Pendiente cosmético menor: la pantalla `CancelacionSolicitud.html` muestra algunos datos de ejemplo del mockup de Stitch sin reemplazar por los datos reales del pedido — no bloqueante, la solicitud se guarda correctamente en la base. |
+| Pagos (2.5) | ⏳ Siguiente paso | Dado el tiempo hasta la entrega: priorizar CU-020 (registro manual de pago) como red de seguridad antes de invertir tiempo en el sandbox completo de MercadoPago (CU-021/022). |
+| Dashboard (2.6) | ⏳ Pendiente | Menor prioridad si el tiempo aprieta — es reportería, no funcionalidad core. |
+
+---
+
 ## PARTE 0 — Estándar de administración (vigente, no volver a tocar salvo necesidad)
 
 Todas las pantallas donde entra el administrador (`Pedidos/PedidosPages/PedidosAdminListado.html`,
@@ -265,6 +279,7 @@ pantalla.
 | Clientes (admin) | `Clientes/ClientesPages/ClientesAdminListado.html` |
 | Dashboard (admin) | `Dashboard/DashboardPages/DashboardAdmin.html` |
 | Solicitud de cancelación | `Cancelacion/CancelacionPages/CancelacionSolicitud.html` |
+| Cancelaciones (admin) *(no estaba en Stitch — creada en Antigravity)* | `Cancelacion/CancelacionPages/CancelacionAdminListado.html` |
 
 ---
 
@@ -462,6 +477,16 @@ Estructura: PedidosContenedor.js, PedidosAdapters/, PedidosServices/,
 PedidosComponents/ (para la tarjeta de producto reutilizable entre
 catálogo y otras vistas). Registrá el router en app.js y resumí los
 archivos creados por CU.
+
+IMPORTANTE — deuda técnica a saldar de Clientes: `ClientesServices.js`
+tiene actualmente una query SQL directa contra la tabla `pedidos` para
+resolver CU-010 (historial de pedidos del cliente), con un comentario
+que dice que se debe reemplazar una vez que exista este módulo. Ahora
+que `PedidosServices` existe, agregá ahí una función exportada (ej.
+`obtenerPedidosPorUsuario(usuarioId)`) e importala desde
+`ClientesServices.js` en lugar de la query directa, dejando el
+comentario `// cross-module` correspondiente según AGENTS.md. Avisame
+qué cambiaste en `ClientesServices.js` al terminar.
 ```
 
 ### 2.4 Módulo Cancelación (CU-017 a CU-019)
@@ -494,6 +519,14 @@ CancelacionServices/. Registrá el router en app.js.
 Implementá el módulo Pagos completo: CU-020 (Registrar pago manual),
 CU-021 (Procesar y validar pago online con MercadoPago), CU-022
 (Validar pago) y CU-023 (Consultar historial de pagos).
+
+PRIORIDAD: implementá primero CU-020 y CU-023 (registro manual y
+consulta de historial) de punta a punta, con su Adapter, Service, ruta
+y JS de página funcionando y probable de testear ahora mismo. Recién
+después seguí con CU-021/CU-022 (MercadoPago). Esto es porque el
+registro manual es un camino garantizado de mostrar el módulo
+funcionando aunque el sandbox de MercadoPago tenga algún problema de
+última hora.
 
 CU-021 es el más sensible: seguí exactamente el diagrama de secuencia
 del documento (crear preferencia → redirigir a MercadoPago → recibir

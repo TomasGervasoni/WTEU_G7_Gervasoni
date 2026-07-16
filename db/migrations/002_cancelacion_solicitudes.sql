@@ -1,0 +1,7 @@
+-- =============================================================================
+-- db/migrations/002_cancelacion_solicitudes.sql
+-- (DESCARTADO)
+-- Se descarta esta migración porque ya existía la tabla `solicitudes_cancelacion`
+-- definida desde el inicio del proyecto en db/init.sql.
+-- Se corrigieron los queries del módulo Cancelación para apuntar a la tabla original.
+-- =============================================================================

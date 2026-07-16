@@ -49,6 +49,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // ---------------------------------------------------------------------------
 // Archivos estáticos del frontend
@@ -76,24 +77,24 @@ app.get('/', (_req, res) => {
 // ---------------------------------------------------------------------------
 
 // CU-001 a CU-005 — Seguridad
-// const SeguridadContenedor = require('./Seguridad/SeguridadContenedor');
-// app.use('/api/v1/seguridad', SeguridadContenedor);
+const SeguridadContenedor = require('./Seguridad/SeguridadContenedor');
+app.use('/api/v1/seguridad', SeguridadContenedor);
 
 // CU-006 a CU-010 — Clientes
-// const ClientesContenedor = require('./Clientes/ClientesContenedor');
-// app.use('/api/v1/clientes', ClientesContenedor);
+const ClientesContenedor = require('./Clientes/ClientesContenedor');
+app.use('/api/v1/clientes', ClientesContenedor);
 
 // CU-011 a CU-016 — Pedidos
-// const PedidosContenedor = require('./Pedidos/PedidosContenedor');
-// app.use('/api/v1/pedidos', PedidosContenedor);
+const PedidosContenedor = require('./Pedidos/PedidosContenedor');
+app.use('/api/v1/pedidos', PedidosContenedor);
 
 // CU-017 a CU-019 — Cancelación
-// const CancelacionContenedor = require('./Cancelacion/CancelacionContenedor');
-// app.use('/api/v1/cancelacion', CancelacionContenedor);
+const CancelacionContenedor = require('./Cancelacion/CancelacionContenedor');
+app.use('/api/v1/cancelacion', CancelacionContenedor);
 
 // CU-020 a CU-023 — Pagos
-// const PagosContenedor = require('./Pagos/PagosContenedor');
-// app.use('/api/v1/pagos', PagosContenedor);
+const PagosContenedor = require('./Pagos/PagosContenedor');
+app.use('/api/v1/pagos', PagosContenedor);
 
 // CU-024 a CU-028 — Dashboard
 // const DashboardContenedor = require('./Dashboard/DashboardContenedor');
