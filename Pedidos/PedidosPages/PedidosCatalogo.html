@@ -167,32 +167,32 @@
 </head>
 <body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
 <!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-primary dark:bg-primary-container">
+<nav class="fixed top-0 left-0 w-full z-50 bg-primary dark:bg-primary-container">
+<div class="max-w-7xl mx-auto w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
 <div class="flex items-center gap-gutter">
 <a class="text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container" href="PedidosCatalogo.html">TOWN ESTILO URBANO</a>
 </div>
 <div class="hidden md:flex gap-gutter items-center">
-<a class="text-on-primary dark:text-on-primary-container border-b-2 border-secondary-fixed pb-1 text-label-sm font-label-sm uppercase" href="PedidosCatalogo.html">Catalog</a>
-<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm uppercase" href="PedidosCatalogo.html">New Arrivals</a>
-<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm uppercase" href="PedidosCatalogo.html">Collections</a>
+<a class="text-on-primary dark:text-on-primary-container border-b-2 border-secondary-fixed pb-1 text-label-sm font-label-sm uppercase" href="PedidosCatalogo.html">Catálogo</a>
 </div>
 <div class="flex items-center gap-base">
-<button class="p-2 text-on-primary dark:text-on-primary-container hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200">
-<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 0;">search</span>
+<button class="p-2 text-on-primary dark:text-on-primary-container hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200" onclick="window.location.href='PedidosMisPedidos.html'" title="Mis Pedidos">
+<span class="material-symbols-outlined" data-icon="receipt_long" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
 </button>
 <button class="p-2 text-on-primary dark:text-on-primary-container hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200" onclick="window.location.href='../../Seguridad/SeguridadPages/SeguridadLogin.html'">
 <span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 0;">person</span>
 </button>
 <button class="p-2 text-on-primary dark:text-on-primary-container hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 relative" onclick="window.location.href='PedidosCarrito.html'">
 <span class="material-symbols-outlined" data-icon="shopping_bag" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
-<span class="absolute top-1 right-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-1 rounded-full">3</span>
+<span class="absolute top-1 right-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-1 rounded-full" id="cartBadge"></span>
 </button>
+</div>
 </div>
 </nav>
 <!-- Main Content Layout -->
-<div class="flex-1 flex pt-16 h-[calc(100vh-160px)]"> <!-- Adjust height for footer -->
+<div class="pt-16 min-h-screen max-w-7xl mx-auto w-full flex flex-col lg:flex-row">
 <!-- SideNavBar -->
-<aside class="h-full w-64 hidden lg:flex flex-col py-base px-gutter border-r border-outline-variant dark:border-outline bg-surface dark:bg-surface-dim overflow-y-auto">
+<aside class="sticky top-16 h-[calc(100vh-64px)] shrink-0 w-64 hidden lg:flex flex-col py-base px-gutter border-r border-outline-variant dark:border-outline bg-surface dark:bg-surface-dim overflow-y-auto z-40">
 <div class="mb-gutter mt-base">
 <h2 class="text-label-sm font-label-sm font-bold text-primary dark:text-on-surface tracking-widest uppercase">FILTER BY</h2>
 <p class="text-on-surface-variant dark:text-on-surface-variant text-label-sm font-label-sm mt-1">Refine your urban style</p>
@@ -203,38 +203,12 @@
 <span class="text-label-sm font-label-sm">All Items</span>
 </a>
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors rounded-lg" href="#">
-<span class="material-symbols-outlined text-lg" data-icon="checkroom">checkroom</span>
-<span class="text-label-sm font-label-sm">Hoodies</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors rounded-lg" href="#">
-<span class="material-symbols-outlined text-lg" data-icon="apparel">apparel</span>
-<span class="text-label-sm font-label-sm">Tees</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors rounded-lg" href="#">
-<span class="material-symbols-outlined text-lg" data-icon="straighten">straighten</span>
-<span class="text-label-sm font-label-sm">Cargo</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors rounded-lg" href="#">
-<span class="material-symbols-outlined text-lg" data-icon="Watch">watch</span>
-<span class="text-label-sm font-label-sm">Accessories</span>
+<!-- Links rotos removidos -->
 </a>
 </nav>
-<div class="mt-8">
-<button class="w-full py-3 bg-primary text-on-primary text-label-sm font-label-sm uppercase tracking-wider hover:bg-inverse-surface transition-colors">Apply Filters</button>
-</div>
-<div class="mt-auto pt-8 border-t border-outline-variant/30 flex flex-col gap-2">
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors rounded-lg" href="#">
-<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
-<span class="text-label-sm font-label-sm">Help Center</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors rounded-lg" href="#">
-<span class="material-symbols-outlined text-lg" data-icon="local_shipping">local_shipping</span>
-<span class="text-label-sm font-label-sm">Shipping</span>
-</a>
-</div>
 </aside>
 <!-- Main Canvas -->
-<main class="flex-1 overflow-y-auto px-margin-mobile md:px-margin-desktop py-gutter">
+<main class="flex-1 overflow-y-auto px-margin-mobile md:px-margin-desktop py-gutter w-full">
 <!-- Banner -->
 <div class="w-full h-64 mb-section-gap relative overflow-hidden bg-primary-container flex items-center justify-center gallery-shadow rounded-lg">
 <div class="absolute inset-0 opacity-40" data-alt="A cinematic, wide-angle shot of a minimalist, concrete urban architecture environment setting the mood for a high-end streetwear catalog. The lighting is moody and dramatic with deep shadows and soft highlights, primarily in monochrome with subtle blue undertones to match the tech/corporate streetwear vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6zU0jBm91a45ldgHr4X9qN46QWCQP3qkH7CV9SkeQx_b-AzIsC-HBwoyins8zEtBKT_jxO-jbJ65nybC6ckYGe4aJ6V9dOTZeyZRH2vBg5z7PghRcFk8qAP54C9fhNROQjc1_ZbhH7MOzV6RhGV38y6yifvyU8_biVRdpcA5dzSM2J3rnDpEL8m9o47loAq4uqIflC_BfllqU0DYb7jijfKh0N5No2a5uau3taXHVyR1KlFxWfjE')"></div>
@@ -334,15 +308,14 @@
 </main>
 </div>
 <!-- Footer -->
-<footer class="w-full py-section-gap px-margin-desktop flex flex-col items-center gap-base bg-primary dark:bg-primary-container z-50">
+<footer class="w-full bg-primary dark:bg-primary-container z-50 mt-auto">
+<div class="max-w-7xl mx-auto w-full py-section-gap px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-base">
 <h2 class="text-headline-md font-headline-md font-black text-on-primary uppercase tracking-tight">TOWN ESTILO URBANO</h2>
 <div class="flex gap-6 mt-4">
-<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Privacy Policy</a>
-<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Terms of Service</a>
-<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Sustainability</a>
-<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Contact</a>
+<!-- Links rotos removidos -->
 </div>
 <p class="text-on-primary-container text-label-sm font-label-sm mt-8 opacity-50">© 2024 TOWN ESTILO URBANO. ARCHITECTURAL QUALITY.</p>
+</div>
 </footer>
 <script src="/config/config.js"></script>
 <script src="/Pedidos/PedidosComponents/PedidosProductoCard.js"></script>

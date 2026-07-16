@@ -101,19 +101,15 @@
 </head>
 <body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container">
 <!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto bg-primary-container shadow-sm">
-<div class="flex items-center gap-8">
-<h1 class="font-headline-lg text-headline-lg tracking-tighter text-on-primary uppercase">TOWN ESTILO URBANO</h1>
-<div class="hidden md:flex gap-6">
-<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary hover:opacity-80 transition-all duration-200" href="#">HOMBRES</a>
-<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary hover:opacity-80 transition-all duration-200" href="#">MUJERES</a>
-<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary hover:opacity-80 transition-all duration-200" href="#">ACCESORIOS</a>
-<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary hover:opacity-80 transition-all duration-200" href="#">COLECCIONES</a>
+<nav class="bg-primary-container fixed top-0 left-0 w-full z-50 shadow-sm">
+<div class="max-w-7xl mx-auto w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20">
+<div class="flex items-center">
+<span class="font-headline-lg text-headline-lg tracking-tighter text-on-primary uppercase">TOWN ESTILO URBANO</span>
 </div>
-</div>
-<div class="flex items-center gap-4 text-on-primary">
+<div class="flex items-center gap-6 text-on-primary">
 <span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity" data-icon="shopping_bag">shopping_bag</span>
 <span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity" data-icon="person">person</span>
+</div>
 </div>
 </nav>
 <!-- Main Content Canvas -->
@@ -157,7 +153,7 @@
 </form>
 <!-- Links -->
 <footer class="mt-8 pt-8 border-t border-outline-variant space-y-4 text-center">
-<a class="block font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">¿Ya tenés cuenta? Ingresar</a>
+<a class="block font-label-sm text-label-sm text-primary hover:underline transition-all" href="SeguridadLogin.html">¿Ya tenés cuenta? Ingresar</a>
 <a class="block font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2" href="../../Pedidos/PedidosPages/PedidosCatalogo.html">
 <span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
                     Volver a la tienda
@@ -170,24 +166,16 @@
 
 </div>
 <!-- Footer -->
-<footer class="w-full py-section-gap px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-surface border-t border-outline-variant">
+<footer class="w-full bg-surface border-t border-outline-variant mt-auto">
+<div class="max-w-7xl mx-auto w-full py-section-gap px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
 <div class="col-span-1 md:col-span-1">
 <h3 class="font-headline-md text-headline-md text-primary mb-4">TOWN</h3>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Elevando el estilo urbano a través de la precisión arquitectónica y el minimalismo contemporáneo.</p>
 </div>
-<div class="flex flex-col gap-3">
-<h4 class="font-label-sm text-label-sm text-on-surface uppercase font-bold mb-2">Soporte</h4>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">AYUDA</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">ENVIOS</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">DEVOLUCIONES</a>
-</div>
-<div class="flex flex-col gap-3">
-<h4 class="font-label-sm text-label-sm text-on-surface uppercase font-bold mb-2">Legal</h4>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">TERMINOS</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">CONTACTO</a>
-</div>
+<!-- Eliminadas columnas de información rotas -->
 <div class="flex flex-col justify-end">
 <p class="font-label-sm text-label-sm text-on-surface-variant uppercase">© 2024 TOWN ESTILO URBANO. ARQUITECTURA URBANA.</p>
+</div>
 </div>
 </footer>
 <!-- config.js define window.API_URL según el entorno (localhost vs Railway) -->

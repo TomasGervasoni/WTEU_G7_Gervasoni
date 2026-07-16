@@ -1,0 +1,868 @@
+[
+  {
+    "id": "p001",
+    "seccion": "Mujer",
+    "images": [
+      "./imagenes/frases-A-Blanco.jpeg"
+    ],
+    "name": "Remera Dama blanca . Frases A",
+    "description": "Remera 100% algodón. Suma estilo y comodidad a tu vestuario, ideal para uso diario.",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Dama",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p002",
+    "seccion": "Niños/as",
+    "images": [
+      "./imagenes/colapinto-A-Blanco.jpeg"
+    ],
+    "name": "Remera Básica. Colapinto-A",
+    "description": "Remera 100% algodón. Suma estilo y comodidad a tu vestuario, ideal para uso diario.",
+    "talle": [
+      "10",
+      " 12",
+      " 14",
+      " 16"
+    ],
+    "corte": "Niños/as",
+    "color": [
+      "blanco",
+      "negro",
+      "melange"
+    ],
+    "tela": "algodon premium",
+    "price": 25000
+  },
+  {
+    "id": "p003",
+    "seccion": "Hombre",
+    "images": [
+      "./imagenes/Nautical-verde.jpeg"
+    ],
+    "name": "Remera Básica. NauticaL-verde",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Básico",
+    "color": [
+      "blanco",
+      "negro",
+      "melange",
+      "Azul-marino"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p004",
+    "seccion": "Hombre",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_986672-MLA88638231659_072025-O.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_738120-MLA88637963943_072025-F.webp"
+    ],
+    "name": "Remera Básica. Algodon con Elastano",
+    "description": "Remera de algodón con elastano. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Básico",
+    "color": [
+      "blanco",
+      "negro",
+      "melange",
+      "Azul-marino"
+    ],
+    "tela": "algodon con elastano",
+    "price": 32000
+  },
+  {
+    "id": "p005",
+    "seccion": "Mujer",
+    "images": [
+      "./imagenes/Imagen-GatoSilvestre.jpeg"
+    ],
+    "name": "Remera blanca . Silvestre A - Oversize",
+    "description": "Remera 100% algodón. Suma estilo y comodidad a tu vestuario, ideal para uso diario.",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Oversize",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 29900
+  },
+  {
+    "id": "p006",
+    "seccion": "Hombre",
+    "images": [
+      "./imagenes/ImagenAngel-A.jpeg"
+    ],
+    "name": "Remera oversize. Angel-A",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Oversize",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 29900
+  },
+  {
+    "id": "p007",
+    "seccion": "Mujer",
+    "images": [
+      "./imagenes/Imagen-MarkTwain.jpeg"
+    ],
+    "name": "Remera Dama blanca . MarkTwain A",
+    "description": "Remera 100% algodón. Suma estilo y comodidad a tu vestuario, ideal para uso diario.",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Dama",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p008",
+    "seccion": "Personalizado",
+    "subseccion": "Remeras",
+    "images": [
+      "https://4d24a8973b.cbaul-cdnwnd.com/6181982ed32ccfd6cf60a69d0b242044/system_preview_detail_200000072-451984613a/images%20(9).jpg",
+      "./imagenes/HarryPotter-A-Blanco.jpeg",
+      "./imagenes/imagen-perritoTown.jpeg"
+    ],
+    "name": "Remera personalizada - Basico",
+    "description": "Remera personalizada con  Tu idea. Contactanos para más información.",
+    "talle": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "corte": "Basico",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p009",
+    "seccion": "Personalizado",
+    "subseccion": "Remeras",
+    "images": [
+      "https://4d24a8973b.cbaul-cdnwnd.com/6181982ed32ccfd6cf60a69d0b242044/system_preview_detail_200000072-451984613a/images%20(9).jpg",
+      "./imagenes/frases-A-Blanco.jpeg",
+      "./imagenes/HarryPotter-A-Blanco.jpeg"
+    ],
+    "name": "Remera personalizada - Basico-2xl,3xl",
+    "description": "Remera personalizada con  Tu idea. Contactanos para más información.",
+    "talle": [
+      "2XL",
+      "3XL"
+    ],
+    "corte": "Basico",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p010",
+    "seccion": "Personalizado",
+    "subseccion": "Remeras",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_661192-MLA85349160244_062025-O.webp",
+      "./imagenes/imagen-PerritoTown-C.jpeg",
+      "./imagenes/IMC-Cuyaube.jpeg"
+    ],
+    "name": "Remera personalizada - Oversize",
+    "description": "Remera personalizada con  Tu idea. Contactanos para más información.",
+    "talle": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "corte": "Oversize",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 29900
+  },
+  {
+    "id": "p011",
+    "seccion": "Personalizado",
+    "subseccion": "Remeras",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_661192-MLA85349160244_062025-O.webp",
+      "./imagenes/imagen-PerritoTown-C.jpeg",
+      "./imagenes/IMC-Cuyaube.jpeg"
+    ],
+    "name": "Remera personalizada - Oversize-2xl,3xl",
+    "description": "Remera personalizada con  Tu idea. Contactanos para más información.",
+    "talle": [
+      "2XL",
+      "3XL"
+    ],
+    "corte": "Oversize",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 29900
+  },
+  {
+    "id": "p012",
+    "seccion": "Personalizado",
+    "subseccion": "Tazas",
+    "images": [
+      "https://http2.mlstatic.com/D_622737-MLA77362943122_072024-C.jpg",
+      "./imagenes/taza1.jpg",
+      "./imagenes/taza2.jpg",
+      "./imagenes/taza3.jpg",
+      "./imagenes/taza4.jpg",
+      "./imagenes/taza5.jpg",
+      "./imagenes/taza6.jpg",
+      "./imagenes/taza7.jpg",
+      "./imagenes/taza8.jpg",
+      "./imagenes/taza9.jpg",
+      "./imagenes/taza10.jpg",
+      "./imagenes/taza11.jpg",
+      "./imagenes/taza12.jpg",
+      "./imagenes/taza13.jpg",
+      "./imagenes/taza14.jpg",
+      "./imagenes/taza15.jpg",
+      "./imagenes/taza16.jpg",
+      "./imagenes/taza17.jpg",
+      "./imagenes/taza18.jpg",
+      "./imagenes/taza19.jpg",
+      "./imagenes/taza20.jpg",
+      "./imagenes/taza21.jpg"
+    ],
+    "name": "Taza ceramica personalizada",
+    "description": "Taza de cerámica con tu diseño único y personalizado. Perfecta para regalar o para uso personal. Impresión de alta calidad que resiste el lavado frecuente.",
+    "talle": [
+      "Único"
+    ],
+    "corte": "Unico",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "ceramica",
+    "price": 11000
+  },
+  {
+    "id": "p013",
+    "seccion": "Empresas/Comercios/Emprendedores/Profesionales",
+    "images": [
+      "https://4d24a8973b.cbaul-cdnwnd.com/6181982ed32ccfd6cf60a69d0b242044/system_preview_detail_200000072-451984613a/images%20(9).jpg",
+      "./imagenes/IMC-Cuyaube.jpeg",
+      "./imagenes/imagen-4deCordoba.jpeg",
+      "./imagenes/imagen-4deCordoba-A.jpeg",
+      "./imagenes/imagen-peladoTransportador.jpeg"
+    ],
+    "name": "Uniforme corporativo",
+    "description": "Remeras personalizadas con el logo de tu empresa. Contactanos para más información.",
+    "talle": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "corte": "Basico",
+    "color": "negro",
+    "tela": "algodon premium",
+    "price": 0
+  },
+  {
+    "id": "p014",
+    "seccion": "Mujer",
+    "images": [
+      "./imagenes/HarryPotter-A-Blanco.jpeg"
+    ],
+    "name": "Remera Dama blanca . HaarryPotter",
+    "description": "Remera 100% algodón. Suma estilo y comodidad a tu vestuario, ideal para uso diario.",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Dama",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p015",
+    "seccion": "Hombre",
+    "images": [
+      "./imagenes/Nautical-1-Negro.jpeg"
+    ],
+    "name": "Remera Básica. NauticaL-Rojo",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Básico",
+    "color": [
+      "blanco",
+      "negro",
+      "melange",
+      "Azul-marino"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p017",
+    "seccion": "Mujer",
+    "images": [
+      "./imagenes/imagenNewYork.jpeg"
+    ],
+    "name": "Remera Dama blanca . NewYork A",
+    "description": "Remera 100% algodón. Suma estilo y comodidad a tu vestuario, ideal para uso diario.",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Dama",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p019",
+    "seccion": "Hombre",
+    "images": [
+      "./imagenes/imagenPorsche.jpeg"
+    ],
+    "name": "Remera Porsche - Oversize",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      "2XL"
+    ],
+    "corte": "Oversize",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 29900
+  },
+  {
+    "id": "p020",
+    "seccion": "Hombre",
+    "images": [
+      "./imagenes/imagenPorsche.jpeg"
+    ],
+    "name": "Remera Porsche",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "corte": "Basico",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p021",
+    "seccion": "Hombre",
+    "images": [
+      "./imagenes/imagenPorsche.jpeg"
+    ],
+    "name": "Remera Porsche - 2xl,3xl",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "2XL",
+      "3XL"
+    ],
+    "corte": "Basico",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 27900
+  },
+  {
+    "id": "p022",
+    "seccion": "Hombre",
+    "images": [
+      "./imagenes/quickSilver-Negro.jpeg"
+    ],
+    "name": "Remera Quick Silver - Oversize",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "corte": "Oversize",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 29900
+  },
+  {
+    "id": "p023",
+    "seccion": "Hombre",
+    "images": [
+      "./imagenes/ultimacena-negro.jpeg"
+    ],
+    "name": "Remera Ultima Cena - Oversize",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "corte": "Oversize",
+    "color": [
+      "blanco",
+      "negro"
+    ],
+    "tela": "algodon premium",
+    "price": 29900
+  },
+  {
+    "id": "p031",
+    "seccion": "Personalizado",
+    "subseccion": "SetJardin",
+    "images": [
+      "./imagenes/KitJardin3.jpeg",
+      "./imagenes/SetJardinBenja.jpeg",
+      "./imagenes/SetJardinMochila.jpeg",
+      "./imagenes/KitJardin1.jpeg",
+      "./imagenes/KitJardin2.jpeg",
+      "./imagenes/KitJardin4.jpeg",
+      "./imagenes/KitJardin5.jpeg",
+      "./imagenes/KitJardin6.jpeg",
+      "./imagenes/KitJardin7.jpeg",
+      "./imagenes/KitJardin8.jpeg",
+      "./imagenes/KitJardin9.jpeg",
+      "./imagenes/KitJardin10.jpeg",
+      "./imagenes/KitJardin12.jpeg",
+      "./imagenes/KitJardin13.jpeg",
+      "./imagenes/KitJardin14.jpeg",
+      "./imagenes/KitJardin15.jpeg",
+      "./imagenes/KitJardin16.jpeg",
+      "./imagenes/KitJardin17.jpeg",
+      "./imagenes/KitJardin18.jpeg",
+      "./imagenes/KitJardin19.jpeg",
+      "./imagenes/KitJardin20.jpeg",
+      "./imagenes/KitJardin21.jpeg",
+      "./imagenes/KitJardin22.jpeg",
+      "./imagenes/KitJardin23.jpeg",
+      "./imagenes/KitJardin24.jpeg",
+      "./imagenes/KitJardin25.jpeg",
+      "./imagenes/KitJardin26.jpeg",
+      "./imagenes/KitJardin27.jpeg",
+      "./imagenes/KitJardin28.jpeg",
+      "./imagenes/KitJardin29.jpeg",
+      "./imagenes/KitJardin30.jpeg",
+      "./imagenes/KitJardin31.jpeg",
+      "./imagenes/KitJardin32.jpeg",
+      "./imagenes/KitJardin33.jpeg",
+      "./imagenes/KitJardin34.jpeg",
+      "./imagenes/KitJardin35.jpeg",
+      "./imagenes/KitJardin36.jpeg"
+    ],
+    "name": "Set Jardín personalizado - Combo 1. Tú elijes el diseño.",
+    "description": "Combo 1:<b> Mantel, Servilleta, Toalla y taza.</b>",
+    "talle": [
+      "Único"
+    ],
+    "corte": "Unico",
+    "color": [
+      "rosa",
+      "Azul-marino"
+    ],
+    "tela": "Varios",
+    "price": 9900
+  },
+  {
+    "id": "p032",
+    "seccion": "Personalizado",
+    "subseccion": "SetJardin",
+    "images": [
+      "./imagenes/KitJardin11.jpeg",
+      "./imagenes/SetJardinBenja.jpeg",
+      "./imagenes/SetJardinMochila.jpeg",
+      "./imagenes/KitJardin2.jpeg",
+      "./imagenes/KitJardin3.jpeg",
+      "./imagenes/KitJardin4.jpeg",
+      "./imagenes/KitJardin5.jpeg",
+      "./imagenes/KitJardin6.jpeg",
+      "./imagenes/KitJardin7.jpeg",
+      "./imagenes/KitJardin8.jpeg",
+      "./imagenes/KitJardin9.jpeg",
+      "./imagenes/KitJardin10.jpeg",
+      "./imagenes/KitJardin12.jpeg",
+      "./imagenes/KitJardin13.jpeg",
+      "./imagenes/KitJardin14.jpeg",
+      "./imagenes/KitJardin15.jpeg",
+      "./imagenes/KitJardin16.jpeg",
+      "./imagenes/KitJardin17.jpeg",
+      "./imagenes/KitJardin18.jpeg",
+      "./imagenes/KitJardin19.jpeg",
+      "./imagenes/KitJardin20.jpeg",
+      "./imagenes/KitJardin21.jpeg",
+      "./imagenes/KitJardin22.jpeg",
+      "./imagenes/KitJardin23.jpeg",
+      "./imagenes/KitJardin24.jpeg",
+      "./imagenes/KitJardin25.jpeg",
+      "./imagenes/KitJardin26.jpeg",
+      "./imagenes/KitJardin27.jpeg",
+      "./imagenes/KitJardin28.jpeg",
+      "./imagenes/KitJardin29.jpeg",
+      "./imagenes/KitJardin30.jpeg",
+      "./imagenes/KitJardin31.jpeg",
+      "./imagenes/KitJardin32.jpeg",
+      "./imagenes/KitJardin33.jpeg",
+      "./imagenes/KitJardin34.jpeg",
+      "./imagenes/KitJardin35.jpeg",
+      "./imagenes/KitJardin36.jpeg"
+    ],
+    "name": "Set Jardín personalizado - Combo 2. Tú elijes el diseño.",
+    "description": "Combo 2:<b> Mantel, Servilleta, Toalla, taza, cuchara y plato.</b>",
+    "talle": [
+      "Único"
+    ],
+    "corte": "Unico",
+    "color": [
+      "rosa",
+      "Azul-marino"
+    ],
+    "tela": "Varios",
+    "price": 14300
+  },
+  {
+    "id": "p033",
+    "seccion": "Personalizado",
+    "subseccion": "SetJardin",
+    "images": [
+      "./imagenes/KitJardin10.jpeg",
+      "./imagenes/SetJardinBenja.jpeg",
+      "./imagenes/SetJardinMochila.jpeg",
+      "./imagenes/KitJardin2.jpeg",
+      "./imagenes/KitJardin3.jpeg",
+      "./imagenes/KitJardin4.jpeg",
+      "./imagenes/KitJardin5.jpeg",
+      "./imagenes/KitJardin6.jpeg",
+      "./imagenes/KitJardin7.jpeg",
+      "./imagenes/KitJardin8.jpeg",
+      "./imagenes/KitJardin9.jpeg",
+      "./imagenes/KitJardin11.jpeg",
+      "./imagenes/KitJardin12.jpeg",
+      "./imagenes/KitJardin13.jpeg",
+      "./imagenes/KitJardin14.jpeg",
+      "./imagenes/KitJardin15.jpeg",
+      "./imagenes/KitJardin16.jpeg",
+      "./imagenes/KitJardin17.jpeg",
+      "./imagenes/KitJardin18.jpeg",
+      "./imagenes/KitJardin19.jpeg",
+      "./imagenes/KitJardin20.jpeg",
+      "./imagenes/KitJardin21.jpeg",
+      "./imagenes/KitJardin22.jpeg",
+      "./imagenes/KitJardin23.jpeg",
+      "./imagenes/KitJardin24.jpeg",
+      "./imagenes/KitJardin25.jpeg",
+      "./imagenes/KitJardin26.jpeg",
+      "./imagenes/KitJardin27.jpeg",
+      "./imagenes/KitJardin28.jpeg",
+      "./imagenes/KitJardin29.jpeg",
+      "./imagenes/KitJardin30.jpeg",
+      "./imagenes/KitJardin31.jpeg",
+      "./imagenes/KitJardin32.jpeg",
+      "./imagenes/KitJardin33.jpeg",
+      "./imagenes/KitJardin34.jpeg",
+      "./imagenes/KitJardin35.jpeg",
+      "./imagenes/KitJardin36.jpeg"
+    ],
+    "name": "Set Jardín personalizado - Combo 3. Tú elijes el diseño.",
+    "description": "Combo 3:<b> Mantel, Servilleta, Toalla, taza, cuchara, plato y cantinplora.</b>",
+    "talle": [
+      "Único"
+    ],
+    "corte": "Unico",
+    "color": [
+      "rosa",
+      "Azul-marino"
+    ],
+    "tela": "Varios",
+    "price": 20500
+  },
+  {
+    "id": "p034",
+    "seccion": "Personalizado",
+    "subseccion": "SetJardin",
+    "images": [
+      "./imagenes/KitJardin12.jpeg",
+      "./imagenes/SetJardinBenja.jpeg",
+      "./imagenes/SetJardinMochila.jpeg",
+      "./imagenes/KitJardin2.jpeg",
+      "./imagenes/KitJardin3.jpeg",
+      "./imagenes/KitJardin4.jpeg",
+      "./imagenes/KitJardin5.jpeg",
+      "./imagenes/KitJardin6.jpeg",
+      "./imagenes/KitJardin7.jpeg",
+      "./imagenes/KitJardin8.jpeg",
+      "./imagenes/KitJardin9.jpeg",
+      "./imagenes/KitJardin11.jpeg",
+      "./imagenes/KitJardin10.jpeg",
+      "./imagenes/KitJardin13.jpeg",
+      "./imagenes/KitJardin14.jpeg",
+      "./imagenes/KitJardin15.jpeg",
+      "./imagenes/KitJardin16.jpeg",
+      "./imagenes/KitJardin17.jpeg",
+      "./imagenes/KitJardin18.jpeg",
+      "./imagenes/KitJardin19.jpeg",
+      "./imagenes/KitJardin20.jpeg",
+      "./imagenes/KitJardin21.jpeg",
+      "./imagenes/KitJardin22.jpeg",
+      "./imagenes/KitJardin23.jpeg",
+      "./imagenes/KitJardin24.jpeg",
+      "./imagenes/KitJardin25.jpeg",
+      "./imagenes/KitJardin26.jpeg",
+      "./imagenes/KitJardin27.jpeg",
+      "./imagenes/KitJardin28.jpeg",
+      "./imagenes/KitJardin29.jpeg",
+      "./imagenes/KitJardin30.jpeg",
+      "./imagenes/KitJardin31.jpeg",
+      "./imagenes/KitJardin32.jpeg",
+      "./imagenes/KitJardin33.jpeg",
+      "./imagenes/KitJardin34.jpeg",
+      "./imagenes/KitJardin35.jpeg",
+      "./imagenes/KitJardin36.jpeg"
+    ],
+    "name": "Set Jardín personalizado - Combo 4. Tú elijes el diseño.",
+    "description": "Combo 4:<b> Mantel, Servilleta, Toalla, taza, cuchara, plato, cantinplora y lonchera.</b>",
+    "talle": [
+      "Único"
+    ],
+    "corte": "Unico",
+    "color": [
+      "rosa",
+      "Azul-marino"
+    ],
+    "tela": "Varios",
+    "price": 24700
+  },
+  {
+    "id": "p035",
+    "seccion": "Personalizado",
+    "subseccion": "SetJardin",
+    "images": [
+      "./imagenes/KitJardin4.jpeg",
+      "./imagenes/SetJardinBenja.jpeg",
+      "./imagenes/SetJardinMochila.jpeg",
+      "./imagenes/KitJardin2.jpeg",
+      "./imagenes/KitJardin3.jpeg",
+      "./imagenes/KitJardin16.jpeg",
+      "./imagenes/KitJardin5.jpeg",
+      "./imagenes/KitJardin6.jpeg",
+      "./imagenes/KitJardin7.jpeg",
+      "./imagenes/KitJardin8.jpeg",
+      "./imagenes/KitJardin9.jpeg",
+      "./imagenes/KitJardin11.jpeg",
+      "./imagenes/KitJardin12.jpeg",
+      "./imagenes/KitJardin13.jpeg",
+      "./imagenes/KitJardin14.jpeg",
+      "./imagenes/KitJardin15.jpeg",
+      "./imagenes/KitJardin10.jpeg",
+      "./imagenes/KitJardin17.jpeg",
+      "./imagenes/KitJardin18.jpeg",
+      "./imagenes/KitJardin19.jpeg",
+      "./imagenes/KitJardin20.jpeg",
+      "./imagenes/KitJardin21.jpeg",
+      "./imagenes/KitJardin22.jpeg",
+      "./imagenes/KitJardin23.jpeg",
+      "./imagenes/KitJardin24.jpeg",
+      "./imagenes/KitJardin25.jpeg",
+      "./imagenes/KitJardin26.jpeg",
+      "./imagenes/KitJardin27.jpeg",
+      "./imagenes/KitJardin28.jpeg",
+      "./imagenes/KitJardin29.jpeg",
+      "./imagenes/KitJardin30.jpeg",
+      "./imagenes/KitJardin31.jpeg",
+      "./imagenes/KitJardin32.jpeg",
+      "./imagenes/KitJardin33.jpeg",
+      "./imagenes/KitJardin34.jpeg",
+      "./imagenes/KitJardin35.jpeg",
+      "./imagenes/KitJardin36.jpeg"
+    ],
+    "name": "Set Jardín personalizado - Combo 5. Tú elijes el diseño.",
+    "description": "Combo 5:<b>Mantel, Servilleta, Toalla, taza, cuchara, plato, cantinplora, lonchera y mochila.</b>",
+    "talle": [
+      "Único"
+    ],
+    "corte": "Unico",
+    "color": [
+      "rosa",
+      "Azul-marino"
+    ],
+    "tela": "Varios",
+    "price": 38600
+  },
+  {
+    "id": "p036",
+    "seccion": "Niños/as",
+    "subseccion": "Spum",
+    "images": [
+      "./imagenes/colapinto-A-Blanco.jpeg"
+    ],
+    "name": "Remera Spum Colapinto-A",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "8",
+      "10",
+      "12",
+      "14",
+      "16"
+    ],
+    "corte": "Unico",
+    "color": [
+      "blanco",
+      "negro",
+      "melange",
+      "rosa",
+      "Azul-marino"
+    ],
+    "tela": "Varios",
+    "price": 15000
+  },
+  {
+    "id": "p037",
+    "seccion": "Personalizado",
+    "images": [
+      "./imagenes/Nautical-verde.jpeg",
+      "https://http2.mlstatic.com/D_NQ_NP_986672-MLA88638231659_072025-O.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_738120-MLA88637963943_072025-F.webp"
+    ],
+    "name": "Remera Spum. NauticaL-verde",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Básico",
+    "color": [
+      "blanco",
+      "negro",
+      "melange",
+      "Azul-marino"
+    ],
+    "tela": "algodon premium",
+    "price": 17000
+  },
+  {
+    "id": "p038",
+    "seccion": "Personalizado",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_738120-MLA88637963943_072025-F.webp"
+    ],
+    "name": "Don-prueb",
+    "description": "Remera 100% algodón. Sumá estilo y comodidad a tu vestuario. La calidad que siempre quisiste. Confeccionada para sentir la comodidad que buscas. Liviana, suave",
+    "talle": [
+      "S",
+      " M",
+      " L",
+      " XL",
+      " 2XL"
+    ],
+    "corte": "Básico",
+    "color": [
+      "blanco",
+      "negro",
+      "melange",
+      "Azul-marino"
+    ],
+    "tela": "algodon premium",
+    "price": 2
+  }
+]

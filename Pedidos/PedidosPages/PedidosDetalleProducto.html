@@ -116,30 +116,33 @@
 </head>
 <body class="bg-background text-on-background antialiased pt-16 flex flex-col min-h-screen">
 <!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-primary dark:bg-primary-container">
-<!-- Brand -->
-<a class="text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container" href="PedidosCatalogo.html">
-            TOWN ESTILO URBANO
-        </a>
+<nav class="fixed top-0 left-0 w-full z-50 bg-primary dark:bg-primary-container">
+<div class="max-w-7xl mx-auto w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-gutter">
+<a class="text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container" href="PedidosCatalogo.html">TOWN ESTILO URBANO</a>
+</div>
 <!-- Navigation Links -->
 <div class="hidden md:flex gap-gutter items-center">
-<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="PedidosCatalogo.html">Catalog</a>
-<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="PedidosCatalogo.html">New Arrivals</a>
-<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="PedidosCatalogo.html">Collections</a>
+<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm uppercase" href="PedidosCatalogo.html">Catálogo</a>
 </div>
 <!-- Trailing Icons -->
 <div class="flex gap-gutter items-center text-on-primary dark:text-on-primary-container">
 <button class="hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 opacity-80" onclick="window.location.href='PedidosCarrito.html'">
 <span class="material-symbols-outlined">shopping_bag</span>
 </button>
+<button class="hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 opacity-80" onclick="window.location.href='PedidosMisPedidos.html'" title="Mis Pedidos">
+<span class="material-symbols-outlined">receipt_long</span>
+</button>
 <button class="hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 opacity-80" onclick="window.location.href='../../Seguridad/SeguridadPages/SeguridadLogin.html'">
 <span class="material-symbols-outlined">person</span>
 </button>
 </div>
+</div>
 </nav>
-<!-- Main Content Canvas -->
-<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col lg:flex-row gap-gutter xl:gap-[80px]">
-<!-- Left: Image Gallery (Bento/Asymmetric style) -->
+<!-- Main Content -->
+<main class="pt-16 min-h-screen px-margin-mobile md:px-margin-desktop py-gutter max-w-7xl mx-auto w-full">
+<div class="flex flex-col lg:flex-row gap-gutter lg:gap-12 w-full pt-8 lg:pt-12">
+<!-- Left: Images Gallery (Bento/Asymmetric style) -->
 <div class="w-full lg:w-3/5 flex flex-col-reverse md:flex-row gap-gutter h-auto lg:h-[800px]">
 <!-- Thumbnails (Vertical on desktop, horizontal on mobile) -->
 <div class="flex md:flex-col gap-base overflow-x-auto md:overflow-y-auto w-full md:w-[120px] shrink-0 no-scrollbar">
@@ -168,11 +171,7 @@
 <div class="w-full lg:w-2/5 flex flex-col pt-4 lg:pt-0">
 <!-- Breadcrumbs -->
 <div class="flex items-center gap-2 text-on-surface-variant text-label-sm font-label-sm mb-6">
-<a class="hover:text-primary transition-colors" href="PedidosCatalogo.html">Catalog</a>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-<a class="hover:text-primary transition-colors" href="#">Hoodies</a>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-<span class="text-primary">Urban Oversize</span>
+<a class="hover:text-primary transition-colors" href="PedidosCatalogo.html">Volver al Catálogo</a>
 </div>
 <!-- Title & Price -->
 <h1 class="text-display-lg font-display-lg text-primary mb-2">Hoodie Urban Oversize</h1>
@@ -194,32 +193,25 @@
 <div>
 <div class="flex justify-between items-center mb-3">
 <span class="text-label-sm font-label-sm text-primary uppercase">Color</span>
-<span class="text-label-sm font-label-sm text-on-surface-variant">Midnight Black</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant" id="colorSeleccionadoTexto"></span>
 </div>
-<div class="flex gap-4">
-<button aria-label="Midnight Black" class="w-10 h-10 rounded-full bg-[#0F1420] border-2 border-primary ring-2 ring-offset-2 ring-transparent focus:ring-primary transition-all shadow-sm"></button>
-<button aria-label="Concrete Grey" class="w-10 h-10 rounded-full bg-[#E2E8F0] border border-outline-variant hover:border-primary transition-all shadow-sm"></button>
-<button aria-label="Chalk White" class="w-10 h-10 rounded-full bg-[#f8fafc] border border-outline-variant hover:border-primary transition-all shadow-sm"></button>
+<div class="flex gap-4" id="colorContainer">
+<!-- Renderizado dinámicamente -->
 </div>
 </div>
 <!-- Size -->
 <div>
 <div class="flex justify-between items-center mb-3">
-<span class="text-label-sm font-label-sm text-primary uppercase">Size</span>
-<a class="text-label-sm font-label-sm text-on-surface-variant underline hover:text-primary transition-colors" href="#">Size Guide</a>
+<span class="text-label-sm font-label-sm text-primary uppercase">Talle</span>
 </div>
-<div class="flex flex-wrap gap-3">
-<button class="w-14 h-12 rounded-sm border border-outline-variant bg-surface flex items-center justify-center text-label-sm font-label-sm text-primary hover:border-primary transition-colors">S</button>
-<button class="w-14 h-12 rounded-sm border border-primary bg-primary flex items-center justify-center text-label-sm font-label-sm text-on-primary transition-colors shadow-md">M</button>
-<button class="w-14 h-12 rounded-sm border border-outline-variant bg-surface flex items-center justify-center text-label-sm font-label-sm text-primary hover:border-primary transition-colors">L</button>
-<button class="w-14 h-12 rounded-sm border border-outline-variant bg-surface flex items-center justify-center text-label-sm font-label-sm text-primary hover:border-primary transition-colors">XL</button>
-<button class="w-14 h-12 rounded-sm border border-outline-variant bg-surface-variant flex items-center justify-center text-label-sm font-label-sm text-outline cursor-not-allowed opacity-50" disabled="">2XL</button>
+<div class="flex flex-wrap gap-3" id="talleContainer">
+<!-- Renderizado dinámicamente -->
 </div>
 </div>
 </div>
 <!-- Actions -->
 <div class="flex flex-col gap-4 mt-auto">
-<button class="w-full h-14 bg-primary text-on-primary text-label-sm font-label-sm uppercase flex items-center justify-center gap-2 hover:bg-tertiary-container transition-colors active:scale-[0.98]" onclick="window.location.href='PedidosCarrito.html'">
+<button id="btnAgregarCarrito" class="w-full h-14 bg-primary text-on-primary text-label-sm font-label-sm uppercase flex items-center justify-center gap-2 hover:bg-tertiary-container transition-colors active:scale-[0.98]">
                     Agregar al carrito
                     <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
 </button>
@@ -239,19 +231,18 @@
 </div>
 </main>
 <!-- Footer -->
-<footer class="w-full py-section-gap px-margin-desktop flex flex-col items-center gap-base bg-primary dark:bg-primary-container mt-auto">
+<footer class="w-full bg-primary dark:bg-primary-container mt-auto z-50">
+<div class="max-w-7xl mx-auto w-full py-section-gap px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-base">
 <div class="text-headline-md font-headline-md font-black text-on-primary mb-4">
             TOWN ESTILO URBANO
         </div>
 <div class="flex flex-wrap justify-center gap-6 mb-8">
-<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Privacy Policy</a>
-<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Terms of Service</a>
-<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Sustainability</a>
-<a class="text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline text-label-sm font-label-sm" href="#">Contact</a>
+<!-- Links rotos removidos -->
 </div>
 <p class="text-on-primary dark:text-on-primary-container opacity-60 text-label-sm font-label-sm">
             © 2024 TOWN ESTILO URBANO. ARCHITECTURAL QUALITY.
         </p>
+</div>
 </footer>
 <script src="/config/config.js"></script>
 <script src="/Pedidos/PedidosPages/PedidosDetalleProducto.js"></script>

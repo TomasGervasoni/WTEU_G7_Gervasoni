@@ -167,25 +167,28 @@
 </head>
 <body class="bg-background text-on-background antialiased min-h-screen flex flex-col pt-16">
 <!-- TopNavBar (Shared Component) -->
-<nav class="bg-primary dark:bg-primary-container text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container full-width top-0 bg-primary dark:bg-primary-container flat no shadows fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16">
+<nav class="bg-primary dark:bg-primary-container text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container fixed top-0 left-0 w-full z-50">
+<div class="max-w-7xl mx-auto w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
 <div class="flex items-center gap-6">
-<span class="text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container">TOWN ESTILO URBANO</span>
+<a href="PedidosCatalogo.html" class="text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container">TOWN ESTILO URBANO</a>
 <div class="hidden md:flex items-center gap-4 ml-8">
-<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="PedidosCatalogo.html">Catalog</a>
-<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="PedidosCatalogo.html">New Arrivals</a>
-<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm" href="PedidosCatalogo.html">Collections</a>
+<a class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200 text-label-sm font-label-sm uppercase" href="PedidosCatalogo.html">Catálogo</a>
 </div>
 </div>
 <div class="flex items-center gap-4">
 <button class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200" onclick="window.location.href='PedidosCarrito.html'">
 <span class="material-symbols-outlined">shopping_bag</span>
 </button>
+<button class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200" onclick="window.location.href='PedidosMisPedidos.html'" title="Mis Pedidos">
+<span class="material-symbols-outlined">receipt_long</span>
+</button>
 <button class="text-on-primary-container dark:text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors duration-200" onclick="window.location.href='../../Seguridad/SeguridadPages/SeguridadLogin.html'">
 <span class="material-symbols-outlined">person</span>
 </button>
 </div>
+</div>
 </nav>
-<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col gap-8">
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col gap-8">
 <!-- Header & Back Link -->
 <div class="flex flex-col gap-4">
 <a class="inline-flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="PedidosCatalogo.html">
@@ -279,18 +282,15 @@
 </div>
 </div>
 </main>
-<!-- Footer (Shared Component) -->
-<footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container full-width bottom bg-primary dark:bg-primary-container flat no shadows w-full py-section-gap px-margin-desktop flex flex-col items-center gap-base mt-auto">
-<div class="text-headline-md font-headline-md font-black text-on-primary mb-8">TOWN ESTILO URBANO</div>
-<div class="flex flex-wrap justify-center gap-8 mb-8">
-<a class="text-label-sm font-label-sm text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline" href="#">Privacy Policy</a>
-<a class="text-label-sm font-label-sm text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline" href="#">Terms of Service</a>
-<a class="text-label-sm font-label-sm text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline" href="#">Sustainability</a>
-<a class="text-label-sm font-label-sm text-on-primary dark:text-on-primary-container opacity-60 hover:opacity-100 hover:underline" href="#">Contact</a>
+<!-- Footer Component -->
+<footer class="w-full bg-primary dark:bg-primary-container z-50 mt-auto">
+<div class="max-w-7xl mx-auto w-full py-section-gap px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-base">
+<h2 class="text-headline-md font-headline-md font-black text-on-primary uppercase tracking-tight">TOWN ESTILO URBANO</h2>
+<div class="flex gap-6 mt-4">
+<!-- Links rotos removidos -->
 </div>
-<div class="text-label-sm font-label-sm text-on-primary dark:text-on-primary-container opacity-60 text-center">
-            © 2024 TOWN ESTILO URBANO. ARCHITECTURAL QUALITY.
-        </div>
+<p class="text-on-primary-container text-label-sm font-label-sm mt-8 opacity-50">© 2024 TOWN ESTILO URBANO. ARCHITECTURAL QUALITY.</p>
+</div>
 </footer>
 <script src="/config/config.js"></script>
 <script src="/Pedidos/PedidosPages/PedidosCarrito.js"></script>

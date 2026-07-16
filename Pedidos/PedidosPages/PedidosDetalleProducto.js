@@ -46,10 +46,10 @@
                           document.querySelector('main img');
   const contenedorNombre = document.querySelector('h1') || document.querySelector('[class*="headline-lg"]');
   const contenedorPrecio = document.querySelector('[class*="headline-md"]');
-  const btnsColor        = document.querySelectorAll('button[aria-label]');
-  const btnsTalle        = document.querySelectorAll('button:not([aria-label])');
-  const btnAgregar       = document.querySelector('button.w-full') ||
-                            document.querySelector('button[class*="bg-primary"]');
+  const colorContainer   = document.getElementById('colorContainer');
+  const talleContainer   = document.getElementById('talleContainer');
+  const colorSelTexto    = document.getElementById('colorSeleccionadoTexto');
+  const btnAgregar       = document.getElementById('btnAgregarCarrito') || document.querySelector('button[class*="bg-primary"]');
   const thumbnailsWrap   = document.querySelector('.flex.md\\:flex-col.gap-base');
 
   // Estado local de selección
@@ -114,47 +114,55 @@
     const coloresUnicos = [...new Set(variantes.map(v => v.color).filter(Boolean))];
     const tallesUnicos  = [...new Set(variantes.map(v => v.talle).filter(Boolean))];
 
-    // Reemplazar botones de color de Stitch
-    const colorContainer = btnsColor[0]?.parentElement;
-    if (colorContainer && coloresUnicos.length > 0) {
-      colorContainer.innerHTML = coloresUnicos.map(c => `
-        <button aria-label="${escHtml(c)}"
-          class="color-btn w-8 h-8 rounded-full border-2 border-outline-variant
-                 hover:border-primary transition-all font-label-sm"
-          data-color="${escHtml(c)}"
-          title="${escHtml(c)}"
-          style="background: ${colorToCSS(c)}">
-        </button>`).join('');
+    if (variantes.length === 0) {
+      if (colorContainer) colorContainer.innerHTML = '<span class="text-label-sm text-on-surface-variant">Único color</span>';
+      if (talleContainer) talleContainer.innerHTML = '<span class="text-label-sm text-on-surface-variant">Talle único</span>';
+    } else {
+      // Reemplazar botones de color
+      if (colorContainer) {
+        colorContainer.innerHTML = coloresUnicos.map(c => `
+          <button aria-label="${escHtml(c)}"
+            class="color-btn w-10 h-10 rounded-full border border-outline-variant ring-2 ring-offset-2 ring-transparent
+                   hover:border-primary transition-all shadow-sm font-label-sm"
+            data-color="${escHtml(c)}"
+            title="${escHtml(c)}"
+            style="background: ${colorToCSS(c)}">
+          </button>`).join('');
 
-      colorContainer.querySelectorAll('.color-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          colorContainer.querySelectorAll('.color-btn').forEach(b =>
-            b.classList.replace('border-primary', 'border-outline-variant'));
-          btn.classList.replace('border-outline-variant', 'border-primary');
-          colorSel = btn.dataset.color;
-        });
-      });
-    }
-
-    // Reemplazar botones de talle
-    const talleContainer = document.querySelector('.flex.flex-wrap.gap-2');
-    if (talleContainer && tallesUnicos.length > 0) {
-      talleContainer.innerHTML = tallesUnicos.map(t => {
-        const hayStock = variantes.some(v => v.talle === t && v.stock > 0);
-        return `<button class="talle-btn px-4 py-2 border rounded font-label-sm text-label-sm uppercase
-          ${hayStock ? 'border-outline-variant hover:border-primary hover:bg-primary hover:text-on-primary transition-colors' : 'border-outline-variant text-on-surface-variant opacity-50 cursor-not-allowed'}"
-          data-talle="${escHtml(t)}" ${!hayStock ? 'disabled' : ''}>${escHtml(t)}</button>`;
-      }).join('');
-
-      talleContainer.querySelectorAll('.talle-btn:not([disabled])').forEach(btn => {
-        btn.addEventListener('click', () => {
-          talleContainer.querySelectorAll('.talle-btn').forEach(b => {
-            b.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+        colorContainer.querySelectorAll('.color-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            colorContainer.querySelectorAll('.color-btn').forEach(b => {
+              b.classList.remove('ring-primary', 'border-primary');
+              b.classList.add('border-outline-variant');
+            });
+            btn.classList.add('ring-primary', 'border-primary');
+            btn.classList.remove('border-outline-variant');
+            colorSel = btn.dataset.color;
+            if (colorSelTexto) colorSelTexto.textContent = colorSel;
           });
-          btn.classList.add('bg-primary', 'text-on-primary', 'border-primary');
-          talleSel = btn.dataset.talle;
         });
-      });
+      }
+
+      // Reemplazar botones de talle
+      if (talleContainer) {
+        talleContainer.innerHTML = tallesUnicos.map(t => {
+          return `<button class="talle-btn w-14 h-12 rounded-sm border font-label-sm text-label-sm uppercase transition-colors shadow-sm
+            border-outline-variant bg-surface text-primary hover:border-primary"
+            data-talle="${escHtml(t)}">${escHtml(t)}</button>`;
+        }).join('');
+
+        talleContainer.querySelectorAll('.talle-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            talleContainer.querySelectorAll('.talle-btn').forEach(b => {
+              b.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+              b.classList.add('bg-surface', 'text-primary', 'border-outline-variant');
+            });
+            btn.classList.remove('bg-surface', 'text-primary', 'border-outline-variant');
+            btn.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+            talleSel = btn.dataset.talle;
+          });
+        });
+      }
     }
 
     // Botón "Agregar al carrito"
@@ -162,11 +170,20 @@
       btnAgregar.addEventListener('click', () => {
         if (!producto) return;
 
-        // Si hay variantes y no seleccionaron talle, advertir
+        // Si hay variantes de color y no seleccionaron, advertir
+        if (coloresUnicos.length > 0 && !colorSel) {
+          btnAgregar.textContent = '⚠ Seleccioná un color';
+          setTimeout(() => {
+            btnAgregar.innerHTML = `Agregar al carrito <span class="material-symbols-outlined text-[18px]">shopping_bag</span>`;
+          }, 1500);
+          return;
+        }
+
+        // Si hay variantes de talle y no seleccionaron, advertir
         if (tallesUnicos.length > 0 && !talleSel) {
           btnAgregar.textContent = '⚠ Seleccioná un talle';
           setTimeout(() => {
-            btnAgregar.innerHTML = `<span class="material-symbols-outlined text-[20px]">shopping_bag</span> Agregar al carrito`;
+            btnAgregar.innerHTML = `Agregar al carrito <span class="material-symbols-outlined text-[18px]">shopping_bag</span>`;
           }, 1500);
           return;
         }
@@ -192,7 +209,7 @@
 
         btnAgregar.innerHTML = `<span class="material-symbols-outlined text-[20px]">check</span> ¡Agregado al carrito!`;
         setTimeout(() => {
-          btnAgregar.innerHTML = `<span class="material-symbols-outlined text-[20px]">shopping_bag</span> Agregar al carrito`;
+          btnAgregar.innerHTML = `Agregar al carrito <span class="material-symbols-outlined text-[18px]">shopping_bag</span>`;
         }, 1500);
       });
     }

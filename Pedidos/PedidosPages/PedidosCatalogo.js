@@ -88,15 +88,7 @@
 
       grid.innerHTML = ordenados.map(p => tarjetaProductoCatalogo(p, escHtml)).join('');
 
-      // Eventos: clic en tarjeta → detalle; clic en botón → carrito
-      grid.querySelectorAll('article[data-id]').forEach(card => {
-        card.addEventListener('click', (e) => {
-          // Si el clic fue sobre el botón de carrito, no navegar
-          if (e.target.closest('.btn-agregar-carrito')) return;
-          const id = card.dataset.id;
-          window.location.href = `/Pedidos/PedidosPages/PedidosDetalleProducto.html?id=${id}`;
-        });
-      });
+      // Eventos: clic en botón → carrito
 
       grid.querySelectorAll('.btn-agregar-carrito:not([disabled])').forEach(btn => {
         btn.addEventListener('click', (e) => {

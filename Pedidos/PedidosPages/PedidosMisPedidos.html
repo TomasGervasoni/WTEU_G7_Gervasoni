@@ -166,22 +166,30 @@
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
 <!-- Top Navigation (Simplified for Profile Section) -->
-<nav class="bg-primary-container text-on-primary sticky top-0 z-50 w-full h-20 shadow-sm flex items-center justify-between px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<header class="bg-primary-container text-on-primary sticky top-0 z-50 w-full shadow-sm">
+<nav class="h-20 flex items-center justify-between px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full">
 <a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity duration-200 uppercase flex items-center gap-2" href="./PedidosCatalogo.html">
 <span class="material-symbols-outlined text-sm">arrow_back</span>
             Tienda
         </a>
 <h1 class="font-headline-md text-headline-md font-bold uppercase tracking-tighter">Mis pedidos</h1>
+<div class="flex items-center gap-4">
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity duration-200 uppercase flex items-center gap-2" href="PedidosCarrito.html">
+            Carrito
+            <span class="material-symbols-outlined text-sm">shopping_bag</span>
+</a>
 <a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity duration-200 uppercase flex items-center gap-2" href="../../Seguridad/SeguridadPages/SeguridadLogin.html">
             Salir
             <span class="material-symbols-outlined text-sm">logout</span>
 </a>
+</div>
 </nav>
+</header>
 <!-- Main Content -->
-<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-section-gap">
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-section-gap">
 <div class="max-w-3xl mx-auto space-y-6">
 <!-- Order Card: Pending -->
-<article class="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col md:flex-row gap-6 items-start md:items-center">
+<article class="bg-white border border-outline-variant/50 rounded-xl p-6 shadow-sm flex flex-col md:flex-row gap-6 items-start md:items-center">
 <div class="flex-grow space-y-4 w-full">
 <div class="flex justify-between items-start">
 <div>
@@ -228,7 +236,7 @@
 </div>
 </article>
 <!-- Order Card: Confirmed -->
-<article class="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col md:flex-row gap-6 items-start md:items-center">
+<article class="bg-white border border-outline-variant/50 rounded-xl p-6 shadow-sm flex flex-col md:flex-row gap-6 items-start md:items-center">
 <div class="flex-grow space-y-4 w-full">
 <div class="flex justify-between items-start">
 <div>
@@ -257,23 +265,13 @@
 </div>
 </main>
 <!-- Footer from JSON -->
-<footer class="bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-on-surface-variant w-full py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter mt-auto">
+<footer class="bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-on-surface-variant w-full mt-auto">
+<div class="max-w-7xl mx-auto w-full py-section-gap px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
 <div class="col-span-1 md:col-span-4 mb-8">
 <h2 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary uppercase tracking-tighter">TOWN ESTILO URBANO</h2>
 <p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mt-2">© 2024 TOWN ESTILO URBANO. ARQUITECTURA URBANA.</p>
 </div>
-<div class="flex flex-col gap-2">
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all uppercase" href="#">AYUDA</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all uppercase" href="#">ENVIOS</a>
-</div>
-<div class="flex flex-col gap-2">
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all uppercase" href="#">DEVOLUCIONES</a>
-</div>
-<div class="flex flex-col gap-2">
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all uppercase" href="#">CONTACTO</a>
-</div>
-<div class="flex flex-col gap-2">
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all uppercase" href="#">TERMINOS</a>
+<!-- Links del footer removidos -->
 </div>
 </footer>
 <script src="/config/config.js"></script>

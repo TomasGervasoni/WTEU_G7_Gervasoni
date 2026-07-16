@@ -26,4 +26,18 @@
     : PRODUCTION_API_URL;
 
   console.log('[config] API_URL =', window.API_URL);
+
+  // Helper global para cerrar sesión (admin y cliente)
+  window.cerrarSesionAdmin = async function(event) {
+    if (event) event.preventDefault();
+    try {
+      await fetch(window.API_URL + '/api/v1/seguridad/logout', {
+        method: 'GET',
+        credentials: 'include'
+      });
+    } catch (e) {
+      console.error('Error al cerrar sesión:', e);
+    }
+    window.location.href = '../../Seguridad/SeguridadPages/SeguridadLogin.html';
+  };
 })();

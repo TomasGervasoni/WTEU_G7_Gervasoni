@@ -106,22 +106,25 @@
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md pt-20">
 <!-- TopNavBar -->
-<header class="bg-primary-container dark:bg-primary-container docked full-width top-0 shadow-sm fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
-<div class="font-headline-lg text-headline-lg tracking-tighter text-on-primary dark:text-on-primary uppercase">
-            TOWN ESTILO URBANO
-        </div>
-<nav class="hidden md:flex gap-gutter font-label-sm text-label-sm">
-<a class="text-on-primary-container dark:text-on-primary-container hover:text-on-primary hover:opacity-80 transition-opacity duration-200" href="#">HOMBRES</a>
-<a class="text-on-primary-container dark:text-on-primary-container hover:text-on-primary hover:opacity-80 transition-opacity duration-200" href="#">MUJERES</a>
-<a class="text-on-primary-container dark:text-on-primary-container hover:text-on-primary hover:opacity-80 transition-opacity duration-200" href="#">ACCESORIOS</a>
-<a class="text-on-primary-container dark:text-on-primary-container hover:text-on-primary hover:opacity-80 transition-opacity duration-200" href="#">COLECCIONES</a>
-</nav>
-<div class="flex items-center gap-gutter text-on-primary dark:text-on-primary">
-<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity duration-200" data-icon="shopping_bag">shopping_bag</span>
-<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity duration-200" data-icon="person">person</span>
+<nav class="bg-primary dark:bg-primary-container text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container fixed top-0 left-0 w-full z-50 shadow-sm">
+<div class="max-w-7xl mx-auto w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-6">
+<a class="text-headline-md font-headline-md font-extrabold tracking-tighter text-on-primary dark:text-on-primary-container" href="PedidosCatalogo.html">TOWN ESTILO URBANO</a>
 </div>
-</header>
-<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="flex items-center gap-gutter text-on-primary dark:text-on-primary">
+<button class="hover:opacity-80 transition-opacity duration-200" onclick="window.location.href='PedidosCarrito.html'">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:opacity-80 transition-opacity duration-200" onclick="window.location.href='PedidosMisPedidos.html'" title="Mis Pedidos">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</button>
+<button class="hover:opacity-80 transition-opacity duration-200" onclick="window.location.href='../../Seguridad/SeguridadPages/SeguridadLogin.html'">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col gap-8">
 <div class="mb-gutter text-center md:text-left">
 <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Finalizar Compra</h1>
 <p class="font-body-md text-body-md text-on-surface-variant mt-base">Completa tus datos para confirmar el pedido.</p>
@@ -176,7 +179,7 @@
 </div>
 </div>
 </div>
-<a class="inline-flex items-center justify-center gap-base font-label-sm text-label-sm text-primary hover:opacity-80 transition-opacity border border-outline-variant rounded p-gutter bg-transparent" href="#">
+<a class="inline-flex items-center justify-center gap-base font-label-sm text-label-sm text-primary hover:opacity-80 transition-opacity border border-outline-variant rounded p-gutter bg-transparent" href="PedidosCarrito.html">
 <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
                     Volver al carrito
                 </a>
@@ -248,21 +251,12 @@
 </div>
 </main>
 <!-- Footer -->
-<footer class="bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-on-surface-variant w-full py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter mt-auto">
-<div>
-<div class="font-headline-md text-headline-md text-primary dark:text-inverse-primary mb-gutter">
-                TOWN ESTILO URBANO
-            </div>
-<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant">
-                © 2024 TOWN ESTILO URBANO. ARQUITECTURA URBANA.
-            </p>
+<footer class="w-full bg-primary dark:bg-primary-container z-50 mt-auto">
+<div class="max-w-7xl mx-auto w-full py-section-gap px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-base">
+<h2 class="text-headline-md font-headline-md font-black text-on-primary uppercase tracking-tight">TOWN ESTILO URBANO</h2>
+<div class="flex gap-6 mt-4">
 </div>
-<div class="flex flex-col gap-base font-label-sm text-label-sm">
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">AYUDA</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">ENVIOS</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">DEVOLUCIONES</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">CONTACTO</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all" href="#">TERMINOS</a>
+<p class="text-on-primary-container text-label-sm font-label-sm mt-8 opacity-50">© 2024 TOWN ESTILO URBANO. ARCHITECTURAL QUALITY.</p>
 </div>
 </footer>
 <script src="/config/config.js"></script>

@@ -15,20 +15,23 @@ function tarjetaProductoCatalogo(producto, escHtml) {
     'https://placehold.co/400x500/eceef0/45464c?text=Sin+imagen';
 
   const variantes = Array.isArray(producto.variantes) ? producto.variantes : [];
-  const hayStock  = variantes.some(v => v.stock > 0);
+  const hayStock = true; // Negocio DTF on-demand
+
 
   return `
   <article class="group cursor-pointer flex flex-col" data-id="${producto.id}" data-nombre="${escHtml(producto.nombre)}">
     <div class="relative overflow-hidden rounded-lg aspect-[4/5] bg-surface-container mb-4">
-      <img
-        src="${escHtml(imagen)}"
-        alt="${escHtml(producto.nombre)}"
-        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
-      >
-      ${!hayStock ? `<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-        <span class="text-white font-label-sm text-label-sm uppercase tracking-widest">Sin stock</span>
-      </div>` : ''}
+      <a href="PedidosDetalleProducto.html?id=${producto.id}" class="block w-full h-full">
+        <img
+          src="${escHtml(imagen)}"
+          alt="${escHtml(producto.nombre)}"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        >
+        ${!hayStock ? `<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <span class="text-white font-label-sm text-label-sm uppercase tracking-widest">Sin stock</span>
+        </div>` : ''}
+      </a>
       <button
         class="btn-agregar-carrito absolute bottom-4 left-4 right-4 bg-primary text-on-primary
                py-2 rounded font-label-sm text-label-sm uppercase tracking-wider

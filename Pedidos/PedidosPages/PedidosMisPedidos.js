@@ -88,7 +88,7 @@
                 ? `<img src="${escHtml(i.imagen_url)}" class="w-14 h-14 object-cover rounded-lg bg-surface-container flex-shrink-0" alt="${escHtml(i.nombre_producto)}" loading="lazy">`
                 : `<div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-on-surface-variant">image</span></div>`}
               <div class="flex-1 min-w-0">
-                <p class="font-body-md font-semibold text-primary truncate">${escHtml(i.nombre_producto)}</p>
+                <a href="PedidosDetalleProducto.html?id=${i.producto_id}" class="font-body-md font-semibold text-primary truncate hover:underline block">${escHtml(i.nombre_producto)}</a>
                 <p class="text-xs text-on-surface-variant">
                   ${i.color ? escHtml(i.color) : ''}${i.color && i.talle ? ' · ' : ''}${i.talle ? escHtml(i.talle) : ''}
                 </p>

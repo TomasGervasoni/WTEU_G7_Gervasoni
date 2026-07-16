@@ -358,6 +358,7 @@ async function obtenerPedidosPorUsuario(usuarioId) {
          json_agg(
            json_build_object(
              'id',               pi.id,
+             'producto_id',      pi.producto_id,
              'nombre_producto',  pi.nombre_producto,
              'imagen_url',       pi.imagen_url,
              'color',            pi.color,
