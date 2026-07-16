@@ -240,6 +240,14 @@ async function historialPedidosCliente(usuarioId) {
   return obtenerPedidosPorUsuario(usuarioId);
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// CU-024 — Métricas para el Dashboard
+// ─────────────────────────────────────────────────────────────────────────────
+async function obtenerMetricasClientes() {
+  const res = await pool.query(`SELECT COUNT(*) AS total FROM usuarios WHERE rol = 'cliente' AND activo = true`);
+  return parseInt(res.rows[0].total, 10);
+}
+
 module.exports = {
   altaCliente,
   modificarCliente,
@@ -248,4 +256,5 @@ module.exports = {
   bajaCliente,
   reactivarCliente,
   historialPedidosCliente,
+  obtenerMetricasClientes,
 };

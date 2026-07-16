@@ -40,6 +40,42 @@
   // Lista de pedidos: el div con space-y-6
   const listaPedidos  = document.querySelector('.space-y-6');
 
+  // ── Cargar KPIs del Dashboard (Cross-Module) ──────────────────────────────
+  async function cargarKPIs() {
+    try {
+      const res = await fetch(`${window.API_URL}/api/v1/dashboard`, { credentials: 'include' });
+      if (!res.ok) return;
+      const data = await res.json();
+      
+      let pendientes = 0;
+      let enPreparacion = 0;
+      let enviados = 0;
+
+      data.pedidosPorEstado.forEach(p => {
+        if (p.estado === 'pendiente') pendientes = p.cantidad;
+        if (p.estado === 'en_preparacion') enPreparacion = p.cantidad;
+        if (p.estado === 'enviado') enviados = p.cantidad;
+      });
+
+      const elPendientes = document.getElementById('kpiPedidosPendientes');
+      const elPreparacion = document.getElementById('kpiPedidosEnPreparacion');
+      const elEnviados = document.getElementById('kpiPedidosEnviados');
+      const elFacturacion = document.getElementById('kpiPedidosFacturacion');
+
+      if(elPendientes) elPendientes.textContent = pendientes;
+      if(elPreparacion) elPreparacion.textContent = enPreparacion;
+      if(elEnviados) elEnviados.textContent = enviados;
+      
+      if(elFacturacion) {
+        elFacturacion.textContent = new Intl.NumberFormat('es-AR', {
+          style: 'currency', currency: 'ARS', maximumFractionDigits: 0
+        }).format(data.ventasMesActual);
+      }
+    } catch (e) {
+      console.error('Error cargando KPIs:', e);
+    }
+  }
+
   // ── Renderizar pedidos ────────────────────────────────────────────────────
   function renderizarPedidos(pedidos) {
     if (!listaPedidos) return;
@@ -246,5 +282,6 @@
 
   // ── Carga inicial (tab "Todos los pedidos" activo por defecto) ────────────
   setTabActivo(tabTodos);
+  cargarKPIs();
   cargarPedidos();
 })();

@@ -526,6 +526,55 @@ async function actualizarEstadoPedido(pedidoId, nuevoEstado) {
   return updated.rows[0];
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// CU-024 — Métricas para el Dashboard
+// ─────────────────────────────────────────────────────────────────────────────
+async function obtenerMetricasPedidos() {
+  const resPedidos = await pool.query(`SELECT COUNT(*) AS total FROM pedidos WHERE estado != '__carrito__'`);
+  const pedidosTotales = parseInt(resPedidos.rows[0].total, 10);
+
+  const resVentas = await pool.query(`
+    SELECT 
+      SUM(CASE WHEN DATE_TRUNC('month', creado_en) = DATE_TRUNC('month', NOW()) THEN total ELSE 0 END) AS ventas_mes_actual,
+      SUM(CASE WHEN DATE_TRUNC('month', creado_en) = DATE_TRUNC('month', NOW() - INTERVAL '1 month') THEN total ELSE 0 END) AS ventas_mes_anterior
+    FROM pedidos 
+    WHERE estado != '__carrito__' AND estado != 'cancelado'
+  `);
+  
+  const ventasMesActual = parseFloat(resVentas.rows[0].ventas_mes_actual || 0);
+  const ventasMesAnterior = parseFloat(resVentas.rows[0].ventas_mes_anterior || 0);
+  let crecimientoVentas = 0;
+  if (ventasMesAnterior > 0) {
+    crecimientoVentas = ((ventasMesActual - ventasMesAnterior) / ventasMesAnterior) * 100;
+  }
+
+  const resGraficoBarras = await pool.query(`
+    SELECT 
+      TO_CHAR(DATE_TRUNC('month', creado_en), 'Mon') AS mes,
+      SUM(total) AS total_ventas
+    FROM pedidos
+    WHERE estado != '__carrito__' AND estado != 'cancelado'
+      AND creado_en >= DATE_TRUNC('month', NOW() - INTERVAL '5 months')
+    GROUP BY DATE_TRUNC('month', creado_en)
+    ORDER BY DATE_TRUNC('month', creado_en) ASC
+  `);
+
+  const resEstados = await pool.query(`
+    SELECT estado, COUNT(*) as cantidad
+    FROM pedidos
+    WHERE estado != '__carrito__'
+    GROUP BY estado
+  `);
+  
+  return {
+    pedidosTotales,
+    ventasMesActual,
+    crecimientoVentas,
+    ventasPorMes: resGraficoBarras.rows,
+    pedidosPorEstado: resEstados.rows
+  };
+}
+
 module.exports = {
   // CU-011
   listarProductos,
@@ -545,6 +594,8 @@ module.exports = {
   listarPedidosAdmin,
   // CU-016
   actualizarEstadoPedido,
+  // CU-024 (Dashboard)
+  obtenerMetricasPedidos,
   // Diagrama de estados exportado para uso del frontend
   TRANSICIONES_VALIDAS,
   agregarImagenProducto,

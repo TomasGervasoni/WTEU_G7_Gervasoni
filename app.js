@@ -98,8 +98,8 @@ const PagosContenedor = require('./Pagos/PagosContenedor');
 app.use('/api/v1/pagos', PagosContenedor);
 
 // CU-024 a CU-028 — Dashboard
-// const DashboardContenedor = require('./Dashboard/DashboardContenedor');
-// app.use('/api/v1/dashboard', DashboardContenedor);
+const DashboardContenedor = require('./Dashboard/DashboardContenedor');
+app.use('/api/v1/dashboard', DashboardContenedor);
 
 // ---------------------------------------------------------------------------
 // Health-check — útil para verificar que la API está viva

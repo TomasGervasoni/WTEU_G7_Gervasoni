@@ -391,6 +391,22 @@ async function listarPagosPedido(pedidoId, usuarioId) {
   return res.rows;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// CU-024 — Métricas para el Dashboard
+// ─────────────────────────────────────────────────────────────────────────────
+async function obtenerEficienciaPagos() {
+  const res = await pool.query(`
+    SELECT 
+      COUNT(*) AS total_intentos,
+      SUM(CASE WHEN estado = 'aprobado' THEN 1 ELSE 0 END) AS validados
+    FROM pagos
+  `);
+  const total = parseInt(res.rows[0].total_intentos, 10);
+  const validados = parseInt(res.rows[0].validados, 10);
+  if (total === 0) return 0;
+  return (validados / total) * 100;
+}
+
 module.exports = {
   registrarPagoManual,
   crearPreferenciaMercadoPago,
@@ -398,4 +414,5 @@ module.exports = {
   validarPago,
   listarPagos,
   listarPagosPedido,
+  obtenerEficienciaPagos,
 };

@@ -9,11 +9,13 @@
 
 const express = require('express');
 const router = express.Router();
+const DashboardAdapter = require('./DashboardAdapters/DashboardAdapter');
+const { requireAuth, requireRole } = require('../Seguridad/SeguridadServices/SeguridadServices');
 
-// TODO (CU-024): GET /           ← KPIs del dashboard principal
-// TODO (CU-025): GET /ventas     ← reporte de ventas por período
-// TODO (CU-026): GET /pedidos    ← reporte de pedidos por estado
-// TODO (CU-027): GET /clientes   ← reporte de clientes registrados
-// TODO (CU-028): GET /exportar   ← descarga del Excel (exceljs)
+// CU-024: GET /           ← KPIs del dashboard principal
+router.get('/', requireAuth, requireRole('administrador'), DashboardAdapter.getResumen);
+
+// CU-028: GET /exportar   ← descarga del Excel (exceljs)
+router.get('/exportar', requireAuth, requireRole('administrador'), DashboardAdapter.exportarExcel);
 
 module.exports = router;
