@@ -23,6 +23,16 @@ E-commerce de indumentaria personalizada con estampado DTF.
 
 > **Requisito previo:** tener Docker Desktop corriendo.
 
+### Atajos recomendados (vía npm)
+
+```bash
+npm run dev      # Levanta el entorno y muestra logs en vivo
+npm run stop     # Apaga el entorno
+npm run restart  # Reinicia de cero (útil si hay cambios grandes o fallos)
+```
+
+### Comandos manuales (Docker Compose puro)
+
 ```bash
 # 1) Levantá el entorno (primera vez o después de un reinicio)
 docker compose up -d

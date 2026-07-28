@@ -4,8 +4,10 @@
   "description": "Web Town Estilo Urbano — e-commerce de indumentaria personalizada con estampado DTF. TP Final PP3, IES Analista de Sistemas, Ciclo 2026.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+      "start": "node app.js",
+      "dev": "docker compose up -d --build && docker compose logs -f api",
+      "stop": "docker compose down",
+      "restart": "docker compose down && docker compose up -d --build && docker compose logs -f api"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
