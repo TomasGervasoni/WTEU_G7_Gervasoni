@@ -24,3 +24,6 @@ Thumbs.db
 # Archivos temporales
 *.tmp
 *.bak
+
+# Archivos subidos en runtime
+uploads/

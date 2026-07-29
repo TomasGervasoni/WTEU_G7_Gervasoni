@@ -7,6 +7,8 @@
 // =============================================================================
 
 const pool = require('../../config/db');
+const fs   = require('fs');
+const path = require('path');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Diagrama de estados (AGENTS.md §6, regla 8)
@@ -188,10 +190,22 @@ async function eliminarImagenProducto(productoId, imagenId) {
   const client = await pool.connect();
   try {
     const res = await client.query(
-      'DELETE FROM producto_imagenes WHERE id = $1 AND producto_id = $2 RETURNING id',
+      'DELETE FROM producto_imagenes WHERE id = $1 AND producto_id = $2 RETURNING id, url',
       [imagenId, productoId]
     );
-    return res.rows[0];
+    const deleted = res.rows[0];
+    if (deleted && deleted.url && deleted.url.startsWith('/uploads/')) {
+      const fileName = deleted.url.replace('/uploads/', '');
+      const filePath = path.join(__dirname, '../../uploads', fileName);
+      try {
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+        }
+      } catch (errFs) {
+        console.error('Error al eliminar archivo físico de /uploads:', errFs.message);
+      }
+    }
+    return deleted;
   } finally {
     client.release();
   }

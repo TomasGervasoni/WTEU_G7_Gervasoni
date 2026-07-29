@@ -317,40 +317,6 @@
         ));
       });
 
-      // Listeners: subir imagen
-      listaProductos.querySelectorAll('.btn-subir-imagen').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const fileInput = btn.parentElement.querySelector('.input-file-imagen');
-          if (fileInput) fileInput.click();
-        });
-      });
-
-      listaProductos.querySelectorAll('.input-file-imagen').forEach(input => {
-        input.addEventListener('change', async (e) => {
-          const file = e.target.files[0];
-          if (!file) return;
-
-          const id = input.dataset.id;
-          const formData = new FormData();
-          formData.append('imagen', file);
-
-          try {
-            const resp = await fetch(`${window.API_URL}/api/v1/pedidos/admin/productos/${id}/imagenes`, {
-              method: 'POST',
-              credentials: 'include',
-              body: formData
-            });
-            const data = await resp.json();
-            if (!resp.ok) throw new Error(data.mensaje || 'Error al subir la imagen');
-            
-            // Recargar productos para ver la imagen actualizada
-            await cargarProductos(inputBusqueda?.value || '');
-          } catch (err) {
-            alert(`Error subiendo imagen: ${err.message}`);
-          }
-        });
-      });
-
     } catch (err) {
       console.error('[CU-011 admin]', err);
       listaProductos.innerHTML = `<p class="text-center py-16 text-error font-label-sm">${err.message}</p>`;

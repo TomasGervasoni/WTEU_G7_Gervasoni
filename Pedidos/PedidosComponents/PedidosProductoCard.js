@@ -112,11 +112,6 @@ function tarjetaProductoAdmin(producto, escHtml) {
           <span class="material-symbols-outlined text-[16px]">${producto.activo ? 'visibility_off' : 'visibility'}</span>
           ${producto.activo ? 'Desactivar' : 'Activar'}
         </button>
-        <button class="btn-subir-imagen flex items-center gap-1.5 px-3 py-1.5 border border-outline-variant rounded font-label-sm text-label-sm text-on-surface-variant hover:border-primary hover:text-primary transition-colors"
-          data-id="${producto.id}">
-          <span class="material-symbols-outlined text-[16px]">upload</span>Subir imagen
-        </button>
-        <input type="file" class="input-file-imagen hidden" accept="image/*" data-id="${producto.id}">
       </div>
     </div>
   </div>`;
