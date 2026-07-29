@@ -70,8 +70,9 @@ router.get('/admin/productos', requireAuth, requireRole('administrador'), adapte
 // CU-011 (admin) — Crear producto
 router.post('/admin/productos', requireAuth, requireRole('administrador'), adapters.crearProductoAdapter);
 
-// Subir imagen de producto
+// Subir y eliminar imagen de producto
 router.post('/admin/productos/:id/imagenes', requireAuth, requireRole('administrador'), upload.single('imagen'), adapters.subirImagenProducto);
+router.delete('/admin/productos/:id/imagenes/:imgId', requireAuth, requireRole('administrador'), adapters.eliminarImagenProductoAdapter);
 
 // CU-011 (admin) — Actualizar producto
 router.put('/admin/productos/:id', requireAuth, requireRole('administrador'), adapters.actualizarProductoAdapter);

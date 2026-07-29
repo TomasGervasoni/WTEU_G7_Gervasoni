@@ -22,6 +22,7 @@ const {
   actualizarEstadoPedido,
   TRANSICIONES_VALIDAS,
   agregarImagenProducto,
+  eliminarImagenProducto,
 } = require('../PedidosServices/PedidosServices');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -87,6 +88,29 @@ async function subirImagenProducto(req, res, next) {
       ok: true,
       mensaje: 'Imagen subida correctamente',
       imagen: imgGuardada
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DELETE /api/v1/pedidos/admin/productos/:id/imagenes/:imgId — Eliminar imagen
+// ─────────────────────────────────────────────────────────────────────────────
+async function eliminarImagenProductoAdapter(req, res, next) {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const imgId = parseInt(req.params.imgId, 10);
+    if (isNaN(id) || isNaN(imgId)) {
+      return res.status(400).json({ ok: false, mensaje: 'IDs inválidos' });
+    }
+    const eliminada = await eliminarImagenProducto(id, imgId);
+    if (!eliminada) {
+      return res.status(404).json({ ok: false, mensaje: 'Imagen no encontrada' });
+    }
+    return res.status(200).json({
+      ok: true,
+      mensaje: 'Imagen eliminada correctamente',
     });
   } catch (err) {
     next(err);
@@ -226,4 +250,5 @@ module.exports = {
   detallePedido,
   listadoAdmin,
   cambiarEstado,
+  eliminarImagenProductoAdapter,
 };

@@ -102,10 +102,10 @@ async function obtenerProductoPorId(id) {
          ) FILTER (WHERE pv.id IS NOT NULL), '[]'
        ) AS variantes,
        COALESCE(
-         json_agg(
-           DISTINCT jsonb_build_object('url', pi2.url, 'es_principal', pi2.es_principal, 'orden', pi2.orden)
-         ) FILTER (WHERE pi2.id IS NOT NULL), '[]'
-       ) AS imagenes
+          json_agg(
+            DISTINCT jsonb_build_object('id', pi2.id, 'url', pi2.url, 'es_principal', pi2.es_principal, 'orden', pi2.orden)
+          ) FILTER (WHERE pi2.id IS NOT NULL), '[]'
+        ) AS imagenes
      FROM productos p
      LEFT JOIN producto_variantes pv ON pv.producto_id = p.id
      LEFT JOIN producto_imagenes  pi2 ON pi2.producto_id = p.id
@@ -174,6 +174,22 @@ async function agregarImagenProducto(productoId, url) {
     const res = await client.query(
       'INSERT INTO producto_imagenes (producto_id, url) VALUES ($1, $2) RETURNING id, url',
       [productoId, url]
+    );
+    return res.rows[0];
+  } finally {
+    client.release();
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CU-011 (admin) — Eliminar imagen de un producto
+// ─────────────────────────────────────────────────────────────────────────────
+async function eliminarImagenProducto(productoId, imagenId) {
+  const client = await pool.connect();
+  try {
+    const res = await client.query(
+      'DELETE FROM producto_imagenes WHERE id = $1 AND producto_id = $2 RETURNING id',
+      [imagenId, productoId]
     );
     return res.rows[0];
   } finally {
@@ -592,4 +608,5 @@ module.exports = {
   // Diagrama de estados exportado para uso del frontend
   TRANSICIONES_VALIDAS,
   agregarImagenProducto,
+  eliminarImagenProducto,
 };

@@ -52,6 +52,15 @@
           <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Precio *</label>
           <input id="prodPrecio" type="number" min="0" step="0.01" required class="w-full border border-outline-variant px-3 py-2 font-body-md focus:border-primary outline-none transition-colors rounded-sm bg-surface-container-lowest">
         </div>
+        <!-- Editor multimedia estilo Shopify -->
+        <div class="border-t border-outline-variant pt-4 mt-4">
+          <div class="flex justify-between items-center mb-2">
+            <label class="block font-label-sm text-label-sm text-on-surface-variant uppercase font-bold">Imágenes / Multimedia</label>
+            <span id="modalImagenEstado" class="text-xs text-secondary font-medium"></span>
+          </div>
+          <div id="modalImagenesGrid" class="grid grid-cols-4 gap-3"></div>
+          <input type="file" id="inputModalSubirImagen" accept="image/*" class="hidden">
+        </div>
         <div id="prodErrorModal" class="p-3 bg-error-container text-on-error-container text-sm rounded-sm" style="display:none"></div>
         <div class="flex gap-3 pt-2">
           <button type="submit" class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 uppercase tracking-wider hover:opacity-90 transition-opacity rounded-sm">Guardar</button>
@@ -79,6 +88,7 @@
     document.getElementById('prodTela').value        = prod.tela || '';
     document.getElementById('prodPrecio').value      = prod.precio || '';
     document.getElementById('prodErrorModal').style.display = 'none';
+    cargarImagenesModal(prod.id);
     abrirModal();
   }
 
@@ -87,7 +97,137 @@
     document.getElementById('formProducto').reset();
     document.getElementById('prodId').value = '';
     document.getElementById('prodErrorModal').style.display = 'none';
+    cargarImagenesModal(null);
     abrirModal();
+  }
+
+  // ── Editor multimedia estilo Shopify dentro del modal ─────────────────────
+  async function cargarImagenesModal(prodId) {
+    const grid   = document.getElementById('modalImagenesGrid');
+    const estado = document.getElementById('modalImagenEstado');
+    if (!grid) return;
+
+    if (!prodId) {
+      if (estado) estado.textContent = '';
+      grid.innerHTML = `
+        <div class="col-span-4 py-6 border-2 border-dashed border-outline-variant rounded-md flex flex-col items-center justify-center text-on-surface-variant/70 bg-surface-container/30">
+          <span class="material-symbols-outlined text-[28px] mb-1 opacity-60">image</span>
+          <p class="text-xs font-medium">Guarda el producto para habilitar el editor de imágenes</p>
+        </div>`;
+      return;
+    }
+
+    if (estado) {
+      estado.textContent = 'Cargando multimedia...';
+      estado.className = 'text-xs text-secondary font-medium animate-pulse';
+    }
+    grid.innerHTML = '<div class="col-span-4 py-4 text-center text-on-surface-variant text-xs">Cargando imágenes...</div>';
+
+    try {
+      const resp = await fetch(`${window.API_URL}/api/v1/pedidos/productos/${prodId}`, { credentials: 'include' });
+      if (!resp.ok) throw new Error('No se pudieron cargar las imágenes');
+      const data = await resp.json();
+      const imagenes = Array.isArray(data.producto?.imagenes) ? data.producto.imagenes : [];
+
+      if (estado) {
+        estado.textContent = `${imagenes.length} ${imagenes.length === 1 ? 'imagen' : 'imágenes'}`;
+        estado.className = 'text-xs text-secondary font-medium';
+      }
+
+      const htmlMiniaturas = imagenes.map((img, idx) => {
+        const esPrincipal = img.es_principal || idx === 0;
+        const imgUrl = img.url || 'https://placehold.co/120x120/eceef0/45464c?text=Sin+imagen';
+        return `
+          <div class="aspect-square relative group rounded-md overflow-hidden border border-outline-variant bg-surface-container-lowest shadow-sm" data-id="${img.id || ''}">
+            <img src="${escHtml(imgUrl)}" alt="Producto imagen" class="w-full h-full object-cover">
+            ${esPrincipal ? '<span class="absolute top-1.5 left-1.5 bg-primary text-on-primary text-[9px] font-bold px-1.5 py-0.5 rounded shadow">PRINCIPAL</span>' : ''}
+            <div class="group-hover:opacity-100 opacity-0 transition-opacity absolute inset-0 bg-black/50 flex items-center justify-center gap-2">
+              <button type="button" class="btn-eliminar-modal-imagen bg-error text-on-error p-1.5 rounded-full hover:scale-110 transition-transform shadow-md flex items-center justify-center" data-img-id="${img.id || ''}" data-prod-id="${prodId}" title="Eliminar imagen">
+                <span class="material-symbols-outlined text-[16px]">delete</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const htmlBotonAgregar = `
+        <div id="btnModalAgregarImagen" class="aspect-square flex flex-col items-center justify-center border-2 border-dashed border-outline-variant hover:border-primary hover:bg-surface-variant/30 rounded-md cursor-pointer transition-all text-on-surface-variant hover:text-primary" title="Subir nueva imagen">
+          <span class="material-symbols-outlined text-[24px] mb-0.5">add_photo_alternate</span>
+          <span class="text-[10px] font-semibold text-center leading-tight">Agregar imagen</span>
+        </div>
+      `;
+
+      grid.innerHTML = htmlMiniaturas + htmlBotonAgregar;
+
+      // Listeners: eliminar imagen
+      grid.querySelectorAll('.btn-eliminar-modal-imagen').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          const imgId = btn.dataset.imgId;
+          const prId  = btn.dataset.prodId;
+          if (!imgId || imgId === 'undefined') {
+            alert('Esta imagen no tiene ID y no puede eliminarse individualmente.');
+            return;
+          }
+          if (!confirm('¿Eliminar esta imagen del producto?')) return;
+
+          try {
+            const resDel = await fetch(`${window.API_URL}/api/v1/pedidos/admin/productos/${prId}/imagenes/${imgId}`, {
+              method: 'DELETE',
+              credentials: 'include'
+            });
+            const dataDel = await resDel.json();
+            if (!resDel.ok) throw new Error(dataDel.mensaje || 'Error al eliminar');
+
+            await cargarImagenesModal(prId);
+            await cargarProductos(inputBusqueda?.value || '');
+          } catch (err) {
+            alert('Error: ' + err.message);
+          }
+        });
+      });
+
+      // Listener: agregar imagen
+      const btnAdd = document.getElementById('btnModalAgregarImagen');
+      const fileInput = document.getElementById('inputModalSubirImagen');
+      if (btnAdd && fileInput) {
+        btnAdd.addEventListener('click', () => fileInput.click());
+        fileInput.onchange = async (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const formData = new FormData();
+          formData.append('imagen', file);
+
+          btnAdd.innerHTML = '<span class="material-symbols-outlined animate-spin text-[24px]">progress_activity</span><span class="text-[10px] mt-1">Subiendo...</span>';
+
+          try {
+            const resUp = await fetch(`${window.API_URL}/api/v1/pedidos/admin/productos/${prodId}/imagenes`, {
+              method: 'POST',
+              credentials: 'include',
+              body: formData
+            });
+            const dataUp = await resUp.json();
+            if (!resUp.ok) throw new Error(dataUp.mensaje || 'Error al subir imagen');
+
+            fileInput.value = '';
+            await cargarImagenesModal(prodId);
+            await cargarProductos(inputBusqueda?.value || '');
+          } catch (err) {
+            alert('Error al subir imagen: ' + err.message);
+            await cargarImagenesModal(prodId);
+          }
+        };
+      }
+
+    } catch (err) {
+      console.error('[Editor imágenes modal]', err);
+      if (estado) {
+        estado.textContent = 'Error al cargar';
+        estado.className = 'text-xs text-error font-medium';
+      }
+      grid.innerHTML = '<div class="col-span-4 py-4 text-center text-error text-xs">' + escHtml(err.message) + '</div>';
+    }
   }
 
   // ── Submit del form (crear o editar) ──────────────────────────────────────
